@@ -1,0 +1,5560 @@
+# Colors
+
+There are 873 colors that you can reference by name using ZippyGame's *color* class.
+
+**Usage:**
+
+```python
+color.red          # returns (255, 0, 0)
+color.red()        # returns (255, 0, 0, 255)
+color.red(113)     # returns (255, 0, 0, 113)
+```
+
+<style>
+.color-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 4px 0;
+  max-width: 720px;
+}
+.sort-label-title {
+  font-size: 0.84rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+.sort-radio {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 0.84rem;
+  font-weight: 500;
+  user-select: none;
+}
+.sort-radio input[type="radio"] {
+  margin: 0;
+  cursor: pointer;
+  accent-color: #555;
+}
+.color-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 720px;
+  margin: 4px 0 24px 0;
+}
+.color-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  user-select: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+}
+.color-row:hover {
+  background: rgba(128, 128, 128, 0.07);
+}
+.color-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+.color-name {
+  font-weight: 500;
+  font-size: 0.84rem;
+  min-width: 62ch;
+  flex-shrink: 0;
+}
+.color-tuple {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+.color-copied {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+  color: #4caf50;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  margin-left: auto;
+}
+.color-copied.show {
+  opacity: 1;
+}
+.category-header {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 10px 4px 10px;
+  opacity: 0.4;
+  border-bottom: 1px solid rgba(128,128,128,0.12);
+}
+.color-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 0;
+  max-width: 720px;
+  margin: 6px 0 2px 0;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(128,128,128,0.12);
+}
+.color-nav a {
+  display: inline-block;
+  padding: 3px 9px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: background 0.12s ease, opacity 0.12s ease;
+}
+.color-nav a:hover {
+  background: rgba(128,128,128,0.1);
+  opacity: 1;
+}
+.color-nav .nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: middle;
+  border: 1px solid rgba(128,128,128,0.2);
+}
+</style>
+
+<div class="color-controls">
+  <span class="sort-label-title">Sorting:</span>
+  <label class="sort-radio">
+    <input type="radio" name="sortMode" value="color" checked onchange="switchSort('color')" />
+    <span>By Color</span>
+  </label>
+  <label class="sort-radio">
+    <input type="radio" name="sortMode" value="alpha" onchange="switchSort('alpha')" />
+    <span>A–Z</span>
+  </label>
+</div>
+
+<div class="color-nav" id="colorNav"></div>
+
+<div class="color-grid" id="colorGrid">
+  <div class="color-row" data-name="absoluteZero" data-r="0" data-g="72" data-b="186" onclick="copyColor(this, '(0, 72, 186)')">
+    <div class="color-swatch" style="background: rgb(0, 72, 186);"></div>
+    <span class="color-name">absoluteZero <span style="opacity:0.5">(Absolute Zero)</span></span>
+    <span class="color-tuple">(0, 72, 186)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="acidGreen" data-r="176" data-g="191" data-b="26" onclick="copyColor(this, '(176, 191, 26)')">
+    <div class="color-swatch" style="background: rgb(176, 191, 26);"></div>
+    <span class="color-name">acidGreen <span style="opacity:0.5">(Acid green)</span></span>
+    <span class="color-tuple">(176, 191, 26)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="aero" data-r="124" data-g="185" data-b="232" onclick="copyColor(this, '(124, 185, 232)')">
+    <div class="color-swatch" style="background: rgb(124, 185, 232);"></div>
+    <span class="color-name">aero</span>
+    <span class="color-tuple">(124, 185, 232)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="africanViolet" data-r="178" data-g="132" data-b="190" onclick="copyColor(this, '(178, 132, 190)')">
+    <div class="color-swatch" style="background: rgb(178, 132, 190);"></div>
+    <span class="color-name">africanViolet <span style="opacity:0.5">(African violet)</span></span>
+    <span class="color-tuple">(178, 132, 190)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="agedCopper" data-r="205" data-g="149" data-b="117" onclick="copyColor(this, '(205, 149, 117)')">
+    <div class="color-swatch" style="background: rgb(205, 149, 117);"></div>
+    <span class="color-name">agedCopper <span style="opacity:0.5">(Aged Copper)</span></span>
+    <span class="color-tuple">(205, 149, 117)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="airSuperiorityBlue" data-r="114" data-g="160" data-b="193" onclick="copyColor(this, '(114, 160, 193)')">
+    <div class="color-swatch" style="background: rgb(114, 160, 193);"></div>
+    <span class="color-name">airSuperiorityBlue <span style="opacity:0.5">(Air superiority blue)</span></span>
+    <span class="color-tuple">(114, 160, 193)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="alabaster" data-r="237" data-g="234" data-b="224" onclick="copyColor(this, '(237, 234, 224)')">
+    <div class="color-swatch" style="background: rgb(237, 234, 224);"></div>
+    <span class="color-name">alabaster</span>
+    <span class="color-tuple">(237, 234, 224)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="alizarin" data-r="227" data-g="38" data-b="54" onclick="copyColor(this, '(227, 38, 54)')">
+    <div class="color-swatch" style="background: rgb(227, 38, 54);"></div>
+    <span class="color-name">alizarin</span>
+    <span class="color-tuple">(227, 38, 54)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="alizarinCrimson" data-r="227" data-g="38" data-b="54" onclick="copyColor(this, '(227, 38, 54)')">
+    <div class="color-swatch" style="background: rgb(227, 38, 54);"></div>
+    <span class="color-name">alizarinCrimson <span style="opacity:0.5">(Alizarin Crimson)</span></span>
+    <span class="color-tuple">(227, 38, 54)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="aliceBlue" data-r="240" data-g="248" data-b="255" onclick="copyColor(this, '(240, 248, 255)')">
+    <div class="color-swatch" style="background: rgb(240, 248, 255);"></div>
+    <span class="color-name">aliceBlue <span style="opacity:0.5">(Alice blue)</span></span>
+    <span class="color-tuple">(240, 248, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="alloyOrange" data-r="196" data-g="98" data-b="16" onclick="copyColor(this, '(196, 98, 16)')">
+    <div class="color-swatch" style="background: rgb(196, 98, 16);"></div>
+    <span class="color-name">alloyOrange <span style="opacity:0.5">(Alloy orange)</span></span>
+    <span class="color-tuple">(196, 98, 16)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="almond" data-r="239" data-g="219" data-b="197" onclick="copyColor(this, '(239, 219, 197)')">
+    <div class="color-swatch" style="background: rgb(239, 219, 197);"></div>
+    <span class="color-name">almond</span>
+    <span class="color-tuple">(239, 219, 197)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="amaranth" data-r="229" data-g="43" data-b="80" onclick="copyColor(this, '(229, 43, 80)')">
+    <div class="color-swatch" style="background: rgb(229, 43, 80);"></div>
+    <span class="color-name">amaranth</span>
+    <span class="color-tuple">(229, 43, 80)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="amaranthDeepPurple" data-r="159" data-g="43" data-b="104" onclick="copyColor(this, '(159, 43, 104)')">
+    <div class="color-swatch" style="background: rgb(159, 43, 104);"></div>
+    <span class="color-name">amaranthDeepPurple <span style="opacity:0.5">(Amaranth deep purple)</span></span>
+    <span class="color-tuple">(159, 43, 104)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="amaranthPink" data-r="241" data-g="156" data-b="187" onclick="copyColor(this, '(241, 156, 187)')">
+    <div class="color-swatch" style="background: rgb(241, 156, 187);"></div>
+    <span class="color-name">amaranthPink <span style="opacity:0.5">(Amaranth pink)</span></span>
+    <span class="color-tuple">(241, 156, 187)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="amaranthPurple" data-r="171" data-g="39" data-b="79" onclick="copyColor(this, '(171, 39, 79)')">
+    <div class="color-swatch" style="background: rgb(171, 39, 79);"></div>
+    <span class="color-name">amaranthPurple <span style="opacity:0.5">(Amaranth purple)</span></span>
+    <span class="color-tuple">(171, 39, 79)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="amazon" data-r="59" data-g="122" data-b="87" onclick="copyColor(this, '(59, 122, 87)')">
+    <div class="color-swatch" style="background: rgb(59, 122, 87);"></div>
+    <span class="color-name">amazon</span>
+    <span class="color-tuple">(59, 122, 87)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="amazonForest" data-r="49" data-g="113" data-b="71" onclick="copyColor(this, '(49, 113, 71)')">
+    <div class="color-swatch" style="background: rgb(49, 113, 71);"></div>
+    <span class="color-name">amazonForest <span style="opacity:0.5">(Amazon Forest)</span></span>
+    <span class="color-tuple">(49, 113, 71)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="amber" data-r="255" data-g="191" data-b="0" onclick="copyColor(this, '(255, 191, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 191, 0);"></div>
+    <span class="color-name">amber</span>
+    <span class="color-tuple">(255, 191, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="amethyst" data-r="153" data-g="102" data-b="204" onclick="copyColor(this, '(153, 102, 204)')">
+    <div class="color-swatch" style="background: rgb(153, 102, 204);"></div>
+    <span class="color-name">amethyst</span>
+    <span class="color-tuple">(153, 102, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="androidGreen" data-r="164" data-g="198" data-b="57" onclick="copyColor(this, '(164, 198, 57)')">
+    <div class="color-swatch" style="background: rgb(164, 198, 57);"></div>
+    <span class="color-name">androidGreen <span style="opacity:0.5">(Android green)</span></span>
+    <span class="color-tuple">(164, 198, 57)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="annatto" data-r="165" data-g="94" data-b="23" onclick="copyColor(this, '(165, 94, 23)')">
+    <div class="color-swatch" style="background: rgb(165, 94, 23);"></div>
+    <span class="color-name">annatto</span>
+    <span class="color-tuple">(165, 94, 23)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="antiqueBrass" data-r="205" data-g="149" data-b="117" onclick="copyColor(this, '(205, 149, 117)')">
+    <div class="color-swatch" style="background: rgb(205, 149, 117);"></div>
+    <span class="color-name">antiqueBrass <span style="opacity:0.5">(Antique brass)</span></span>
+    <span class="color-tuple">(205, 149, 117)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="antiqueBronze" data-r="102" data-g="93" data-b="30" onclick="copyColor(this, '(102, 93, 30)')">
+    <div class="color-swatch" style="background: rgb(102, 93, 30);"></div>
+    <span class="color-name">antiqueBronze <span style="opacity:0.5">(Antique bronze)</span></span>
+    <span class="color-tuple">(102, 93, 30)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="antiqueFuchsia" data-r="145" data-g="92" data-b="131" onclick="copyColor(this, '(145, 92, 131)')">
+    <div class="color-swatch" style="background: rgb(145, 92, 131);"></div>
+    <span class="color-name">antiqueFuchsia <span style="opacity:0.5">(Antique fuchsia)</span></span>
+    <span class="color-tuple">(145, 92, 131)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="antiqueGray" data-r="132" data-g="132" data-b="130" onclick="copyColor(this, '(132, 132, 130)')">
+    <div class="color-swatch" style="background: rgb(132, 132, 130);"></div>
+    <span class="color-name">antiqueGray <span style="opacity:0.5">(Antique Gray)</span></span>
+    <span class="color-tuple">(132, 132, 130)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="antiqueRuby" data-r="132" data-g="27" data-b="45" onclick="copyColor(this, '(132, 27, 45)')">
+    <div class="color-swatch" style="background: rgb(132, 27, 45);"></div>
+    <span class="color-name">antiqueRuby <span style="opacity:0.5">(Antique ruby)</span></span>
+    <span class="color-tuple">(132, 27, 45)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="antiqueWhite" data-r="250" data-g="235" data-b="215" onclick="copyColor(this, '(250, 235, 215)')">
+    <div class="color-swatch" style="background: rgb(250, 235, 215);"></div>
+    <span class="color-name">antiqueWhite <span style="opacity:0.5">(Antique white)</span></span>
+    <span class="color-tuple">(250, 235, 215)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="apricot" data-r="251" data-g="206" data-b="177" onclick="copyColor(this, '(251, 206, 177)')">
+    <div class="color-swatch" style="background: rgb(251, 206, 177);"></div>
+    <span class="color-name">apricot</span>
+    <span class="color-tuple">(251, 206, 177)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="aqua" data-r="0" data-g="255" data-b="255" onclick="copyColor(this, '(0, 255, 255)')">
+    <div class="color-swatch" style="background: rgb(0, 255, 255);"></div>
+    <span class="color-name">aqua</span>
+    <span class="color-tuple">(0, 255, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="aquaFizz" data-r="173" data-g="225" data-b="220" onclick="copyColor(this, '(173, 225, 220)')">
+    <div class="color-swatch" style="background: rgb(173, 225, 220);"></div>
+    <span class="color-name">aquaFizz <span style="opacity:0.5">(Aqua Fizz)</span></span>
+    <span class="color-tuple">(173, 225, 220)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="aquaPearl" data-r="136" data-g="216" data-b="208" onclick="copyColor(this, '(136, 216, 208)')">
+    <div class="color-swatch" style="background: rgb(136, 216, 208);"></div>
+    <span class="color-name">aquaPearl <span style="opacity:0.5">(Aqua Pearl)</span></span>
+    <span class="color-tuple">(136, 216, 208)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="aquamarine" data-r="127" data-g="255" data-b="212" onclick="copyColor(this, '(127, 255, 212)')">
+    <div class="color-swatch" style="background: rgb(127, 255, 212);"></div>
+    <span class="color-name">aquamarine</span>
+    <span class="color-tuple">(127, 255, 212)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="arcticLime" data-r="208" data-g="255" data-b="20" onclick="copyColor(this, '(208, 255, 20)')">
+    <div class="color-swatch" style="background: rgb(208, 255, 20);"></div>
+    <span class="color-name">arcticLime <span style="opacity:0.5">(Arctic lime)</span></span>
+    <span class="color-tuple">(208, 255, 20)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="artichokeGreen" data-r="143" data-g="151" data-b="121" onclick="copyColor(this, '(143, 151, 121)')">
+    <div class="color-swatch" style="background: rgb(143, 151, 121);"></div>
+    <span class="color-name">artichokeGreen <span style="opacity:0.5">(Artichoke green)</span></span>
+    <span class="color-tuple">(143, 151, 121)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="arylideYellow" data-r="233" data-g="214" data-b="107" onclick="copyColor(this, '(233, 214, 107)')">
+    <div class="color-swatch" style="background: rgb(233, 214, 107);"></div>
+    <span class="color-name">arylideYellow <span style="opacity:0.5">(Arylide yellow)</span></span>
+    <span class="color-tuple">(233, 214, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ashGray" data-r="178" data-g="190" data-b="181" onclick="copyColor(this, '(178, 190, 181)')">
+    <div class="color-swatch" style="background: rgb(178, 190, 181);"></div>
+    <span class="color-name">ashGray <span style="opacity:0.5">(Ash gray)</span></span>
+    <span class="color-tuple">(178, 190, 181)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="atrovirens" data-r="0" data-g="116" data-b="116" onclick="copyColor(this, '(0, 116, 116)')">
+    <div class="color-swatch" style="background: rgb(0, 116, 116);"></div>
+    <span class="color-name">atrovirens</span>
+    <span class="color-tuple">(0, 116, 116)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="atomicTangerine" data-r="255" data-g="153" data-b="102" onclick="copyColor(this, '(255, 153, 102)')">
+    <div class="color-swatch" style="background: rgb(255, 153, 102);"></div>
+    <span class="color-name">atomicTangerine <span style="opacity:0.5">(Atomic tangerine)</span></span>
+    <span class="color-tuple">(255, 153, 102)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="aureolin" data-r="253" data-g="238" data-b="0" onclick="copyColor(this, '(253, 238, 0)')">
+    <div class="color-swatch" style="background: rgb(253, 238, 0);"></div>
+    <span class="color-name">aureolin</span>
+    <span class="color-tuple">(253, 238, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="australien" data-r="251" data-g="213" data-b="67" onclick="copyColor(this, '(251, 213, 67)')">
+    <div class="color-swatch" style="background: rgb(251, 213, 67);"></div>
+    <span class="color-name">australien</span>
+    <span class="color-tuple">(251, 213, 67)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="aztecGold" data-r="195" data-g="153" data-b="83" onclick="copyColor(this, '(195, 153, 83)')">
+    <div class="color-swatch" style="background: rgb(195, 153, 83);"></div>
+    <span class="color-name">aztecGold <span style="opacity:0.5">(Aztec Gold)</span></span>
+    <span class="color-tuple">(195, 153, 83)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="azure" data-r="0" data-g="127" data-b="255" onclick="copyColor(this, '(0, 127, 255)')">
+    <div class="color-swatch" style="background: rgb(0, 127, 255);"></div>
+    <span class="color-name">azure</span>
+    <span class="color-tuple">(0, 127, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bdazzledBlue" data-r="46" data-g="88" data-b="148" onclick="copyColor(this, '(46, 88, 148)')">
+    <div class="color-swatch" style="background: rgb(46, 88, 148);"></div>
+    <span class="color-name">bdazzledBlue <span style="opacity:0.5">(B&#x27;dazzled blue)</span></span>
+    <span class="color-tuple">(46, 88, 148)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="babyBlue" data-r="137" data-g="207" data-b="240" onclick="copyColor(this, '(137, 207, 240)')">
+    <div class="color-swatch" style="background: rgb(137, 207, 240);"></div>
+    <span class="color-name">babyBlue <span style="opacity:0.5">(Baby blue)</span></span>
+    <span class="color-tuple">(137, 207, 240)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="babyBlueEyes" data-r="161" data-g="202" data-b="241" onclick="copyColor(this, '(161, 202, 241)')">
+    <div class="color-swatch" style="background: rgb(161, 202, 241);"></div>
+    <span class="color-name">babyBlueEyes <span style="opacity:0.5">(Baby blue eyes)</span></span>
+    <span class="color-tuple">(161, 202, 241)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="babyPink" data-r="244" data-g="194" data-b="194" onclick="copyColor(this, '(244, 194, 194)')">
+    <div class="color-swatch" style="background: rgb(244, 194, 194);"></div>
+    <span class="color-name">babyPink <span style="opacity:0.5">(Baby pink)</span></span>
+    <span class="color-tuple">(244, 194, 194)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="babyPowder" data-r="254" data-g="254" data-b="250" onclick="copyColor(this, '(254, 254, 250)')">
+    <div class="color-swatch" style="background: rgb(254, 254, 250);"></div>
+    <span class="color-name">babyPowder <span style="opacity:0.5">(Baby powder)</span></span>
+    <span class="color-tuple">(254, 254, 250)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="babysBlanket" data-r="255" data-g="252" data-b="245" onclick="copyColor(this, '(255, 252, 245)')">
+    <div class="color-swatch" style="background: rgb(255, 252, 245);"></div>
+    <span class="color-name">babysBlanket <span style="opacity:0.5">(Baby&#x27;s Blanket)</span></span>
+    <span class="color-tuple">(255, 252, 245)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bakerMillerPink" data-r="255" data-g="145" data-b="175" onclick="copyColor(this, '(255, 145, 175)')">
+    <div class="color-swatch" style="background: rgb(255, 145, 175);"></div>
+    <span class="color-name">bakerMillerPink <span style="opacity:0.5">(Baker-Miller pink)</span></span>
+    <span class="color-tuple">(255, 145, 175)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="banana" data-r="255" data-g="225" data-b="53" onclick="copyColor(this, '(255, 225, 53)')">
+    <div class="color-swatch" style="background: rgb(255, 225, 53);"></div>
+    <span class="color-name">banana</span>
+    <span class="color-tuple">(255, 225, 53)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bananaMania" data-r="250" data-g="231" data-b="181" onclick="copyColor(this, '(250, 231, 181)')">
+    <div class="color-swatch" style="background: rgb(250, 231, 181);"></div>
+    <span class="color-name">bananaMania <span style="opacity:0.5">(Banana Mania)</span></span>
+    <span class="color-tuple">(250, 231, 181)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="banan" data-r="255" data-g="209" data-b="0" onclick="copyColor(this, '(255, 209, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 209, 0);"></div>
+    <span class="color-name">banan</span>
+    <span class="color-tuple">(255, 209, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="barbiePink" data-r="218" data-g="24" data-b="132" onclick="copyColor(this, '(218, 24, 132)')">
+    <div class="color-swatch" style="background: rgb(218, 24, 132);"></div>
+    <span class="color-name">barbiePink <span style="opacity:0.5">(Barbie Pink)</span></span>
+    <span class="color-tuple">(218, 24, 132)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="barnRed" data-r="124" data-g="10" data-b="2" onclick="copyColor(this, '(124, 10, 2)')">
+    <div class="color-swatch" style="background: rgb(124, 10, 2);"></div>
+    <span class="color-name">barnRed <span style="opacity:0.5">(Barn red)</span></span>
+    <span class="color-tuple">(124, 10, 2)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="baseballMitt" data-r="155" data-g="100" data-b="60" onclick="copyColor(this, '(155, 100, 60)')">
+    <div class="color-swatch" style="background: rgb(155, 100, 60);"></div>
+    <span class="color-name">baseballMitt <span style="opacity:0.5">(Baseball Mitt)</span></span>
+    <span class="color-tuple">(155, 100, 60)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bastardAmber" data-r="255" data-g="196" data-b="147" onclick="copyColor(this, '(255, 196, 147)')">
+    <div class="color-swatch" style="background: rgb(255, 196, 147);"></div>
+    <span class="color-name">bastardAmber <span style="opacity:0.5">(Bastard-Amber)</span></span>
+    <span class="color-tuple">(255, 196, 147)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="battleshipGrey" data-r="132" data-g="132" data-b="130" onclick="copyColor(this, '(132, 132, 130)')">
+    <div class="color-swatch" style="background: rgb(132, 132, 130);"></div>
+    <span class="color-name">battleshipGrey <span style="opacity:0.5">(Battleship grey)</span></span>
+    <span class="color-tuple">(132, 132, 130)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="beauBlue" data-r="188" data-g="212" data-b="230" onclick="copyColor(this, '(188, 212, 230)')">
+    <div class="color-swatch" style="background: rgb(188, 212, 230);"></div>
+    <span class="color-name">beauBlue <span style="opacity:0.5">(Beau blue)</span></span>
+    <span class="color-tuple">(188, 212, 230)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="beaver" data-r="159" data-g="129" data-b="112" onclick="copyColor(this, '(159, 129, 112)')">
+    <div class="color-swatch" style="background: rgb(159, 129, 112);"></div>
+    <span class="color-name">beaver</span>
+    <span class="color-tuple">(159, 129, 112)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="beige" data-r="245" data-g="245" data-b="220" onclick="copyColor(this, '(245, 245, 220)')">
+    <div class="color-swatch" style="background: rgb(245, 245, 220);"></div>
+    <span class="color-name">beige</span>
+    <span class="color-tuple">(245, 245, 220)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="berryParfait" data-r="168" data-g="72" data-b="100" onclick="copyColor(this, '(168, 72, 100)')">
+    <div class="color-swatch" style="background: rgb(168, 72, 100);"></div>
+    <span class="color-name">berryParfait <span style="opacity:0.5">(Berry Parfait)</span></span>
+    <span class="color-tuple">(168, 72, 100)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bigDipOruby" data-r="156" data-g="37" data-b="66" onclick="copyColor(this, '(156, 37, 66)')">
+    <div class="color-swatch" style="background: rgb(156, 37, 66);"></div>
+    <span class="color-name">bigDipOruby <span style="opacity:0.5">(Big dip o&#x27;ruby)</span></span>
+    <span class="color-tuple">(156, 37, 66)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bigDipORuby" data-r="156" data-g="37" data-b="66" onclick="copyColor(this, '(156, 37, 66)')">
+    <div class="color-swatch" style="background: rgb(156, 37, 66);"></div>
+    <span class="color-name">bigDipORuby <span style="opacity:0.5">(Big Dip O&#x27; Ruby)</span></span>
+    <span class="color-tuple">(156, 37, 66)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bigFootFeet" data-r="232" data-g="142" data-b="90" onclick="copyColor(this, '(232, 142, 90)')">
+    <div class="color-swatch" style="background: rgb(232, 142, 90);"></div>
+    <span class="color-name">bigFootFeet <span style="opacity:0.5">(Big Foot Feet)</span></span>
+    <span class="color-tuple">(232, 142, 90)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bisque" data-r="255" data-g="228" data-b="196" onclick="copyColor(this, '(255, 228, 196)')">
+    <div class="color-swatch" style="background: rgb(255, 228, 196);"></div>
+    <span class="color-name">bisque</span>
+    <span class="color-tuple">(255, 228, 196)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bistre" data-r="61" data-g="43" data-b="31" onclick="copyColor(this, '(61, 43, 31)')">
+    <div class="color-swatch" style="background: rgb(61, 43, 31);"></div>
+    <span class="color-name">bistre</span>
+    <span class="color-tuple">(61, 43, 31)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bistreBrown" data-r="150" data-g="113" data-b="23" onclick="copyColor(this, '(150, 113, 23)')">
+    <div class="color-swatch" style="background: rgb(150, 113, 23);"></div>
+    <span class="color-name">bistreBrown <span style="opacity:0.5">(Bistre brown)</span></span>
+    <span class="color-tuple">(150, 113, 23)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bittersweetShimmer" data-r="191" data-g="79" data-b="81" onclick="copyColor(this, '(191, 79, 81)')">
+    <div class="color-swatch" style="background: rgb(191, 79, 81);"></div>
+    <span class="color-name">bittersweetShimmer <span style="opacity:0.5">(Bittersweet Shimmer)</span></span>
+    <span class="color-tuple">(191, 79, 81)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bitterLemon" data-r="202" data-g="224" data-b="13" onclick="copyColor(this, '(202, 224, 13)')">
+    <div class="color-swatch" style="background: rgb(202, 224, 13);"></div>
+    <span class="color-name">bitterLemon <span style="opacity:0.5">(Bitter lemon)</span></span>
+    <span class="color-tuple">(202, 224, 13)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="black" data-r="0" data-g="0" data-b="0" onclick="copyColor(this, '(0, 0, 0)')">
+    <div class="color-swatch" style="background: rgb(0, 0, 0);"></div>
+    <span class="color-name">black</span>
+    <span class="color-tuple">(0, 0, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blackBean" data-r="61" data-g="12" data-b="2" onclick="copyColor(this, '(61, 12, 2)')">
+    <div class="color-swatch" style="background: rgb(61, 12, 2);"></div>
+    <span class="color-name">blackBean <span style="opacity:0.5">(Black bean)</span></span>
+    <span class="color-tuple">(61, 12, 2)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blackCoral" data-r="84" data-g="98" data-b="111" onclick="copyColor(this, '(84, 98, 111)')">
+    <div class="color-swatch" style="background: rgb(84, 98, 111);"></div>
+    <span class="color-name">blackCoral <span style="opacity:0.5">(Black coral)</span></span>
+    <span class="color-tuple">(84, 98, 111)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blackCoralPearl" data-r="65" data-g="80" data-b="95" onclick="copyColor(this, '(65, 80, 95)')">
+    <div class="color-swatch" style="background: rgb(65, 80, 95);"></div>
+    <span class="color-name">blackCoralPearl <span style="opacity:0.5">(Black Coral Pearl)</span></span>
+    <span class="color-tuple">(65, 80, 95)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blackGold" data-r="25" data-g="25" data-b="18" onclick="copyColor(this, '(25, 25, 18)')">
+    <div class="color-swatch" style="background: rgb(25, 25, 18);"></div>
+    <span class="color-name">blackGold <span style="opacity:0.5">(Black Gold)</span></span>
+    <span class="color-tuple">(25, 25, 18)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blackHair" data-r="30" data-g="27" data-b="27" onclick="copyColor(this, '(30, 27, 27)')">
+    <div class="color-swatch" style="background: rgb(30, 27, 27);"></div>
+    <span class="color-name">blackHair <span style="opacity:0.5">(Black Hair)</span></span>
+    <span class="color-tuple">(30, 27, 27)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blackOlive" data-r="59" data-g="60" data-b="54" onclick="copyColor(this, '(59, 60, 54)')">
+    <div class="color-swatch" style="background: rgb(59, 60, 54);"></div>
+    <span class="color-name">blackOlive <span style="opacity:0.5">(Black olive)</span></span>
+    <span class="color-tuple">(59, 60, 54)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blackPearl" data-r="30" data-g="34" data-b="40" onclick="copyColor(this, '(30, 34, 40)')">
+    <div class="color-swatch" style="background: rgb(30, 34, 40);"></div>
+    <span class="color-name">blackPearl <span style="opacity:0.5">(Black Pearl)</span></span>
+    <span class="color-tuple">(30, 34, 40)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blackShadows" data-r="191" data-g="175" data-b="178" onclick="copyColor(this, '(191, 175, 178)')">
+    <div class="color-swatch" style="background: rgb(191, 175, 178);"></div>
+    <span class="color-name">blackShadows <span style="opacity:0.5">(Black Shadows)</span></span>
+    <span class="color-tuple">(191, 175, 178)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blastOffBronze" data-r="165" data-g="113" data-b="100" onclick="copyColor(this, '(165, 113, 100)')">
+    <div class="color-swatch" style="background: rgb(165, 113, 100);"></div>
+    <span class="color-name">blastOffBronze <span style="opacity:0.5">(Blast Off Bronze)</span></span>
+    <span class="color-tuple">(165, 113, 100)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bleuDeFrance" data-r="49" data-g="140" data-b="231" onclick="copyColor(this, '(49, 140, 231)')">
+    <div class="color-swatch" style="background: rgb(49, 140, 231);"></div>
+    <span class="color-name">bleuDeFrance <span style="opacity:0.5">(Bleu de France)</span></span>
+    <span class="color-tuple">(49, 140, 231)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blizzardBlue" data-r="172" data-g="229" data-b="238" onclick="copyColor(this, '(172, 229, 238)')">
+    <div class="color-swatch" style="background: rgb(172, 229, 238);"></div>
+    <span class="color-name">blizzardBlue <span style="opacity:0.5">(Blizzard blue)</span></span>
+    <span class="color-tuple">(172, 229, 238)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blondeHair" data-r="230" data-g="206" data-b="168" onclick="copyColor(this, '(230, 206, 168)')">
+    <div class="color-swatch" style="background: rgb(230, 206, 168);"></div>
+    <span class="color-name">blondeHair <span style="opacity:0.5">(Blonde Hair)</span></span>
+    <span class="color-tuple">(230, 206, 168)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bloodRed" data-r="102" data-g="0" data-b="0" onclick="copyColor(this, '(102, 0, 0)')">
+    <div class="color-swatch" style="background: rgb(102, 0, 0);"></div>
+    <span class="color-name">bloodRed <span style="opacity:0.5">(Blood red)</span></span>
+    <span class="color-tuple">(102, 0, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blue" data-r="0" data-g="0" data-b="255" onclick="copyColor(this, '(0, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(0, 0, 255);"></div>
+    <span class="color-name">blue</span>
+    <span class="color-tuple">(0, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueBell" data-r="162" data-g="162" data-b="208" onclick="copyColor(this, '(162, 162, 208)')">
+    <div class="color-swatch" style="background: rgb(162, 162, 208);"></div>
+    <span class="color-name">blueBell <span style="opacity:0.5">(Blue bell)</span></span>
+    <span class="color-tuple">(162, 162, 208)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueBlazes" data-r="24" data-g="80" data-b="160" onclick="copyColor(this, '(24, 80, 160)')">
+    <div class="color-swatch" style="background: rgb(24, 80, 160);"></div>
+    <span class="color-name">blueBlazes <span style="opacity:0.5">(Blue Blazes)</span></span>
+    <span class="color-tuple">(24, 80, 160)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueEyes" data-r="93" data-g="147" data-b="194" onclick="copyColor(this, '(93, 147, 194)')">
+    <div class="color-swatch" style="background: rgb(93, 147, 194);"></div>
+    <span class="color-name">blueEyes <span style="opacity:0.5">(Blue Eyes)</span></span>
+    <span class="color-tuple">(93, 147, 194)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueGreen" data-r="13" data-g="152" data-b="186" onclick="copyColor(this, '(13, 152, 186)')">
+    <div class="color-swatch" style="background: rgb(13, 152, 186);"></div>
+    <span class="color-name">blueGreen <span style="opacity:0.5">(Blue Green)</span></span>
+    <span class="color-tuple">(13, 152, 186)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueRibbon" data-r="0" data-g="66" data-b="174" onclick="copyColor(this, '(0, 66, 174)')">
+    <div class="color-swatch" style="background: rgb(0, 66, 174);"></div>
+    <span class="color-name">blueRibbon <span style="opacity:0.5">(Blue Ribbon)</span></span>
+    <span class="color-tuple">(0, 66, 174)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueSapphire" data-r="18" data-g="97" data-b="128" onclick="copyColor(this, '(18, 97, 128)')">
+    <div class="color-swatch" style="background: rgb(18, 97, 128);"></div>
+    <span class="color-name">blueSapphire <span style="opacity:0.5">(Blue sapphire)</span></span>
+    <span class="color-tuple">(18, 97, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueViolet" data-r="138" data-g="43" data-b="226" onclick="copyColor(this, '(138, 43, 226)')">
+    <div class="color-swatch" style="background: rgb(138, 43, 226);"></div>
+    <span class="color-name">blueViolet <span style="opacity:0.5">(Blue Violet)</span></span>
+    <span class="color-tuple">(138, 43, 226)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueYonder" data-r="80" data-g="114" data-b="167" onclick="copyColor(this, '(80, 114, 167)')">
+    <div class="color-swatch" style="background: rgb(80, 114, 167);"></div>
+    <span class="color-name">blueYonder <span style="opacity:0.5">(Blue yonder)</span></span>
+    <span class="color-tuple">(80, 114, 167)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueGray" data-r="102" data-g="153" data-b="204" onclick="copyColor(this, '(102, 153, 204)')">
+    <div class="color-swatch" style="background: rgb(102, 153, 204);"></div>
+    <span class="color-name">blueGray <span style="opacity:0.5">(Blue-gray)</span></span>
+    <span class="color-tuple">(102, 153, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blueJeans" data-r="93" data-g="173" data-b="236" onclick="copyColor(this, '(93, 173, 236)')">
+    <div class="color-swatch" style="background: rgb(93, 173, 236);"></div>
+    <span class="color-name">blueJeans <span style="opacity:0.5">(Blue-jeans)</span></span>
+    <span class="color-tuple">(93, 173, 236)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bluetiful" data-r="46" data-g="80" data-b="144" onclick="copyColor(this, '(46, 80, 144)')">
+    <div class="color-swatch" style="background: rgb(46, 80, 144);"></div>
+    <span class="color-name">bluetiful</span>
+    <span class="color-tuple">(46, 80, 144)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bluetonium" data-r="32" data-g="54" data-b="140" onclick="copyColor(this, '(32, 54, 140)')">
+    <div class="color-swatch" style="background: rgb(32, 54, 140);"></div>
+    <span class="color-name">bluetonium</span>
+    <span class="color-tuple">(32, 54, 140)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="blush" data-r="222" data-g="93" data-b="131" onclick="copyColor(this, '(222, 93, 131)')">
+    <div class="color-swatch" style="background: rgb(222, 93, 131);"></div>
+    <span class="color-name">blush</span>
+    <span class="color-tuple">(222, 93, 131)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bole" data-r="121" data-g="68" data-b="59" onclick="copyColor(this, '(121, 68, 59)')">
+    <div class="color-swatch" style="background: rgb(121, 68, 59);"></div>
+    <span class="color-name">bole</span>
+    <span class="color-tuple">(121, 68, 59)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bone" data-r="227" data-g="218" data-b="201" onclick="copyColor(this, '(227, 218, 201)')">
+    <div class="color-swatch" style="background: rgb(227, 218, 201);"></div>
+    <span class="color-name">bone</span>
+    <span class="color-tuple">(227, 218, 201)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="brickRed" data-r="203" data-g="65" data-b="84" onclick="copyColor(this, '(203, 65, 84)')">
+    <div class="color-swatch" style="background: rgb(203, 65, 84);"></div>
+    <span class="color-name">brickRed <span style="opacity:0.5">(Brick red)</span></span>
+    <span class="color-tuple">(203, 65, 84)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="brightLilac" data-r="216" data-g="145" data-b="239" onclick="copyColor(this, '(216, 145, 239)')">
+    <div class="color-swatch" style="background: rgb(216, 145, 239);"></div>
+    <span class="color-name">brightLilac <span style="opacity:0.5">(Bright lilac)</span></span>
+    <span class="color-tuple">(216, 145, 239)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="brightYellow" data-r="255" data-g="170" data-b="29" onclick="copyColor(this, '(255, 170, 29)')">
+    <div class="color-swatch" style="background: rgb(255, 170, 29);"></div>
+    <span class="color-name">brightYellow <span style="opacity:0.5">(Bright yellow (Crayola))</span></span>
+    <span class="color-tuple">(255, 170, 29)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="britishRacingGreen" data-r="0" data-g="66" data-b="37" onclick="copyColor(this, '(0, 66, 37)')">
+    <div class="color-swatch" style="background: rgb(0, 66, 37);"></div>
+    <span class="color-name">britishRacingGreen <span style="opacity:0.5">(British racing green)</span></span>
+    <span class="color-tuple">(0, 66, 37)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="bronze" data-r="205" data-g="127" data-b="50" onclick="copyColor(this, '(205, 127, 50)')">
+    <div class="color-swatch" style="background: rgb(205, 127, 50);"></div>
+    <span class="color-name">bronze</span>
+    <span class="color-tuple">(205, 127, 50)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="brown" data-r="165" data-g="42" data-b="42" onclick="copyColor(this, '(165, 42, 42)')">
+    <div class="color-swatch" style="background: rgb(165, 42, 42);"></div>
+    <span class="color-name">brown</span>
+    <span class="color-tuple">(165, 42, 42)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="brownSugar" data-r="175" data-g="110" data-b="77" onclick="copyColor(this, '(175, 110, 77)')">
+    <div class="color-swatch" style="background: rgb(175, 110, 77);"></div>
+    <span class="color-name">brownSugar <span style="opacity:0.5">(Brown sugar)</span></span>
+    <span class="color-tuple">(175, 110, 77)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="budGreen" data-r="123" data-g="182" data-b="97" onclick="copyColor(this, '(123, 182, 97)')">
+    <div class="color-swatch" style="background: rgb(123, 182, 97);"></div>
+    <span class="color-name">budGreen <span style="opacity:0.5">(Bud green)</span></span>
+    <span class="color-tuple">(123, 182, 97)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="buff" data-r="240" data-g="220" data-b="130" onclick="copyColor(this, '(240, 220, 130)')">
+    <div class="color-swatch" style="background: rgb(240, 220, 130);"></div>
+    <span class="color-name">buff</span>
+    <span class="color-tuple">(240, 220, 130)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="burgundy" data-r="128" data-g="0" data-b="32" onclick="copyColor(this, '(128, 0, 32)')">
+    <div class="color-swatch" style="background: rgb(128, 0, 32);"></div>
+    <span class="color-name">burgundy</span>
+    <span class="color-tuple">(128, 0, 32)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="burlywood" data-r="222" data-g="184" data-b="135" onclick="copyColor(this, '(222, 184, 135)')">
+    <div class="color-swatch" style="background: rgb(222, 184, 135);"></div>
+    <span class="color-name">burlywood</span>
+    <span class="color-tuple">(222, 184, 135)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="burnishedBrown" data-r="161" data-g="122" data-b="116" onclick="copyColor(this, '(161, 122, 116)')">
+    <div class="color-swatch" style="background: rgb(161, 122, 116);"></div>
+    <span class="color-name">burnishedBrown <span style="opacity:0.5">(Burnished brown)</span></span>
+    <span class="color-tuple">(161, 122, 116)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="burntOrange" data-r="204" data-g="85" data-b="0" onclick="copyColor(this, '(204, 85, 0)')">
+    <div class="color-swatch" style="background: rgb(204, 85, 0);"></div>
+    <span class="color-name">burntOrange <span style="opacity:0.5">(Burnt orange)</span></span>
+    <span class="color-tuple">(204, 85, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="burntSienna" data-r="233" data-g="116" data-b="81" onclick="copyColor(this, '(233, 116, 81)')">
+    <div class="color-swatch" style="background: rgb(233, 116, 81);"></div>
+    <span class="color-name">burntSienna <span style="opacity:0.5">(Burnt sienna)</span></span>
+    <span class="color-tuple">(233, 116, 81)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="burntUmber" data-r="138" data-g="51" data-b="36" onclick="copyColor(this, '(138, 51, 36)')">
+    <div class="color-swatch" style="background: rgb(138, 51, 36);"></div>
+    <span class="color-name">burntUmber <span style="opacity:0.5">(Burnt umber)</span></span>
+    <span class="color-tuple">(138, 51, 36)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="byzantine" data-r="189" data-g="51" data-b="164" onclick="copyColor(this, '(189, 51, 164)')">
+    <div class="color-swatch" style="background: rgb(189, 51, 164);"></div>
+    <span class="color-name">byzantine</span>
+    <span class="color-tuple">(189, 51, 164)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="byzantium" data-r="112" data-g="41" data-b="99" onclick="copyColor(this, '(112, 41, 99)')">
+    <div class="color-swatch" style="background: rgb(112, 41, 99);"></div>
+    <span class="color-name">byzantium</span>
+    <span class="color-tuple">(112, 41, 99)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cadetBlue" data-r="95" data-g="158" data-b="160" onclick="copyColor(this, '(95, 158, 160)')">
+    <div class="color-swatch" style="background: rgb(95, 158, 160);"></div>
+    <span class="color-name">cadetBlue <span style="opacity:0.5">(Cadet blue)</span></span>
+    <span class="color-tuple">(95, 158, 160)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cadetGrey" data-r="145" data-g="163" data-b="176" onclick="copyColor(this, '(145, 163, 176)')">
+    <div class="color-swatch" style="background: rgb(145, 163, 176);"></div>
+    <span class="color-name">cadetGrey <span style="opacity:0.5">(Cadet grey)</span></span>
+    <span class="color-tuple">(145, 163, 176)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cadmiumGreen" data-r="0" data-g="107" data-b="60" onclick="copyColor(this, '(0, 107, 60)')">
+    <div class="color-swatch" style="background: rgb(0, 107, 60);"></div>
+    <span class="color-name">cadmiumGreen <span style="opacity:0.5">(Cadmium green)</span></span>
+    <span class="color-tuple">(0, 107, 60)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cadmiumOrange" data-r="237" data-g="135" data-b="45" onclick="copyColor(this, '(237, 135, 45)')">
+    <div class="color-swatch" style="background: rgb(237, 135, 45);"></div>
+    <span class="color-name">cadmiumOrange <span style="opacity:0.5">(Cadmium orange)</span></span>
+    <span class="color-tuple">(237, 135, 45)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cafeAuLait" data-r="164" data-g="130" data-b="108" onclick="copyColor(this, '(164, 130, 108)')">
+    <div class="color-swatch" style="background: rgb(164, 130, 108);"></div>
+    <span class="color-name">cafeAuLait <span style="opacity:0.5">(Café au lait)</span></span>
+    <span class="color-tuple">(164, 130, 108)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cafeNoir" data-r="75" data-g="54" data-b="33" onclick="copyColor(this, '(75, 54, 33)')">
+    <div class="color-swatch" style="background: rgb(75, 54, 33);"></div>
+    <span class="color-name">cafeNoir <span style="opacity:0.5">(Café noir)</span></span>
+    <span class="color-tuple">(75, 54, 33)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cambridgeBlue" data-r="163" data-g="193" data-b="173" onclick="copyColor(this, '(163, 193, 173)')">
+    <div class="color-swatch" style="background: rgb(163, 193, 173);"></div>
+    <span class="color-name">cambridgeBlue <span style="opacity:0.5">(Cambridge blue)</span></span>
+    <span class="color-tuple">(163, 193, 173)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="camel" data-r="193" data-g="154" data-b="107" onclick="copyColor(this, '(193, 154, 107)')">
+    <div class="color-swatch" style="background: rgb(193, 154, 107);"></div>
+    <span class="color-name">camel</span>
+    <span class="color-tuple">(193, 154, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cameoPink" data-r="239" data-g="187" data-b="204" onclick="copyColor(this, '(239, 187, 204)')">
+    <div class="color-swatch" style="background: rgb(239, 187, 204);"></div>
+    <span class="color-name">cameoPink <span style="opacity:0.5">(Cameo pink)</span></span>
+    <span class="color-tuple">(239, 187, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="canary" data-r="255" data-g="255" data-b="153" onclick="copyColor(this, '(255, 255, 153)')">
+    <div class="color-swatch" style="background: rgb(255, 255, 153);"></div>
+    <span class="color-name">canary</span>
+    <span class="color-tuple">(255, 255, 153)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="canaryYellow" data-r="255" data-g="239" data-b="0" onclick="copyColor(this, '(255, 239, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 239, 0);"></div>
+    <span class="color-name">canaryYellow <span style="opacity:0.5">(Canary yellow)</span></span>
+    <span class="color-tuple">(255, 239, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="candyPink" data-r="228" data-g="113" data-b="122" onclick="copyColor(this, '(228, 113, 122)')">
+    <div class="color-swatch" style="background: rgb(228, 113, 122);"></div>
+    <span class="color-name">candyPink <span style="opacity:0.5">(Candy pink)</span></span>
+    <span class="color-tuple">(228, 113, 122)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="caputMortuum" data-r="89" data-g="39" data-b="32" onclick="copyColor(this, '(89, 39, 32)')">
+    <div class="color-swatch" style="background: rgb(89, 39, 32);"></div>
+    <span class="color-name">caputMortuum <span style="opacity:0.5">(Caput Mortuum)</span></span>
+    <span class="color-tuple">(89, 39, 32)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cardinal" data-r="196" data-g="30" data-b="58" onclick="copyColor(this, '(196, 30, 58)')">
+    <div class="color-swatch" style="background: rgb(196, 30, 58);"></div>
+    <span class="color-name">cardinal</span>
+    <span class="color-tuple">(196, 30, 58)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="carelessWhisper" data-r="210" data-g="180" data-b="160" onclick="copyColor(this, '(210, 180, 160)')">
+    <div class="color-swatch" style="background: rgb(210, 180, 160);"></div>
+    <span class="color-name">carelessWhisper <span style="opacity:0.5">(Careless Whisper)</span></span>
+    <span class="color-tuple">(210, 180, 160)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="caribbeanGreen" data-r="0" data-g="204" data-b="153" onclick="copyColor(this, '(0, 204, 153)')">
+    <div class="color-swatch" style="background: rgb(0, 204, 153);"></div>
+    <span class="color-name">caribbeanGreen <span style="opacity:0.5">(Caribbean green)</span></span>
+    <span class="color-tuple">(0, 204, 153)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="carmine" data-r="150" data-g="0" data-b="24" onclick="copyColor(this, '(150, 0, 24)')">
+    <div class="color-swatch" style="background: rgb(150, 0, 24);"></div>
+    <span class="color-name">carmine</span>
+    <span class="color-tuple">(150, 0, 24)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="carnationPink" data-r="255" data-g="166" data-b="201" onclick="copyColor(this, '(255, 166, 201)')">
+    <div class="color-swatch" style="background: rgb(255, 166, 201);"></div>
+    <span class="color-name">carnationPink <span style="opacity:0.5">(Carnation pink)</span></span>
+    <span class="color-tuple">(255, 166, 201)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="carnelian" data-r="179" data-g="27" data-b="27" onclick="copyColor(this, '(179, 27, 27)')">
+    <div class="color-swatch" style="background: rgb(179, 27, 27);"></div>
+    <span class="color-name">carnelian</span>
+    <span class="color-tuple">(179, 27, 27)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="carolinaBlue" data-r="86" data-g="160" data-b="211" onclick="copyColor(this, '(86, 160, 211)')">
+    <div class="color-swatch" style="background: rgb(86, 160, 211);"></div>
+    <span class="color-name">carolinaBlue <span style="opacity:0.5">(Carolina blue)</span></span>
+    <span class="color-tuple">(86, 160, 211)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="carrotOrange" data-r="237" data-g="145" data-b="33" onclick="copyColor(this, '(237, 145, 33)')">
+    <div class="color-swatch" style="background: rgb(237, 145, 33);"></div>
+    <span class="color-name">carrotOrange <span style="opacity:0.5">(Carrot orange)</span></span>
+    <span class="color-tuple">(237, 145, 33)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="catawba" data-r="112" data-g="54" data-b="66" onclick="copyColor(this, '(112, 54, 66)')">
+    <div class="color-swatch" style="background: rgb(112, 54, 66);"></div>
+    <span class="color-name">catawba</span>
+    <span class="color-tuple">(112, 54, 66)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cattleya" data-r="173" data-g="77" data-b="140" onclick="copyColor(this, '(173, 77, 140)')">
+    <div class="color-swatch" style="background: rgb(173, 77, 140);"></div>
+    <span class="color-name">cattleya</span>
+    <span class="color-tuple">(173, 77, 140)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cedarChest" data-r="201" data-g="90" data-b="73" onclick="copyColor(this, '(201, 90, 73)')">
+    <div class="color-swatch" style="background: rgb(201, 90, 73);"></div>
+    <span class="color-name">cedarChest <span style="opacity:0.5">(Cedar Chest)</span></span>
+    <span class="color-tuple">(201, 90, 73)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="celadon" data-r="172" data-g="225" data-b="175" onclick="copyColor(this, '(172, 225, 175)')">
+    <div class="color-swatch" style="background: rgb(172, 225, 175);"></div>
+    <span class="color-name">celadon</span>
+    <span class="color-tuple">(172, 225, 175)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="celeste" data-r="178" data-g="255" data-b="255" onclick="copyColor(this, '(178, 255, 255)')">
+    <div class="color-swatch" style="background: rgb(178, 255, 255);"></div>
+    <span class="color-name">celeste</span>
+    <span class="color-tuple">(178, 255, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cerise" data-r="222" data-g="49" data-b="99" onclick="copyColor(this, '(222, 49, 99)')">
+    <div class="color-swatch" style="background: rgb(222, 49, 99);"></div>
+    <span class="color-name">cerise</span>
+    <span class="color-tuple">(222, 49, 99)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cerulean" data-r="0" data-g="123" data-b="167" onclick="copyColor(this, '(0, 123, 167)')">
+    <div class="color-swatch" style="background: rgb(0, 123, 167);"></div>
+    <span class="color-name">cerulean</span>
+    <span class="color-tuple">(0, 123, 167)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ceruleanBlue" data-r="42" data-g="82" data-b="190" onclick="copyColor(this, '(42, 82, 190)')">
+    <div class="color-swatch" style="background: rgb(42, 82, 190);"></div>
+    <span class="color-name">ceruleanBlue <span style="opacity:0.5">(Cerulean blue)</span></span>
+    <span class="color-tuple">(42, 82, 190)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ceruleanFrost" data-r="109" data-g="155" data-b="195" onclick="copyColor(this, '(109, 155, 195)')">
+    <div class="color-swatch" style="background: rgb(109, 155, 195);"></div>
+    <span class="color-name">ceruleanFrost <span style="opacity:0.5">(Cerulean frost)</span></span>
+    <span class="color-tuple">(109, 155, 195)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="champagne" data-r="247" data-g="231" data-b="206" onclick="copyColor(this, '(247, 231, 206)')">
+    <div class="color-swatch" style="background: rgb(247, 231, 206);"></div>
+    <span class="color-name">champagne</span>
+    <span class="color-tuple">(247, 231, 206)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="champagnePink" data-r="241" data-g="221" data-b="207" onclick="copyColor(this, '(241, 221, 207)')">
+    <div class="color-swatch" style="background: rgb(241, 221, 207);"></div>
+    <span class="color-name">champagnePink <span style="opacity:0.5">(Champagne pink)</span></span>
+    <span class="color-tuple">(241, 221, 207)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="charcoal" data-r="54" data-g="69" data-b="79" onclick="copyColor(this, '(54, 69, 79)')">
+    <div class="color-swatch" style="background: rgb(54, 69, 79);"></div>
+    <span class="color-name">charcoal</span>
+    <span class="color-tuple">(54, 69, 79)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="charmPink" data-r="230" data-g="143" data-b="172" onclick="copyColor(this, '(230, 143, 172)')">
+    <div class="color-swatch" style="background: rgb(230, 143, 172);"></div>
+    <span class="color-name">charmPink <span style="opacity:0.5">(Charm pink)</span></span>
+    <span class="color-tuple">(230, 143, 172)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="chartreuse" data-r="127" data-g="255" data-b="0" onclick="copyColor(this, '(127, 255, 0)')">
+    <div class="color-swatch" style="background: rgb(127, 255, 0);"></div>
+    <span class="color-name">chartreuse <span style="opacity:0.5">(Chartreuse (web))</span></span>
+    <span class="color-tuple">(127, 255, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cherryBlossomPink" data-r="255" data-g="183" data-b="197" onclick="copyColor(this, '(255, 183, 197)')">
+    <div class="color-swatch" style="background: rgb(255, 183, 197);"></div>
+    <span class="color-name">cherryBlossomPink <span style="opacity:0.5">(Cherry blossom pink)</span></span>
+    <span class="color-tuple">(255, 183, 197)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="chestnut" data-r="149" data-g="69" data-b="53" onclick="copyColor(this, '(149, 69, 53)')">
+    <div class="color-swatch" style="background: rgb(149, 69, 53);"></div>
+    <span class="color-name">chestnut</span>
+    <span class="color-tuple">(149, 69, 53)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="chiliRed" data-r="226" data-g="61" data-b="40" onclick="copyColor(this, '(226, 61, 40)')">
+    <div class="color-swatch" style="background: rgb(226, 61, 40);"></div>
+    <span class="color-name">chiliRed <span style="opacity:0.5">(Chili red)</span></span>
+    <span class="color-tuple">(226, 61, 40)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="chinaPink" data-r="222" data-g="111" data-b="161" onclick="copyColor(this, '(222, 111, 161)')">
+    <div class="color-swatch" style="background: rgb(222, 111, 161);"></div>
+    <span class="color-name">chinaPink <span style="opacity:0.5">(China pink)</span></span>
+    <span class="color-tuple">(222, 111, 161)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="chineseRed" data-r="170" data-g="56" data-b="30" onclick="copyColor(this, '(170, 56, 30)')">
+    <div class="color-swatch" style="background: rgb(170, 56, 30);"></div>
+    <span class="color-name">chineseRed <span style="opacity:0.5">(Chinese red)</span></span>
+    <span class="color-tuple">(170, 56, 30)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="chineseViolet" data-r="133" data-g="96" data-b="136" onclick="copyColor(this, '(133, 96, 136)')">
+    <div class="color-swatch" style="background: rgb(133, 96, 136);"></div>
+    <span class="color-name">chineseViolet <span style="opacity:0.5">(Chinese violet)</span></span>
+    <span class="color-tuple">(133, 96, 136)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="chineseYellow" data-r="255" data-g="178" data-b="0" onclick="copyColor(this, '(255, 178, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 178, 0);"></div>
+    <span class="color-name">chineseYellow <span style="opacity:0.5">(Chinese yellow)</span></span>
+    <span class="color-tuple">(255, 178, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="chocolate" data-r="123" data-g="63" data-b="0" onclick="copyColor(this, '(123, 63, 0)')">
+    <div class="color-swatch" style="background: rgb(123, 63, 0);"></div>
+    <span class="color-name">chocolate <span style="opacity:0.5">(Chocolate (traditional))</span></span>
+    <span class="color-tuple">(123, 63, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cinereous" data-r="152" data-g="129" data-b="123" onclick="copyColor(this, '(152, 129, 123)')">
+    <div class="color-swatch" style="background: rgb(152, 129, 123);"></div>
+    <span class="color-name">cinereous</span>
+    <span class="color-tuple">(152, 129, 123)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cinnabar" data-r="227" data-g="66" data-b="52" onclick="copyColor(this, '(227, 66, 52)')">
+    <div class="color-swatch" style="background: rgb(227, 66, 52);"></div>
+    <span class="color-name">cinnabar</span>
+    <span class="color-tuple">(227, 66, 52)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cinnamonSatin" data-r="205" data-g="96" data-b="126" onclick="copyColor(this, '(205, 96, 126)')">
+    <div class="color-swatch" style="background: rgb(205, 96, 126);"></div>
+    <span class="color-name">cinnamonSatin <span style="opacity:0.5">(Cinnamon Satin)</span></span>
+    <span class="color-tuple">(205, 96, 126)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="citrine" data-r="228" data-g="208" data-b="10" onclick="copyColor(this, '(228, 208, 10)')">
+    <div class="color-swatch" style="background: rgb(228, 208, 10);"></div>
+    <span class="color-name">citrine</span>
+    <span class="color-tuple">(228, 208, 10)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="citron" data-r="158" data-g="169" data-b="31" onclick="copyColor(this, '(158, 169, 31)')">
+    <div class="color-swatch" style="background: rgb(158, 169, 31);"></div>
+    <span class="color-name">citron</span>
+    <span class="color-tuple">(158, 169, 31)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="claret" data-r="127" data-g="23" data-b="52" onclick="copyColor(this, '(127, 23, 52)')">
+    <div class="color-swatch" style="background: rgb(127, 23, 52);"></div>
+    <span class="color-name">claret</span>
+    <span class="color-tuple">(127, 23, 52)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cocaColaRed" data-r="244" data-g="0" data-b="9" onclick="copyColor(this, '(244, 0, 9)')">
+    <div class="color-swatch" style="background: rgb(244, 0, 9);"></div>
+    <span class="color-name">cocaColaRed <span style="opacity:0.5">(Coca-Cola Red)</span></span>
+    <span class="color-tuple">(244, 0, 9)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="coffee" data-r="111" data-g="78" data-b="55" onclick="copyColor(this, '(111, 78, 55)')">
+    <div class="color-swatch" style="background: rgb(111, 78, 55);"></div>
+    <span class="color-name">coffee</span>
+    <span class="color-tuple">(111, 78, 55)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="columbiaBlue" data-r="185" data-g="217" data-b="235" onclick="copyColor(this, '(185, 217, 235)')">
+    <div class="color-swatch" style="background: rgb(185, 217, 235);"></div>
+    <span class="color-name">columbiaBlue <span style="opacity:0.5">(Columbia Blue)</span></span>
+    <span class="color-tuple">(185, 217, 235)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="congoPink" data-r="248" data-g="131" data-b="121" onclick="copyColor(this, '(248, 131, 121)')">
+    <div class="color-swatch" style="background: rgb(248, 131, 121);"></div>
+    <span class="color-name">congoPink <span style="opacity:0.5">(Congo pink)</span></span>
+    <span class="color-tuple">(248, 131, 121)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="coolGrey" data-r="140" data-g="146" data-b="172" onclick="copyColor(this, '(140, 146, 172)')">
+    <div class="color-swatch" style="background: rgb(140, 146, 172);"></div>
+    <span class="color-name">coolGrey <span style="opacity:0.5">(Cool grey)</span></span>
+    <span class="color-tuple">(140, 146, 172)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="copper" data-r="184" data-g="115" data-b="51" onclick="copyColor(this, '(184, 115, 51)')">
+    <div class="color-swatch" style="background: rgb(184, 115, 51);"></div>
+    <span class="color-name">copper</span>
+    <span class="color-tuple">(184, 115, 51)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="copperPenny" data-r="173" data-g="111" data-b="105" onclick="copyColor(this, '(173, 111, 105)')">
+    <div class="color-swatch" style="background: rgb(173, 111, 105);"></div>
+    <span class="color-name">copperPenny <span style="opacity:0.5">(Copper penny)</span></span>
+    <span class="color-tuple">(173, 111, 105)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="copperRed" data-r="203" data-g="109" data-b="81" onclick="copyColor(this, '(203, 109, 81)')">
+    <div class="color-swatch" style="background: rgb(203, 109, 81);"></div>
+    <span class="color-name">copperRed <span style="opacity:0.5">(Copper red)</span></span>
+    <span class="color-tuple">(203, 109, 81)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="copperRose" data-r="153" data-g="102" data-b="102" onclick="copyColor(this, '(153, 102, 102)')">
+    <div class="color-swatch" style="background: rgb(153, 102, 102);"></div>
+    <span class="color-name">copperRose <span style="opacity:0.5">(Copper rose)</span></span>
+    <span class="color-tuple">(153, 102, 102)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="coquelicot" data-r="255" data-g="56" data-b="0" onclick="copyColor(this, '(255, 56, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 56, 0);"></div>
+    <span class="color-name">coquelicot</span>
+    <span class="color-tuple">(255, 56, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="coral" data-r="255" data-g="127" data-b="80" onclick="copyColor(this, '(255, 127, 80)')">
+    <div class="color-swatch" style="background: rgb(255, 127, 80);"></div>
+    <span class="color-name">coral</span>
+    <span class="color-tuple">(255, 127, 80)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="coralPink" data-r="248" data-g="131" data-b="121" onclick="copyColor(this, '(248, 131, 121)')">
+    <div class="color-swatch" style="background: rgb(248, 131, 121);"></div>
+    <span class="color-name">coralPink <span style="opacity:0.5">(Coral pink)</span></span>
+    <span class="color-tuple">(248, 131, 121)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cordovan" data-r="137" data-g="63" data-b="69" onclick="copyColor(this, '(137, 63, 69)')">
+    <div class="color-swatch" style="background: rgb(137, 63, 69);"></div>
+    <span class="color-name">cordovan</span>
+    <span class="color-tuple">(137, 63, 69)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="corn" data-r="251" data-g="236" data-b="93" onclick="copyColor(this, '(251, 236, 93)')">
+    <div class="color-swatch" style="background: rgb(251, 236, 93);"></div>
+    <span class="color-name">corn</span>
+    <span class="color-tuple">(251, 236, 93)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cornflowerBlue" data-r="100" data-g="149" data-b="237" onclick="copyColor(this, '(100, 149, 237)')">
+    <div class="color-swatch" style="background: rgb(100, 149, 237);"></div>
+    <span class="color-name">cornflowerBlue <span style="opacity:0.5">(Cornflower blue)</span></span>
+    <span class="color-tuple">(100, 149, 237)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cornsilk" data-r="255" data-g="248" data-b="220" onclick="copyColor(this, '(255, 248, 220)')">
+    <div class="color-swatch" style="background: rgb(255, 248, 220);"></div>
+    <span class="color-name">cornsilk</span>
+    <span class="color-tuple">(255, 248, 220)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cosmicCobalt" data-r="46" data-g="45" data-b="136" onclick="copyColor(this, '(46, 45, 136)')">
+    <div class="color-swatch" style="background: rgb(46, 45, 136);"></div>
+    <span class="color-name">cosmicCobalt <span style="opacity:0.5">(Cosmic cobalt)</span></span>
+    <span class="color-tuple">(46, 45, 136)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cosmicLatte" data-r="255" data-g="248" data-b="231" onclick="copyColor(this, '(255, 248, 231)')">
+    <div class="color-swatch" style="background: rgb(255, 248, 231);"></div>
+    <span class="color-name">cosmicLatte <span style="opacity:0.5">(Cosmic latte)</span></span>
+    <span class="color-tuple">(255, 248, 231)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cottonCandy" data-r="255" data-g="188" data-b="217" onclick="copyColor(this, '(255, 188, 217)')">
+    <div class="color-swatch" style="background: rgb(255, 188, 217);"></div>
+    <span class="color-name">cottonCandy <span style="opacity:0.5">(Cotton candy)</span></span>
+    <span class="color-tuple">(255, 188, 217)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="coyoteBrown" data-r="129" data-g="97" data-b="60" onclick="copyColor(this, '(129, 97, 60)')">
+    <div class="color-swatch" style="background: rgb(129, 97, 60);"></div>
+    <span class="color-name">coyoteBrown <span style="opacity:0.5">(Coyote brown)</span></span>
+    <span class="color-tuple">(129, 97, 60)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cream" data-r="255" data-g="253" data-b="208" onclick="copyColor(this, '(255, 253, 208)')">
+    <div class="color-swatch" style="background: rgb(255, 253, 208);"></div>
+    <span class="color-name">cream</span>
+    <span class="color-tuple">(255, 253, 208)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="crimson" data-r="220" data-g="20" data-b="60" onclick="copyColor(this, '(220, 20, 60)')">
+    <div class="color-swatch" style="background: rgb(220, 20, 60);"></div>
+    <span class="color-name">crimson</span>
+    <span class="color-tuple">(220, 20, 60)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="culturedPearl" data-r="245" data-g="245" data-b="245" onclick="copyColor(this, '(245, 245, 245)')">
+    <div class="color-swatch" style="background: rgb(245, 245, 245);"></div>
+    <span class="color-name">culturedPearl <span style="opacity:0.5">(Cultured Pearl)</span></span>
+    <span class="color-tuple">(245, 245, 245)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cyan" data-r="0" data-g="255" data-b="255" onclick="copyColor(this, '(0, 255, 255)')">
+    <div class="color-swatch" style="background: rgb(0, 255, 255);"></div>
+    <span class="color-name">cyan</span>
+    <span class="color-tuple">(0, 255, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cyberGrape" data-r="88" data-g="66" data-b="124" onclick="copyColor(this, '(88, 66, 124)')">
+    <div class="color-swatch" style="background: rgb(88, 66, 124);"></div>
+    <span class="color-name">cyberGrape <span style="opacity:0.5">(Cyber grape)</span></span>
+    <span class="color-tuple">(88, 66, 124)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cyberYellow" data-r="255" data-g="211" data-b="0" onclick="copyColor(this, '(255, 211, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 211, 0);"></div>
+    <span class="color-name">cyberYellow <span style="opacity:0.5">(Cyber yellow)</span></span>
+    <span class="color-tuple">(255, 211, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="cyclamen" data-r="245" data-g="111" data-b="161" onclick="copyColor(this, '(245, 111, 161)')">
+    <div class="color-swatch" style="background: rgb(245, 111, 161);"></div>
+    <span class="color-name">cyclamen</span>
+    <span class="color-tuple">(245, 111, 161)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="dandelion" data-r="240" data-g="225" data-b="48" onclick="copyColor(this, '(240, 225, 48)')">
+    <div class="color-swatch" style="background: rgb(240, 225, 48);"></div>
+    <span class="color-name">dandelion</span>
+    <span class="color-tuple">(240, 225, 48)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="dangerousRobot" data-r="138" data-g="30" data-b="39" onclick="copyColor(this, '(138, 30, 39)')">
+    <div class="color-swatch" style="background: rgb(138, 30, 39);"></div>
+    <span class="color-name">dangerousRobot <span style="opacity:0.5">(Dangerous Robot)</span></span>
+    <span class="color-tuple">(138, 30, 39)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkBrown" data-r="101" data-g="67" data-b="33" onclick="copyColor(this, '(101, 67, 33)')">
+    <div class="color-swatch" style="background: rgb(101, 67, 33);"></div>
+    <span class="color-name">darkBrown <span style="opacity:0.5">(Dark brown)</span></span>
+    <span class="color-tuple">(101, 67, 33)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkByzantium" data-r="93" data-g="57" data-b="84" onclick="copyColor(this, '(93, 57, 84)')">
+    <div class="color-swatch" style="background: rgb(93, 57, 84);"></div>
+    <span class="color-name">darkByzantium <span style="opacity:0.5">(Dark byzantium)</span></span>
+    <span class="color-tuple">(93, 57, 84)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkCyan" data-r="0" data-g="139" data-b="139" onclick="copyColor(this, '(0, 139, 139)')">
+    <div class="color-swatch" style="background: rgb(0, 139, 139);"></div>
+    <span class="color-name">darkCyan <span style="opacity:0.5">(Dark cyan)</span></span>
+    <span class="color-tuple">(0, 139, 139)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkElectricBlue" data-r="83" data-g="104" data-b="120" onclick="copyColor(this, '(83, 104, 120)')">
+    <div class="color-swatch" style="background: rgb(83, 104, 120);"></div>
+    <span class="color-name">darkElectricBlue <span style="opacity:0.5">(Dark electric blue)</span></span>
+    <span class="color-tuple">(83, 104, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkGoldenrod" data-r="184" data-g="134" data-b="11" onclick="copyColor(this, '(184, 134, 11)')">
+    <div class="color-swatch" style="background: rgb(184, 134, 11);"></div>
+    <span class="color-name">darkGoldenrod <span style="opacity:0.5">(Dark goldenrod)</span></span>
+    <span class="color-tuple">(184, 134, 11)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkGreen" data-r="0" data-g="100" data-b="0" onclick="copyColor(this, '(0, 100, 0)')">
+    <div class="color-swatch" style="background: rgb(0, 100, 0);"></div>
+    <span class="color-name">darkGreen <span style="opacity:0.5">(Dark green (X11))</span></span>
+    <span class="color-tuple">(0, 100, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkJungleGreen" data-r="26" data-g="36" data-b="33" onclick="copyColor(this, '(26, 36, 33)')">
+    <div class="color-swatch" style="background: rgb(26, 36, 33);"></div>
+    <span class="color-name">darkJungleGreen <span style="opacity:0.5">(Dark jungle green)</span></span>
+    <span class="color-tuple">(26, 36, 33)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkKhaki" data-r="189" data-g="183" data-b="107" onclick="copyColor(this, '(189, 183, 107)')">
+    <div class="color-swatch" style="background: rgb(189, 183, 107);"></div>
+    <span class="color-name">darkKhaki <span style="opacity:0.5">(Dark khaki)</span></span>
+    <span class="color-tuple">(189, 183, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkLava" data-r="72" data-g="60" data-b="50" onclick="copyColor(this, '(72, 60, 50)')">
+    <div class="color-swatch" style="background: rgb(72, 60, 50);"></div>
+    <span class="color-name">darkLava <span style="opacity:0.5">(Dark lava)</span></span>
+    <span class="color-tuple">(72, 60, 50)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkLiver" data-r="84" data-g="61" data-b="55" onclick="copyColor(this, '(84, 61, 55)')">
+    <div class="color-swatch" style="background: rgb(84, 61, 55);"></div>
+    <span class="color-name">darkLiver <span style="opacity:0.5">(Dark liver (horses))</span></span>
+    <span class="color-tuple">(84, 61, 55)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkMagenta" data-r="139" data-g="0" data-b="139" onclick="copyColor(this, '(139, 0, 139)')">
+    <div class="color-swatch" style="background: rgb(139, 0, 139);"></div>
+    <span class="color-name">darkMagenta <span style="opacity:0.5">(Dark magenta)</span></span>
+    <span class="color-tuple">(139, 0, 139)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkOliveGreen" data-r="85" data-g="107" data-b="47" onclick="copyColor(this, '(85, 107, 47)')">
+    <div class="color-swatch" style="background: rgb(85, 107, 47);"></div>
+    <span class="color-name">darkOliveGreen <span style="opacity:0.5">(Dark olive green)</span></span>
+    <span class="color-tuple">(85, 107, 47)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkOrange" data-r="255" data-g="140" data-b="0" onclick="copyColor(this, '(255, 140, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 140, 0);"></div>
+    <span class="color-name">darkOrange <span style="opacity:0.5">(Dark orange)</span></span>
+    <span class="color-tuple">(255, 140, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkOrchid" data-r="153" data-g="50" data-b="204" onclick="copyColor(this, '(153, 50, 204)')">
+    <div class="color-swatch" style="background: rgb(153, 50, 204);"></div>
+    <span class="color-name">darkOrchid <span style="opacity:0.5">(Dark orchid)</span></span>
+    <span class="color-tuple">(153, 50, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkPurple" data-r="48" data-g="25" data-b="52" onclick="copyColor(this, '(48, 25, 52)')">
+    <div class="color-swatch" style="background: rgb(48, 25, 52);"></div>
+    <span class="color-name">darkPurple <span style="opacity:0.5">(Dark purple)</span></span>
+    <span class="color-tuple">(48, 25, 52)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkRed" data-r="139" data-g="0" data-b="0" onclick="copyColor(this, '(139, 0, 0)')">
+    <div class="color-swatch" style="background: rgb(139, 0, 0);"></div>
+    <span class="color-name">darkRed <span style="opacity:0.5">(Dark red)</span></span>
+    <span class="color-tuple">(139, 0, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkSalmon" data-r="233" data-g="150" data-b="122" onclick="copyColor(this, '(233, 150, 122)')">
+    <div class="color-swatch" style="background: rgb(233, 150, 122);"></div>
+    <span class="color-name">darkSalmon <span style="opacity:0.5">(Dark salmon)</span></span>
+    <span class="color-tuple">(233, 150, 122)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkSeaGreen" data-r="143" data-g="188" data-b="143" onclick="copyColor(this, '(143, 188, 143)')">
+    <div class="color-swatch" style="background: rgb(143, 188, 143);"></div>
+    <span class="color-name">darkSeaGreen <span style="opacity:0.5">(Dark sea green)</span></span>
+    <span class="color-tuple">(143, 188, 143)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkSienna" data-r="60" data-g="20" data-b="20" onclick="copyColor(this, '(60, 20, 20)')">
+    <div class="color-swatch" style="background: rgb(60, 20, 20);"></div>
+    <span class="color-name">darkSienna <span style="opacity:0.5">(Dark sienna)</span></span>
+    <span class="color-tuple">(60, 20, 20)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkSkyBlue" data-r="140" data-g="190" data-b="214" onclick="copyColor(this, '(140, 190, 214)')">
+    <div class="color-swatch" style="background: rgb(140, 190, 214);"></div>
+    <span class="color-name">darkSkyBlue <span style="opacity:0.5">(Dark sky blue)</span></span>
+    <span class="color-tuple">(140, 190, 214)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkSlateBlue" data-r="72" data-g="61" data-b="139" onclick="copyColor(this, '(72, 61, 139)')">
+    <div class="color-swatch" style="background: rgb(72, 61, 139);"></div>
+    <span class="color-name">darkSlateBlue <span style="opacity:0.5">(Dark slate blue)</span></span>
+    <span class="color-tuple">(72, 61, 139)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkSlateGray" data-r="47" data-g="79" data-b="79" onclick="copyColor(this, '(47, 79, 79)')">
+    <div class="color-swatch" style="background: rgb(47, 79, 79);"></div>
+    <span class="color-name">darkSlateGray <span style="opacity:0.5">(Dark slate gray)</span></span>
+    <span class="color-tuple">(47, 79, 79)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkSpringGreen" data-r="23" data-g="114" data-b="69" onclick="copyColor(this, '(23, 114, 69)')">
+    <div class="color-swatch" style="background: rgb(23, 114, 69);"></div>
+    <span class="color-name">darkSpringGreen <span style="opacity:0.5">(Dark spring green)</span></span>
+    <span class="color-tuple">(23, 114, 69)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkTurquoise" data-r="0" data-g="206" data-b="209" onclick="copyColor(this, '(0, 206, 209)')">
+    <div class="color-swatch" style="background: rgb(0, 206, 209);"></div>
+    <span class="color-name">darkTurquoise <span style="opacity:0.5">(Dark turquoise)</span></span>
+    <span class="color-tuple">(0, 206, 209)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="darkViolet" data-r="148" data-g="0" data-b="211" onclick="copyColor(this, '(148, 0, 211)')">
+    <div class="color-swatch" style="background: rgb(148, 0, 211);"></div>
+    <span class="color-name">darkViolet <span style="opacity:0.5">(Dark violet)</span></span>
+    <span class="color-tuple">(148, 0, 211)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="davysGrey" data-r="85" data-g="85" data-b="85" onclick="copyColor(this, '(85, 85, 85)')">
+    <div class="color-swatch" style="background: rgb(85, 85, 85);"></div>
+    <span class="color-name">davysGrey <span style="opacity:0.5">(Davy&#x27;s grey)</span></span>
+    <span class="color-tuple">(85, 85, 85)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deadSalmon" data-r="196" data-g="169" data-b="152" onclick="copyColor(this, '(196, 169, 152)')">
+    <div class="color-swatch" style="background: rgb(196, 169, 152);"></div>
+    <span class="color-name">deadSalmon <span style="opacity:0.5">(Dead Salmon)</span></span>
+    <span class="color-tuple">(196, 169, 152)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deepCerise" data-r="218" data-g="50" data-b="135" onclick="copyColor(this, '(218, 50, 135)')">
+    <div class="color-swatch" style="background: rgb(218, 50, 135);"></div>
+    <span class="color-name">deepCerise <span style="opacity:0.5">(Deep cerise)</span></span>
+    <span class="color-tuple">(218, 50, 135)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deepChampagne" data-r="250" data-g="214" data-b="165" onclick="copyColor(this, '(250, 214, 165)')">
+    <div class="color-swatch" style="background: rgb(250, 214, 165);"></div>
+    <span class="color-name">deepChampagne <span style="opacity:0.5">(Deep champagne)</span></span>
+    <span class="color-tuple">(250, 214, 165)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deepChestnut" data-r="185" data-g="78" data-b="72" onclick="copyColor(this, '(185, 78, 72)')">
+    <div class="color-swatch" style="background: rgb(185, 78, 72);"></div>
+    <span class="color-name">deepChestnut <span style="opacity:0.5">(Deep chestnut)</span></span>
+    <span class="color-tuple">(185, 78, 72)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deepJungleGreen" data-r="0" data-g="75" data-b="73" onclick="copyColor(this, '(0, 75, 73)')">
+    <div class="color-swatch" style="background: rgb(0, 75, 73);"></div>
+    <span class="color-name">deepJungleGreen <span style="opacity:0.5">(Deep jungle green)</span></span>
+    <span class="color-tuple">(0, 75, 73)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deepPink" data-r="255" data-g="20" data-b="147" onclick="copyColor(this, '(255, 20, 147)')">
+    <div class="color-swatch" style="background: rgb(255, 20, 147);"></div>
+    <span class="color-name">deepPink <span style="opacity:0.5">(Deep pink)</span></span>
+    <span class="color-tuple">(255, 20, 147)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deepSaffron" data-r="255" data-g="153" data-b="51" onclick="copyColor(this, '(255, 153, 51)')">
+    <div class="color-swatch" style="background: rgb(255, 153, 51);"></div>
+    <span class="color-name">deepSaffron <span style="opacity:0.5">(Deep saffron)</span></span>
+    <span class="color-tuple">(255, 153, 51)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deepSkyBlue" data-r="0" data-g="191" data-b="255" onclick="copyColor(this, '(0, 191, 255)')">
+    <div class="color-swatch" style="background: rgb(0, 191, 255);"></div>
+    <span class="color-name">deepSkyBlue <span style="opacity:0.5">(Deep sky blue)</span></span>
+    <span class="color-tuple">(0, 191, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deepSpaceSparkle" data-r="74" data-g="100" data-b="108" onclick="copyColor(this, '(74, 100, 108)')">
+    <div class="color-swatch" style="background: rgb(74, 100, 108);"></div>
+    <span class="color-name">deepSpaceSparkle <span style="opacity:0.5">(Deep Space Sparkle)</span></span>
+    <span class="color-tuple">(74, 100, 108)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="deepTaupe" data-r="126" data-g="94" data-b="96" onclick="copyColor(this, '(126, 94, 96)')">
+    <div class="color-swatch" style="background: rgb(126, 94, 96);"></div>
+    <span class="color-name">deepTaupe <span style="opacity:0.5">(Deep taupe)</span></span>
+    <span class="color-tuple">(126, 94, 96)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="denim" data-r="21" data-g="96" data-b="189" onclick="copyColor(this, '(21, 96, 189)')">
+    <div class="color-swatch" style="background: rgb(21, 96, 189);"></div>
+    <span class="color-name">denim</span>
+    <span class="color-tuple">(21, 96, 189)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="denimBlue" data-r="34" data-g="67" data-b="182" onclick="copyColor(this, '(34, 67, 182)')">
+    <div class="color-swatch" style="background: rgb(34, 67, 182);"></div>
+    <span class="color-name">denimBlue <span style="opacity:0.5">(Denim blue)</span></span>
+    <span class="color-tuple">(34, 67, 182)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="desert" data-r="193" data-g="154" data-b="107" onclick="copyColor(this, '(193, 154, 107)')">
+    <div class="color-swatch" style="background: rgb(193, 154, 107);"></div>
+    <span class="color-name">desert</span>
+    <span class="color-tuple">(193, 154, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="desertSand" data-r="237" data-g="201" data-b="175" onclick="copyColor(this, '(237, 201, 175)')">
+    <div class="color-swatch" style="background: rgb(237, 201, 175);"></div>
+    <span class="color-name">desertSand <span style="opacity:0.5">(Desert sand)</span></span>
+    <span class="color-tuple">(237, 201, 175)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="dimGray" data-r="105" data-g="105" data-b="105" onclick="copyColor(this, '(105, 105, 105)')">
+    <div class="color-swatch" style="background: rgb(105, 105, 105);"></div>
+    <span class="color-name">dimGray <span style="opacity:0.5">(Dim gray)</span></span>
+    <span class="color-tuple">(105, 105, 105)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="dodgerBlue" data-r="30" data-g="144" data-b="255" onclick="copyColor(this, '(30, 144, 255)')">
+    <div class="color-swatch" style="background: rgb(30, 144, 255);"></div>
+    <span class="color-name">dodgerBlue <span style="opacity:0.5">(Dodger blue)</span></span>
+    <span class="color-tuple">(30, 144, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="drabDarkBrown" data-r="74" data-g="65" data-b="42" onclick="copyColor(this, '(74, 65, 42)')">
+    <div class="color-swatch" style="background: rgb(74, 65, 42);"></div>
+    <span class="color-name">drabDarkBrown <span style="opacity:0.5">(Drab dark brown)</span></span>
+    <span class="color-tuple">(74, 65, 42)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="dragonsBlood" data-r="130" data-g="55" data-b="54" onclick="copyColor(this, '(130, 55, 54)')">
+    <div class="color-swatch" style="background: rgb(130, 55, 54);"></div>
+    <span class="color-name">dragonsBlood <span style="opacity:0.5">(Dragon&#x27;s blood)</span></span>
+    <span class="color-tuple">(130, 55, 54)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="drakesNeck" data-r="74" data-g="132" data-b="118" onclick="copyColor(this, '(74, 132, 118)')">
+    <div class="color-swatch" style="background: rgb(74, 132, 118);"></div>
+    <span class="color-name">drakesNeck <span style="opacity:0.5">(Drake&#x27;s-Neck)</span></span>
+    <span class="color-tuple">(74, 132, 118)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="drunkTankPink" data-r="255" data-g="145" data-b="175" onclick="copyColor(this, '(255, 145, 175)')">
+    <div class="color-swatch" style="background: rgb(255, 145, 175);"></div>
+    <span class="color-name">drunkTankPink <span style="opacity:0.5">(Drunk-Tank Pink)</span></span>
+    <span class="color-tuple">(255, 145, 175)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="dukeBlue" data-r="0" data-g="0" data-b="156" onclick="copyColor(this, '(0, 0, 156)')">
+    <div class="color-swatch" style="background: rgb(0, 0, 156);"></div>
+    <span class="color-name">dukeBlue <span style="opacity:0.5">(Duke blue)</span></span>
+    <span class="color-tuple">(0, 0, 156)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="dutchWhite" data-r="239" data-g="223" data-b="187" onclick="copyColor(this, '(239, 223, 187)')">
+    <div class="color-swatch" style="background: rgb(239, 223, 187);"></div>
+    <span class="color-name">dutchWhite <span style="opacity:0.5">(Dutch white)</span></span>
+    <span class="color-tuple">(239, 223, 187)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ebony" data-r="85" data-g="93" data-b="80" onclick="copyColor(this, '(85, 93, 80)')">
+    <div class="color-swatch" style="background: rgb(85, 93, 80);"></div>
+    <span class="color-name">ebony</span>
+    <span class="color-tuple">(85, 93, 80)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="eburnean" data-r="255" data-g="255" data-b="238" onclick="copyColor(this, '(255, 255, 238)')">
+    <div class="color-swatch" style="background: rgb(255, 255, 238);"></div>
+    <span class="color-name">eburnean</span>
+    <span class="color-tuple">(255, 255, 238)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ecru" data-r="194" data-g="178" data-b="128" onclick="copyColor(this, '(194, 178, 128)')">
+    <div class="color-swatch" style="background: rgb(194, 178, 128);"></div>
+    <span class="color-name">ecru</span>
+    <span class="color-tuple">(194, 178, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="eerieBlack" data-r="27" data-g="27" data-b="27" onclick="copyColor(this, '(27, 27, 27)')">
+    <div class="color-swatch" style="background: rgb(27, 27, 27);"></div>
+    <span class="color-name">eerieBlack <span style="opacity:0.5">(Eerie black)</span></span>
+    <span class="color-tuple">(27, 27, 27)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="eggplant" data-r="97" data-g="64" data-b="81" onclick="copyColor(this, '(97, 64, 81)')">
+    <div class="color-swatch" style="background: rgb(97, 64, 81);"></div>
+    <span class="color-name">eggplant</span>
+    <span class="color-tuple">(97, 64, 81)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="eggshell" data-r="240" data-g="234" data-b="214" onclick="copyColor(this, '(240, 234, 214)')">
+    <div class="color-swatch" style="background: rgb(240, 234, 214);"></div>
+    <span class="color-name">eggshell</span>
+    <span class="color-tuple">(240, 234, 214)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="electricLime" data-r="204" data-g="255" data-b="0" onclick="copyColor(this, '(204, 255, 0)')">
+    <div class="color-swatch" style="background: rgb(204, 255, 0);"></div>
+    <span class="color-name">electricLime <span style="opacity:0.5">(Electric lime)</span></span>
+    <span class="color-tuple">(204, 255, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="electricPurple" data-r="191" data-g="0" data-b="255" onclick="copyColor(this, '(191, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(191, 0, 255);"></div>
+    <span class="color-name">electricPurple <span style="opacity:0.5">(Electric purple)</span></span>
+    <span class="color-tuple">(191, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="electricViolet" data-r="143" data-g="0" data-b="255" onclick="copyColor(this, '(143, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(143, 0, 255);"></div>
+    <span class="color-name">electricViolet <span style="opacity:0.5">(Electric violet)</span></span>
+    <span class="color-tuple">(143, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="elephantsBreath" data-r="195" data-g="181" data-b="172" onclick="copyColor(this, '(195, 181, 172)')">
+    <div class="color-swatch" style="background: rgb(195, 181, 172);"></div>
+    <span class="color-name">elephantsBreath <span style="opacity:0.5">(Elephant&#x27;s Breath)</span></span>
+    <span class="color-tuple">(195, 181, 172)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="emerald" data-r="80" data-g="200" data-b="120" onclick="copyColor(this, '(80, 200, 120)')">
+    <div class="color-swatch" style="background: rgb(80, 200, 120);"></div>
+    <span class="color-name">emerald</span>
+    <span class="color-tuple">(80, 200, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="eminence" data-r="108" data-g="48" data-b="130" onclick="copyColor(this, '(108, 48, 130)')">
+    <div class="color-swatch" style="background: rgb(108, 48, 130);"></div>
+    <span class="color-name">eminence</span>
+    <span class="color-tuple">(108, 48, 130)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="englishLavender" data-r="180" data-g="131" data-b="149" onclick="copyColor(this, '(180, 131, 149)')">
+    <div class="color-swatch" style="background: rgb(180, 131, 149);"></div>
+    <span class="color-name">englishLavender <span style="opacity:0.5">(English lavender)</span></span>
+    <span class="color-tuple">(180, 131, 149)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="englishRed" data-r="171" data-g="75" data-b="82" onclick="copyColor(this, '(171, 75, 82)')">
+    <div class="color-swatch" style="background: rgb(171, 75, 82);"></div>
+    <span class="color-name">englishRed <span style="opacity:0.5">(English red)</span></span>
+    <span class="color-tuple">(171, 75, 82)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="englishVermillion" data-r="204" data-g="71" data-b="75" onclick="copyColor(this, '(204, 71, 75)')">
+    <div class="color-swatch" style="background: rgb(204, 71, 75);"></div>
+    <span class="color-name">englishVermillion <span style="opacity:0.5">(English vermillion)</span></span>
+    <span class="color-tuple">(204, 71, 75)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="englishViolet" data-r="86" data-g="60" data-b="92" onclick="copyColor(this, '(86, 60, 92)')">
+    <div class="color-swatch" style="background: rgb(86, 60, 92);"></div>
+    <span class="color-name">englishViolet <span style="opacity:0.5">(English violet)</span></span>
+    <span class="color-tuple">(86, 60, 92)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="erin" data-r="0" data-g="255" data-b="63" onclick="copyColor(this, '(0, 255, 63)')">
+    <div class="color-swatch" style="background: rgb(0, 255, 63);"></div>
+    <span class="color-name">erin</span>
+    <span class="color-tuple">(0, 255, 63)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="etonBlue" data-r="150" data-g="200" data-b="162" onclick="copyColor(this, '(150, 200, 162)')">
+    <div class="color-swatch" style="background: rgb(150, 200, 162);"></div>
+    <span class="color-name">etonBlue <span style="opacity:0.5">(Eton blue)</span></span>
+    <span class="color-tuple">(150, 200, 162)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="falu" data-r="128" data-g="24" data-b="24" onclick="copyColor(this, '(128, 24, 24)')">
+    <div class="color-swatch" style="background: rgb(128, 24, 24);"></div>
+    <span class="color-name">falu</span>
+    <span class="color-tuple">(128, 24, 24)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="faluRed" data-r="128" data-g="24" data-b="24" onclick="copyColor(this, '(128, 24, 24)')">
+    <div class="color-swatch" style="background: rgb(128, 24, 24);"></div>
+    <span class="color-name">faluRed <span style="opacity:0.5">(Falu red)</span></span>
+    <span class="color-tuple">(128, 24, 24)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fallow" data-r="193" data-g="154" data-b="107" onclick="copyColor(this, '(193, 154, 107)')">
+    <div class="color-swatch" style="background: rgb(193, 154, 107);"></div>
+    <span class="color-name">fallow</span>
+    <span class="color-tuple">(193, 154, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fandango" data-r="181" data-g="51" data-b="137" onclick="copyColor(this, '(181, 51, 137)')">
+    <div class="color-swatch" style="background: rgb(181, 51, 137);"></div>
+    <span class="color-name">fandango</span>
+    <span class="color-tuple">(181, 51, 137)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fandangoPink" data-r="222" data-g="82" data-b="133" onclick="copyColor(this, '(222, 82, 133)')">
+    <div class="color-swatch" style="background: rgb(222, 82, 133);"></div>
+    <span class="color-name">fandangoPink <span style="opacity:0.5">(Fandango pink)</span></span>
+    <span class="color-tuple">(222, 82, 133)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fawn" data-r="229" data-g="170" data-b="112" onclick="copyColor(this, '(229, 170, 112)')">
+    <div class="color-swatch" style="background: rgb(229, 170, 112);"></div>
+    <span class="color-name">fawn</span>
+    <span class="color-tuple">(229, 170, 112)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="feldgrau" data-r="77" data-g="93" data-b="83" onclick="copyColor(this, '(77, 93, 83)')">
+    <div class="color-swatch" style="background: rgb(77, 93, 83);"></div>
+    <span class="color-name">feldgrau</span>
+    <span class="color-tuple">(77, 93, 83)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fernGreen" data-r="79" data-g="121" data-b="66" onclick="copyColor(this, '(79, 121, 66)')">
+    <div class="color-swatch" style="background: rgb(79, 121, 66);"></div>
+    <span class="color-name">fernGreen <span style="opacity:0.5">(Fern green)</span></span>
+    <span class="color-tuple">(79, 121, 66)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fieldDrab" data-r="108" data-g="84" data-b="30" onclick="copyColor(this, '(108, 84, 30)')">
+    <div class="color-swatch" style="background: rgb(108, 84, 30);"></div>
+    <span class="color-name">fieldDrab <span style="opacity:0.5">(Field drab)</span></span>
+    <span class="color-tuple">(108, 84, 30)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fieryRose" data-r="255" data-g="84" data-b="112" onclick="copyColor(this, '(255, 84, 112)')">
+    <div class="color-swatch" style="background: rgb(255, 84, 112);"></div>
+    <span class="color-name">fieryRose <span style="opacity:0.5">(Fiery rose)</span></span>
+    <span class="color-tuple">(255, 84, 112)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="finn" data-r="105" data-g="45" data-b="84" onclick="copyColor(this, '(105, 45, 84)')">
+    <div class="color-swatch" style="background: rgb(105, 45, 84);"></div>
+    <span class="color-name">finn</span>
+    <span class="color-tuple">(105, 45, 84)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fireEngineRed" data-r="206" data-g="32" data-b="41" onclick="copyColor(this, '(206, 32, 41)')">
+    <div class="color-swatch" style="background: rgb(206, 32, 41);"></div>
+    <span class="color-name">fireEngineRed <span style="opacity:0.5">(Fire engine red)</span></span>
+    <span class="color-tuple">(206, 32, 41)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="firebrick" data-r="178" data-g="34" data-b="34" onclick="copyColor(this, '(178, 34, 34)')">
+    <div class="color-swatch" style="background: rgb(178, 34, 34);"></div>
+    <span class="color-name">firebrick</span>
+    <span class="color-tuple">(178, 34, 34)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="flame" data-r="226" data-g="88" data-b="34" onclick="copyColor(this, '(226, 88, 34)')">
+    <div class="color-swatch" style="background: rgb(226, 88, 34);"></div>
+    <span class="color-name">flame</span>
+    <span class="color-tuple">(226, 88, 34)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="flameOfBurntBrandy" data-r="205" data-g="120" data-b="67" onclick="copyColor(this, '(205, 120, 67)')">
+    <div class="color-swatch" style="background: rgb(205, 120, 67);"></div>
+    <span class="color-name">flameOfBurntBrandy <span style="opacity:0.5">(Flame-of-Burnt-Brandy)</span></span>
+    <span class="color-tuple">(205, 120, 67)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="flax" data-r="238" data-g="220" data-b="130" onclick="copyColor(this, '(238, 220, 130)')">
+    <div class="color-swatch" style="background: rgb(238, 220, 130);"></div>
+    <span class="color-name">flax</span>
+    <span class="color-tuple">(238, 220, 130)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="flirt" data-r="162" data-g="0" data-b="109" onclick="copyColor(this, '(162, 0, 109)')">
+    <div class="color-swatch" style="background: rgb(162, 0, 109);"></div>
+    <span class="color-name">flirt</span>
+    <span class="color-tuple">(162, 0, 109)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="floralWhite" data-r="255" data-g="250" data-b="240" onclick="copyColor(this, '(255, 250, 240)')">
+    <div class="color-swatch" style="background: rgb(255, 250, 240);"></div>
+    <span class="color-name">floralWhite <span style="opacity:0.5">(Floral white)</span></span>
+    <span class="color-tuple">(255, 250, 240)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="forestGreen" data-r="34" data-g="139" data-b="34" onclick="copyColor(this, '(34, 139, 34)')">
+    <div class="color-swatch" style="background: rgb(34, 139, 34);"></div>
+    <span class="color-name">forestGreen <span style="opacity:0.5">(Forest green (web))</span></span>
+    <span class="color-tuple">(34, 139, 34)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchBeige" data-r="166" data-g="123" data-b="91" onclick="copyColor(this, '(166, 123, 91)')">
+    <div class="color-swatch" style="background: rgb(166, 123, 91);"></div>
+    <span class="color-name">frenchBeige <span style="opacity:0.5">(French beige)</span></span>
+    <span class="color-tuple">(166, 123, 91)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchBistre" data-r="133" data-g="109" data-b="77" onclick="copyColor(this, '(133, 109, 77)')">
+    <div class="color-swatch" style="background: rgb(133, 109, 77);"></div>
+    <span class="color-name">frenchBistre <span style="opacity:0.5">(French bistre)</span></span>
+    <span class="color-tuple">(133, 109, 77)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchBlue" data-r="0" data-g="114" data-b="187" onclick="copyColor(this, '(0, 114, 187)')">
+    <div class="color-swatch" style="background: rgb(0, 114, 187);"></div>
+    <span class="color-name">frenchBlue <span style="opacity:0.5">(French blue)</span></span>
+    <span class="color-tuple">(0, 114, 187)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchFuchsia" data-r="253" data-g="63" data-b="146" onclick="copyColor(this, '(253, 63, 146)')">
+    <div class="color-swatch" style="background: rgb(253, 63, 146);"></div>
+    <span class="color-name">frenchFuchsia <span style="opacity:0.5">(French fuchsia)</span></span>
+    <span class="color-tuple">(253, 63, 146)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchLilac" data-r="134" data-g="96" data-b="142" onclick="copyColor(this, '(134, 96, 142)')">
+    <div class="color-swatch" style="background: rgb(134, 96, 142);"></div>
+    <span class="color-name">frenchLilac <span style="opacity:0.5">(French lilac)</span></span>
+    <span class="color-tuple">(134, 96, 142)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchLime" data-r="158" data-g="253" data-b="56" onclick="copyColor(this, '(158, 253, 56)')">
+    <div class="color-swatch" style="background: rgb(158, 253, 56);"></div>
+    <span class="color-name">frenchLime <span style="opacity:0.5">(French lime)</span></span>
+    <span class="color-tuple">(158, 253, 56)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchMauve" data-r="212" data-g="115" data-b="212" onclick="copyColor(this, '(212, 115, 212)')">
+    <div class="color-swatch" style="background: rgb(212, 115, 212);"></div>
+    <span class="color-name">frenchMauve <span style="opacity:0.5">(French mauve)</span></span>
+    <span class="color-tuple">(212, 115, 212)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchPink" data-r="253" data-g="108" data-b="158" onclick="copyColor(this, '(253, 108, 158)')">
+    <div class="color-swatch" style="background: rgb(253, 108, 158);"></div>
+    <span class="color-name">frenchPink <span style="opacity:0.5">(French pink)</span></span>
+    <span class="color-tuple">(253, 108, 158)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchRaspberry" data-r="199" data-g="44" data-b="72" onclick="copyColor(this, '(199, 44, 72)')">
+    <div class="color-swatch" style="background: rgb(199, 44, 72);"></div>
+    <span class="color-name">frenchRaspberry <span style="opacity:0.5">(French raspberry)</span></span>
+    <span class="color-tuple">(199, 44, 72)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchSkyBlue" data-r="119" data-g="181" data-b="254" onclick="copyColor(this, '(119, 181, 254)')">
+    <div class="color-swatch" style="background: rgb(119, 181, 254);"></div>
+    <span class="color-name">frenchSkyBlue <span style="opacity:0.5">(French sky blue)</span></span>
+    <span class="color-tuple">(119, 181, 254)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frenchViolet" data-r="136" data-g="6" data-b="206" onclick="copyColor(this, '(136, 6, 206)')">
+    <div class="color-swatch" style="background: rgb(136, 6, 206);"></div>
+    <span class="color-name">frenchViolet <span style="opacity:0.5">(French violet)</span></span>
+    <span class="color-tuple">(136, 6, 206)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="frostbite" data-r="233" data-g="54" data-b="167" onclick="copyColor(this, '(233, 54, 167)')">
+    <div class="color-swatch" style="background: rgb(233, 54, 167);"></div>
+    <span class="color-name">frostbite</span>
+    <span class="color-tuple">(233, 54, 167)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fuchsia" data-r="255" data-g="0" data-b="255" onclick="copyColor(this, '(255, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(255, 0, 255);"></div>
+    <span class="color-name">fuchsia</span>
+    <span class="color-tuple">(255, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fulvous" data-r="228" data-g="132" data-b="0" onclick="copyColor(this, '(228, 132, 0)')">
+    <div class="color-swatch" style="background: rgb(228, 132, 0);"></div>
+    <span class="color-name">fulvous</span>
+    <span class="color-tuple">(228, 132, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="fuzzyWuzzy" data-r="204" data-g="102" data-b="102" onclick="copyColor(this, '(204, 102, 102)')">
+    <div class="color-swatch" style="background: rgb(204, 102, 102);"></div>
+    <span class="color-name">fuzzyWuzzy <span style="opacity:0.5">(Fuzzy Wuzzy)</span></span>
+    <span class="color-tuple">(204, 102, 102)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="gainsboro" data-r="220" data-g="220" data-b="220" onclick="copyColor(this, '(220, 220, 220)')">
+    <div class="color-swatch" style="background: rgb(220, 220, 220);"></div>
+    <span class="color-name">gainsboro</span>
+    <span class="color-tuple">(220, 220, 220)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="gamboge" data-r="228" data-g="155" data-b="15" onclick="copyColor(this, '(228, 155, 15)')">
+    <div class="color-swatch" style="background: rgb(228, 155, 15);"></div>
+    <span class="color-name">gamboge</span>
+    <span class="color-tuple">(228, 155, 15)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="genericViridian" data-r="0" data-g="127" data-b="118" onclick="copyColor(this, '(0, 127, 118)')">
+    <div class="color-swatch" style="background: rgb(0, 127, 118);"></div>
+    <span class="color-name">genericViridian <span style="opacity:0.5">(Generic viridian)</span></span>
+    <span class="color-tuple">(0, 127, 118)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ghostWhite" data-r="248" data-g="248" data-b="255" onclick="copyColor(this, '(248, 248, 255)')">
+    <div class="color-swatch" style="background: rgb(248, 248, 255);"></div>
+    <span class="color-name">ghostWhite <span style="opacity:0.5">(Ghost white)</span></span>
+    <span class="color-tuple">(248, 248, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="gingerline" data-r="255" data-g="153" data-b="0" onclick="copyColor(this, '(255, 153, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 153, 0);"></div>
+    <span class="color-name">gingerline</span>
+    <span class="color-tuple">(255, 153, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="glaucous" data-r="96" data-g="130" data-b="182" onclick="copyColor(this, '(96, 130, 182)')">
+    <div class="color-swatch" style="background: rgb(96, 130, 182);"></div>
+    <span class="color-name">glaucous</span>
+    <span class="color-tuple">(96, 130, 182)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="glossyGrape" data-r="171" data-g="146" data-b="191" onclick="copyColor(this, '(171, 146, 191)')">
+    <div class="color-swatch" style="background: rgb(171, 146, 191);"></div>
+    <span class="color-name">glossyGrape <span style="opacity:0.5">(Glossy grape)</span></span>
+    <span class="color-tuple">(171, 146, 191)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="goGreen" data-r="0" data-g="171" data-b="102" onclick="copyColor(this, '(0, 171, 102)')">
+    <div class="color-swatch" style="background: rgb(0, 171, 102);"></div>
+    <span class="color-name">goGreen <span style="opacity:0.5">(GO green)</span></span>
+    <span class="color-tuple">(0, 171, 102)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="gold" data-r="230" data-g="190" data-b="138" onclick="copyColor(this, '(230, 190, 138)')">
+    <div class="color-swatch" style="background: rgb(230, 190, 138);"></div>
+    <span class="color-name">gold <span style="opacity:0.5">(Gold (Crayola))</span></span>
+    <span class="color-tuple">(230, 190, 138)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="goldFusion" data-r="133" data-g="117" data-b="78" onclick="copyColor(this, '(133, 117, 78)')">
+    <div class="color-swatch" style="background: rgb(133, 117, 78);"></div>
+    <span class="color-name">goldFusion <span style="opacity:0.5">(Gold Fusion)</span></span>
+    <span class="color-tuple">(133, 117, 78)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="goldenBrown" data-r="153" data-g="101" data-b="21" onclick="copyColor(this, '(153, 101, 21)')">
+    <div class="color-swatch" style="background: rgb(153, 101, 21);"></div>
+    <span class="color-name">goldenBrown <span style="opacity:0.5">(Golden brown)</span></span>
+    <span class="color-tuple">(153, 101, 21)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="goldenPoppy" data-r="252" data-g="194" data-b="0" onclick="copyColor(this, '(252, 194, 0)')">
+    <div class="color-swatch" style="background: rgb(252, 194, 0);"></div>
+    <span class="color-name">goldenPoppy <span style="opacity:0.5">(Golden poppy)</span></span>
+    <span class="color-tuple">(252, 194, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="goldenYellow" data-r="255" data-g="223" data-b="0" onclick="copyColor(this, '(255, 223, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 223, 0);"></div>
+    <span class="color-name">goldenYellow <span style="opacity:0.5">(Golden yellow)</span></span>
+    <span class="color-tuple">(255, 223, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="goldenrod" data-r="218" data-g="165" data-b="32" onclick="copyColor(this, '(218, 165, 32)')">
+    <div class="color-swatch" style="background: rgb(218, 165, 32);"></div>
+    <span class="color-name">goldenrod</span>
+    <span class="color-tuple">(218, 165, 32)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="gothamGreen" data-r="0" data-g="181" data-b="120" onclick="copyColor(this, '(0, 181, 120)')">
+    <div class="color-swatch" style="background: rgb(0, 181, 120);"></div>
+    <span class="color-name">gothamGreen <span style="opacity:0.5">(Gotham green)</span></span>
+    <span class="color-tuple">(0, 181, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="graniteGray" data-r="103" data-g="103" data-b="103" onclick="copyColor(this, '(103, 103, 103)')">
+    <div class="color-swatch" style="background: rgb(103, 103, 103);"></div>
+    <span class="color-name">graniteGray <span style="opacity:0.5">(Granite gray)</span></span>
+    <span class="color-tuple">(103, 103, 103)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="grannySmithApple" data-r="168" data-g="228" data-b="160" onclick="copyColor(this, '(168, 228, 160)')">
+    <div class="color-swatch" style="background: rgb(168, 228, 160);"></div>
+    <span class="color-name">grannySmithApple <span style="opacity:0.5">(Granny Smith apple)</span></span>
+    <span class="color-tuple">(168, 228, 160)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="gray" data-r="190" data-g="190" data-b="190" onclick="copyColor(this, '(190, 190, 190)')">
+    <div class="color-swatch" style="background: rgb(190, 190, 190);"></div>
+    <span class="color-name">gray <span style="opacity:0.5">(Gray (X11 gray))</span></span>
+    <span class="color-tuple">(190, 190, 190)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="greige" data-r="170" data-g="152" data-b="137" onclick="copyColor(this, '(170, 152, 137)')">
+    <div class="color-swatch" style="background: rgb(170, 152, 137);"></div>
+    <span class="color-name">greige</span>
+    <span class="color-tuple">(170, 152, 137)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="green" data-r="0" data-g="128" data-b="0" onclick="copyColor(this, '(0, 128, 0)')">
+    <div class="color-swatch" style="background: rgb(0, 128, 0);"></div>
+    <span class="color-name">green</span>
+    <span class="color-tuple">(0, 128, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="greenLizard" data-r="167" data-g="244" data-b="50" onclick="copyColor(this, '(167, 244, 50)')">
+    <div class="color-swatch" style="background: rgb(167, 244, 50);"></div>
+    <span class="color-name">greenLizard <span style="opacity:0.5">(Green Lizard)</span></span>
+    <span class="color-tuple">(167, 244, 50)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="greenSheen" data-r="110" data-g="174" data-b="161" onclick="copyColor(this, '(110, 174, 161)')">
+    <div class="color-swatch" style="background: rgb(110, 174, 161);"></div>
+    <span class="color-name">greenSheen <span style="opacity:0.5">(Green Sheen)</span></span>
+    <span class="color-tuple">(110, 174, 161)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="greenBlue" data-r="17" data-g="100" data-b="180" onclick="copyColor(this, '(17, 100, 180)')">
+    <div class="color-swatch" style="background: rgb(17, 100, 180);"></div>
+    <span class="color-name">greenBlue <span style="opacity:0.5">(Green-blue)</span></span>
+    <span class="color-tuple">(17, 100, 180)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="gooseTurdGreen" data-r="78" data-g="168" data-b="9" onclick="copyColor(this, '(78, 168, 9)')">
+    <div class="color-swatch" style="background: rgb(78, 168, 9);"></div>
+    <span class="color-name">gooseTurdGreen <span style="opacity:0.5">(Goose Turd Green)</span></span>
+    <span class="color-tuple">(78, 168, 9)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="gunmetal" data-r="42" data-g="52" data-b="57" onclick="copyColor(this, '(42, 52, 57)')">
+    <div class="color-swatch" style="background: rgb(42, 52, 57);"></div>
+    <span class="color-name">gunmetal</span>
+    <span class="color-tuple">(42, 52, 57)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="hansaYellow" data-r="233" data-g="214" data-b="107" onclick="copyColor(this, '(233, 214, 107)')">
+    <div class="color-swatch" style="background: rgb(233, 214, 107);"></div>
+    <span class="color-name">hansaYellow <span style="opacity:0.5">(Hansa yellow)</span></span>
+    <span class="color-tuple">(233, 214, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="harlequin" data-r="63" data-g="255" data-b="0" onclick="copyColor(this, '(63, 255, 0)')">
+    <div class="color-swatch" style="background: rgb(63, 255, 0);"></div>
+    <span class="color-name">harlequin</span>
+    <span class="color-tuple">(63, 255, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="harvestGold" data-r="218" data-g="145" data-b="0" onclick="copyColor(this, '(218, 145, 0)')">
+    <div class="color-swatch" style="background: rgb(218, 145, 0);"></div>
+    <span class="color-name">harvestGold <span style="opacity:0.5">(Harvest gold)</span></span>
+    <span class="color-tuple">(218, 145, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="heatWave" data-r="255" data-g="122" data-b="0" onclick="copyColor(this, '(255, 122, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 122, 0);"></div>
+    <span class="color-name">heatWave <span style="opacity:0.5">(Heat Wave)</span></span>
+    <span class="color-tuple">(255, 122, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="heliotrope" data-r="223" data-g="115" data-b="255" onclick="copyColor(this, '(223, 115, 255)')">
+    <div class="color-swatch" style="background: rgb(223, 115, 255);"></div>
+    <span class="color-name">heliotrope</span>
+    <span class="color-tuple">(223, 115, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="heliotropeGray" data-r="170" data-g="152" data-b="168" onclick="copyColor(this, '(170, 152, 168)')">
+    <div class="color-swatch" style="background: rgb(170, 152, 168);"></div>
+    <span class="color-name">heliotropeGray <span style="opacity:0.5">(Heliotrope gray)</span></span>
+    <span class="color-tuple">(170, 152, 168)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="hollywoodCerise" data-r="244" data-g="0" data-b="161" onclick="copyColor(this, '(244, 0, 161)')">
+    <div class="color-swatch" style="background: rgb(244, 0, 161);"></div>
+    <span class="color-name">hollywoodCerise <span style="opacity:0.5">(Hollywood cerise)</span></span>
+    <span class="color-tuple">(244, 0, 161)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="honoluluBlue" data-r="0" data-g="109" data-b="176" onclick="copyColor(this, '(0, 109, 176)')">
+    <div class="color-swatch" style="background: rgb(0, 109, 176);"></div>
+    <span class="color-name">honoluluBlue <span style="opacity:0.5">(Honolulu blue)</span></span>
+    <span class="color-tuple">(0, 109, 176)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="hookersGreen" data-r="73" data-g="121" data-b="107" onclick="copyColor(this, '(73, 121, 107)')">
+    <div class="color-swatch" style="background: rgb(73, 121, 107);"></div>
+    <span class="color-name">hookersGreen <span style="opacity:0.5">(Hooker&#x27;s green)</span></span>
+    <span class="color-tuple">(73, 121, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="hotMagenta" data-r="255" data-g="29" data-b="206" onclick="copyColor(this, '(255, 29, 206)')">
+    <div class="color-swatch" style="background: rgb(255, 29, 206);"></div>
+    <span class="color-name">hotMagenta <span style="opacity:0.5">(Hot magenta)</span></span>
+    <span class="color-tuple">(255, 29, 206)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="hotPink" data-r="255" data-g="105" data-b="180" onclick="copyColor(this, '(255, 105, 180)')">
+    <div class="color-swatch" style="background: rgb(255, 105, 180);"></div>
+    <span class="color-name">hotPink <span style="opacity:0.5">(Hot pink)</span></span>
+    <span class="color-tuple">(255, 105, 180)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="hunterGreen" data-r="53" data-g="94" data-b="59" onclick="copyColor(this, '(53, 94, 59)')">
+    <div class="color-swatch" style="background: rgb(53, 94, 59);"></div>
+    <span class="color-name">hunterGreen <span style="opacity:0.5">(Hunter green)</span></span>
+    <span class="color-tuple">(53, 94, 59)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="iceberg" data-r="113" data-g="166" data-b="210" onclick="copyColor(this, '(113, 166, 210)')">
+    <div class="color-swatch" style="background: rgb(113, 166, 210);"></div>
+    <span class="color-name">iceberg</span>
+    <span class="color-tuple">(113, 166, 210)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="illuminatingEmerald" data-r="49" data-g="145" data-b="119" onclick="copyColor(this, '(49, 145, 119)')">
+    <div class="color-swatch" style="background: rgb(49, 145, 119);"></div>
+    <span class="color-name">illuminatingEmerald <span style="opacity:0.5">(Illuminating emerald)</span></span>
+    <span class="color-tuple">(49, 145, 119)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="imperialRed" data-r="237" data-g="41" data-b="57" onclick="copyColor(this, '(237, 41, 57)')">
+    <div class="color-swatch" style="background: rgb(237, 41, 57);"></div>
+    <span class="color-name">imperialRed <span style="opacity:0.5">(Imperial red)</span></span>
+    <span class="color-tuple">(237, 41, 57)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="inchworm" data-r="178" data-g="236" data-b="93" onclick="copyColor(this, '(178, 236, 93)')">
+    <div class="color-swatch" style="background: rgb(178, 236, 93);"></div>
+    <span class="color-name">inchworm</span>
+    <span class="color-tuple">(178, 236, 93)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="incarnadine" data-r="170" data-g="0" data-b="34" onclick="copyColor(this, '(170, 0, 34)')">
+    <div class="color-swatch" style="background: rgb(170, 0, 34);"></div>
+    <span class="color-name">incarnadine</span>
+    <span class="color-tuple">(170, 0, 34)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="independence" data-r="76" data-g="81" data-b="109" onclick="copyColor(this, '(76, 81, 109)')">
+    <div class="color-swatch" style="background: rgb(76, 81, 109);"></div>
+    <span class="color-name">independence</span>
+    <span class="color-tuple">(76, 81, 109)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="indiaGreen" data-r="19" data-g="136" data-b="8" onclick="copyColor(this, '(19, 136, 8)')">
+    <div class="color-swatch" style="background: rgb(19, 136, 8);"></div>
+    <span class="color-name">indiaGreen <span style="opacity:0.5">(India green)</span></span>
+    <span class="color-tuple">(19, 136, 8)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="indianRed" data-r="205" data-g="92" data-b="92" onclick="copyColor(this, '(205, 92, 92)')">
+    <div class="color-swatch" style="background: rgb(205, 92, 92);"></div>
+    <span class="color-name">indianRed <span style="opacity:0.5">(Indian red)</span></span>
+    <span class="color-tuple">(205, 92, 92)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="indianYellow" data-r="227" data-g="168" data-b="87" onclick="copyColor(this, '(227, 168, 87)')">
+    <div class="color-swatch" style="background: rgb(227, 168, 87);"></div>
+    <span class="color-name">indianYellow <span style="opacity:0.5">(Indian yellow)</span></span>
+    <span class="color-tuple">(227, 168, 87)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="indigo" data-r="75" data-g="0" data-b="130" onclick="copyColor(this, '(75, 0, 130)')">
+    <div class="color-swatch" style="background: rgb(75, 0, 130);"></div>
+    <span class="color-name">indigo</span>
+    <span class="color-tuple">(75, 0, 130)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="indigoDye" data-r="0" data-g="65" data-b="106" onclick="copyColor(this, '(0, 65, 106)')">
+    <div class="color-swatch" style="background: rgb(0, 65, 106);"></div>
+    <span class="color-name">indigoDye <span style="opacity:0.5">(Indigo dye)</span></span>
+    <span class="color-tuple">(0, 65, 106)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="internationalKleinBlue" data-r="0" data-g="47" data-b="167" onclick="copyColor(this, '(0, 47, 167)')">
+    <div class="color-swatch" style="background: rgb(0, 47, 167);"></div>
+    <span class="color-name">internationalKleinBlue <span style="opacity:0.5">(International Klein Blue)</span></span>
+    <span class="color-tuple">(0, 47, 167)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="internationalOrange" data-r="186" data-g="22" data-b="12" onclick="copyColor(this, '(186, 22, 12)')">
+    <div class="color-swatch" style="background: rgb(186, 22, 12);"></div>
+    <span class="color-name">internationalOrange <span style="opacity:0.5">(International orange (engineering))</span></span>
+    <span class="color-tuple">(186, 22, 12)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="irresistible" data-r="179" data-g="68" data-b="108" onclick="copyColor(this, '(179, 68, 108)')">
+    <div class="color-swatch" style="background: rgb(179, 68, 108);"></div>
+    <span class="color-name">irresistible</span>
+    <span class="color-tuple">(179, 68, 108)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="isabelline" data-r="244" data-g="240" data-b="236" onclick="copyColor(this, '(244, 240, 236)')">
+    <div class="color-swatch" style="background: rgb(244, 240, 236);"></div>
+    <span class="color-name">isabelline</span>
+    <span class="color-tuple">(244, 240, 236)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="italianSkyBlue" data-r="178" data-g="255" data-b="255" onclick="copyColor(this, '(178, 255, 255)')">
+    <div class="color-swatch" style="background: rgb(178, 255, 255);"></div>
+    <span class="color-name">italianSkyBlue <span style="opacity:0.5">(Italian sky blue)</span></span>
+    <span class="color-tuple">(178, 255, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ivory" data-r="255" data-g="255" data-b="240" onclick="copyColor(this, '(255, 255, 240)')">
+    <div class="color-swatch" style="background: rgb(255, 255, 240);"></div>
+    <span class="color-name">ivory</span>
+    <span class="color-tuple">(255, 255, 240)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="japaneseCarmine" data-r="157" data-g="41" data-b="51" onclick="copyColor(this, '(157, 41, 51)')">
+    <div class="color-swatch" style="background: rgb(157, 41, 51);"></div>
+    <span class="color-name">japaneseCarmine <span style="opacity:0.5">(Japanese carmine)</span></span>
+    <span class="color-tuple">(157, 41, 51)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="japaneseViolet" data-r="91" data-g="50" data-b="86" onclick="copyColor(this, '(91, 50, 86)')">
+    <div class="color-swatch" style="background: rgb(91, 50, 86);"></div>
+    <span class="color-name">japaneseViolet <span style="opacity:0.5">(Japanese violet)</span></span>
+    <span class="color-tuple">(91, 50, 86)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="jasmine" data-r="248" data-g="222" data-b="126" onclick="copyColor(this, '(248, 222, 126)')">
+    <div class="color-swatch" style="background: rgb(248, 222, 126);"></div>
+    <span class="color-name">jasmine</span>
+    <span class="color-tuple">(248, 222, 126)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="jazzberryJam" data-r="165" data-g="11" data-b="94" onclick="copyColor(this, '(165, 11, 94)')">
+    <div class="color-swatch" style="background: rgb(165, 11, 94);"></div>
+    <span class="color-name">jazzberryJam <span style="opacity:0.5">(Jazzberry jam)</span></span>
+    <span class="color-tuple">(165, 11, 94)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="jet" data-r="52" data-g="52" data-b="52" onclick="copyColor(this, '(52, 52, 52)')">
+    <div class="color-swatch" style="background: rgb(52, 52, 52);"></div>
+    <span class="color-name">jet</span>
+    <span class="color-tuple">(52, 52, 52)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="jonquil" data-r="244" data-g="202" data-b="22" onclick="copyColor(this, '(244, 202, 22)')">
+    <div class="color-swatch" style="background: rgb(244, 202, 22);"></div>
+    <span class="color-name">jonquil</span>
+    <span class="color-tuple">(244, 202, 22)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="juneBud" data-r="189" data-g="218" data-b="87" onclick="copyColor(this, '(189, 218, 87)')">
+    <div class="color-swatch" style="background: rgb(189, 218, 87);"></div>
+    <span class="color-name">juneBud <span style="opacity:0.5">(June bud)</span></span>
+    <span class="color-tuple">(189, 218, 87)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="jungleGreen" data-r="41" data-g="171" data-b="135" onclick="copyColor(this, '(41, 171, 135)')">
+    <div class="color-swatch" style="background: rgb(41, 171, 135);"></div>
+    <span class="color-name">jungleGreen <span style="opacity:0.5">(Jungle green)</span></span>
+    <span class="color-tuple">(41, 171, 135)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="kellyGreen" data-r="76" data-g="187" data-b="23" onclick="copyColor(this, '(76, 187, 23)')">
+    <div class="color-swatch" style="background: rgb(76, 187, 23);"></div>
+    <span class="color-name">kellyGreen <span style="opacity:0.5">(Kelly green)</span></span>
+    <span class="color-tuple">(76, 187, 23)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="keppel" data-r="58" data-g="176" data-b="158" onclick="copyColor(this, '(58, 176, 158)')">
+    <div class="color-swatch" style="background: rgb(58, 176, 158);"></div>
+    <span class="color-name">keppel</span>
+    <span class="color-tuple">(58, 176, 158)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="kermesRed" data-r="153" data-g="0" data-b="0" onclick="copyColor(this, '(153, 0, 0)')">
+    <div class="color-swatch" style="background: rgb(153, 0, 0);"></div>
+    <span class="color-name">kermesRed <span style="opacity:0.5">(Kermes red)</span></span>
+    <span class="color-tuple">(153, 0, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="keyLime" data-r="232" data-g="244" data-b="140" onclick="copyColor(this, '(232, 244, 140)')">
+    <div class="color-swatch" style="background: rgb(232, 244, 140);"></div>
+    <span class="color-name">keyLime <span style="opacity:0.5">(Key lime)</span></span>
+    <span class="color-tuple">(232, 244, 140)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="khaki" data-r="240" data-g="230" data-b="140" onclick="copyColor(this, '(240, 230, 140)')">
+    <div class="color-swatch" style="background: rgb(240, 230, 140);"></div>
+    <span class="color-name">khaki <span style="opacity:0.5">(Khaki (X11) (Light khaki))</span></span>
+    <span class="color-tuple">(240, 230, 140)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="kobe" data-r="136" data-g="45" data-b="23" onclick="copyColor(this, '(136, 45, 23)')">
+    <div class="color-swatch" style="background: rgb(136, 45, 23);"></div>
+    <span class="color-name">kobe</span>
+    <span class="color-tuple">(136, 45, 23)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="kobi" data-r="231" data-g="159" data-b="196" onclick="copyColor(this, '(231, 159, 196)')">
+    <div class="color-swatch" style="background: rgb(231, 159, 196);"></div>
+    <span class="color-name">kobi</span>
+    <span class="color-tuple">(231, 159, 196)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="kobicha" data-r="107" data-g="68" data-b="35" onclick="copyColor(this, '(107, 68, 35)')">
+    <div class="color-swatch" style="background: rgb(107, 68, 35);"></div>
+    <span class="color-name">kobicha</span>
+    <span class="color-tuple">(107, 68, 35)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ksuPurple" data-r="81" data-g="40" data-b="136" onclick="copyColor(this, '(81, 40, 136)')">
+    <div class="color-swatch" style="background: rgb(81, 40, 136);"></div>
+    <span class="color-name">ksuPurple <span style="opacity:0.5">(KSU purple)</span></span>
+    <span class="color-tuple">(81, 40, 136)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="languidLavender" data-r="214" data-g="202" data-b="221" onclick="copyColor(this, '(214, 202, 221)')">
+    <div class="color-swatch" style="background: rgb(214, 202, 221);"></div>
+    <span class="color-name">languidLavender <span style="opacity:0.5">(Languid lavender)</span></span>
+    <span class="color-tuple">(214, 202, 221)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lapisLazuli" data-r="38" data-g="97" data-b="156" onclick="copyColor(this, '(38, 97, 156)')">
+    <div class="color-swatch" style="background: rgb(38, 97, 156);"></div>
+    <span class="color-name">lapisLazuli <span style="opacity:0.5">(Lapis lazuli)</span></span>
+    <span class="color-tuple">(38, 97, 156)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="laserLemon" data-r="255" data-g="255" data-b="102" onclick="copyColor(this, '(255, 255, 102)')">
+    <div class="color-swatch" style="background: rgb(255, 255, 102);"></div>
+    <span class="color-name">laserLemon <span style="opacity:0.5">(Laser lemon)</span></span>
+    <span class="color-tuple">(255, 255, 102)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="laurelGreen" data-r="169" data-g="186" data-b="157" onclick="copyColor(this, '(169, 186, 157)')">
+    <div class="color-swatch" style="background: rgb(169, 186, 157);"></div>
+    <span class="color-name">laurelGreen <span style="opacity:0.5">(Laurel green)</span></span>
+    <span class="color-tuple">(169, 186, 157)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lava" data-r="207" data-g="16" data-b="32" onclick="copyColor(this, '(207, 16, 32)')">
+    <div class="color-swatch" style="background: rgb(207, 16, 32);"></div>
+    <span class="color-name">lava</span>
+    <span class="color-tuple">(207, 16, 32)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lavender" data-r="181" data-g="126" data-b="220" onclick="copyColor(this, '(181, 126, 220)')">
+    <div class="color-swatch" style="background: rgb(181, 126, 220);"></div>
+    <span class="color-name">lavender <span style="opacity:0.5">(Lavender (floral))</span></span>
+    <span class="color-tuple">(181, 126, 220)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lavenderBlue" data-r="204" data-g="204" data-b="255" onclick="copyColor(this, '(204, 204, 255)')">
+    <div class="color-swatch" style="background: rgb(204, 204, 255);"></div>
+    <span class="color-name">lavenderBlue <span style="opacity:0.5">(Lavender blue)</span></span>
+    <span class="color-tuple">(204, 204, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lavenderBlush" data-r="255" data-g="240" data-b="245" onclick="copyColor(this, '(255, 240, 245)')">
+    <div class="color-swatch" style="background: rgb(255, 240, 245);"></div>
+    <span class="color-name">lavenderBlush <span style="opacity:0.5">(Lavender blush)</span></span>
+    <span class="color-tuple">(255, 240, 245)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lavenderGray" data-r="196" data-g="195" data-b="208" onclick="copyColor(this, '(196, 195, 208)')">
+    <div class="color-swatch" style="background: rgb(196, 195, 208);"></div>
+    <span class="color-name">lavenderGray <span style="opacity:0.5">(Lavender gray)</span></span>
+    <span class="color-tuple">(196, 195, 208)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lawnGreen" data-r="124" data-g="252" data-b="0" onclick="copyColor(this, '(124, 252, 0)')">
+    <div class="color-swatch" style="background: rgb(124, 252, 0);"></div>
+    <span class="color-name">lawnGreen <span style="opacity:0.5">(Lawn green)</span></span>
+    <span class="color-tuple">(124, 252, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="leadWhite" data-r="243" data-g="240" data-b="229" onclick="copyColor(this, '(243, 240, 229)')">
+    <div class="color-swatch" style="background: rgb(243, 240, 229);"></div>
+    <span class="color-name">leadWhite <span style="opacity:0.5">(Lead white)</span></span>
+    <span class="color-tuple">(243, 240, 229)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lemon" data-r="255" data-g="247" data-b="0" onclick="copyColor(this, '(255, 247, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 247, 0);"></div>
+    <span class="color-name">lemon</span>
+    <span class="color-tuple">(255, 247, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lemonChiffon" data-r="255" data-g="250" data-b="205" onclick="copyColor(this, '(255, 250, 205)')">
+    <div class="color-swatch" style="background: rgb(255, 250, 205);"></div>
+    <span class="color-name">lemonChiffon <span style="opacity:0.5">(Lemon chiffon)</span></span>
+    <span class="color-tuple">(255, 250, 205)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lemonCurry" data-r="204" data-g="160" data-b="29" onclick="copyColor(this, '(204, 160, 29)')">
+    <div class="color-swatch" style="background: rgb(204, 160, 29);"></div>
+    <span class="color-name">lemonCurry <span style="opacity:0.5">(Lemon curry)</span></span>
+    <span class="color-tuple">(204, 160, 29)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lemonGlacier" data-r="253" data-g="255" data-b="0" onclick="copyColor(this, '(253, 255, 0)')">
+    <div class="color-swatch" style="background: rgb(253, 255, 0);"></div>
+    <span class="color-name">lemonGlacier <span style="opacity:0.5">(Lemon glacier)</span></span>
+    <span class="color-tuple">(253, 255, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lemonMeringue" data-r="246" data-g="234" data-b="190" onclick="copyColor(this, '(246, 234, 190)')">
+    <div class="color-swatch" style="background: rgb(246, 234, 190);"></div>
+    <span class="color-name">lemonMeringue <span style="opacity:0.5">(Lemon meringue)</span></span>
+    <span class="color-tuple">(246, 234, 190)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lemonYellow" data-r="255" data-g="244" data-b="79" onclick="copyColor(this, '(255, 244, 79)')">
+    <div class="color-swatch" style="background: rgb(255, 244, 79);"></div>
+    <span class="color-name">lemonYellow <span style="opacity:0.5">(Lemon yellow)</span></span>
+    <span class="color-tuple">(255, 244, 79)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="liberty" data-r="84" data-g="90" data-b="167" onclick="copyColor(this, '(84, 90, 167)')">
+    <div class="color-swatch" style="background: rgb(84, 90, 167);"></div>
+    <span class="color-name">liberty</span>
+    <span class="color-tuple">(84, 90, 167)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightFrenchBeige" data-r="200" data-g="173" data-b="127" onclick="copyColor(this, '(200, 173, 127)')">
+    <div class="color-swatch" style="background: rgb(200, 173, 127);"></div>
+    <span class="color-name">lightFrenchBeige <span style="opacity:0.5">(Light French beige)</span></span>
+    <span class="color-tuple">(200, 173, 127)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightBlue" data-r="173" data-g="216" data-b="230" onclick="copyColor(this, '(173, 216, 230)')">
+    <div class="color-swatch" style="background: rgb(173, 216, 230);"></div>
+    <span class="color-name">lightBlue <span style="opacity:0.5">(Light blue)</span></span>
+    <span class="color-tuple">(173, 216, 230)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightCoral" data-r="240" data-g="128" data-b="128" onclick="copyColor(this, '(240, 128, 128)')">
+    <div class="color-swatch" style="background: rgb(240, 128, 128);"></div>
+    <span class="color-name">lightCoral <span style="opacity:0.5">(Light coral)</span></span>
+    <span class="color-tuple">(240, 128, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightCornflowerBlue" data-r="147" data-g="204" data-b="234" onclick="copyColor(this, '(147, 204, 234)')">
+    <div class="color-swatch" style="background: rgb(147, 204, 234);"></div>
+    <span class="color-name">lightCornflowerBlue <span style="opacity:0.5">(Light cornflower blue)</span></span>
+    <span class="color-tuple">(147, 204, 234)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightCyan" data-r="224" data-g="255" data-b="255" onclick="copyColor(this, '(224, 255, 255)')">
+    <div class="color-swatch" style="background: rgb(224, 255, 255);"></div>
+    <span class="color-name">lightCyan <span style="opacity:0.5">(Light cyan)</span></span>
+    <span class="color-tuple">(224, 255, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightGoldenrodYellow" data-r="250" data-g="250" data-b="210" onclick="copyColor(this, '(250, 250, 210)')">
+    <div class="color-swatch" style="background: rgb(250, 250, 210);"></div>
+    <span class="color-name">lightGoldenrodYellow <span style="opacity:0.5">(Light goldenrod yellow)</span></span>
+    <span class="color-tuple">(250, 250, 210)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightGray" data-r="211" data-g="211" data-b="211" onclick="copyColor(this, '(211, 211, 211)')">
+    <div class="color-swatch" style="background: rgb(211, 211, 211);"></div>
+    <span class="color-name">lightGray <span style="opacity:0.5">(Light gray)</span></span>
+    <span class="color-tuple">(211, 211, 211)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightGreen" data-r="144" data-g="238" data-b="144" onclick="copyColor(this, '(144, 238, 144)')">
+    <div class="color-swatch" style="background: rgb(144, 238, 144);"></div>
+    <span class="color-name">lightGreen <span style="opacity:0.5">(Light green)</span></span>
+    <span class="color-tuple">(144, 238, 144)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightOrange" data-r="254" data-g="216" data-b="177" onclick="copyColor(this, '(254, 216, 177)')">
+    <div class="color-swatch" style="background: rgb(254, 216, 177);"></div>
+    <span class="color-name">lightOrange <span style="opacity:0.5">(Light orange)</span></span>
+    <span class="color-tuple">(254, 216, 177)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightPeriwinkle" data-r="197" data-g="203" data-b="225" onclick="copyColor(this, '(197, 203, 225)')">
+    <div class="color-swatch" style="background: rgb(197, 203, 225);"></div>
+    <span class="color-name">lightPeriwinkle <span style="opacity:0.5">(Light periwinkle)</span></span>
+    <span class="color-tuple">(197, 203, 225)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightPink" data-r="255" data-g="182" data-b="193" onclick="copyColor(this, '(255, 182, 193)')">
+    <div class="color-swatch" style="background: rgb(255, 182, 193);"></div>
+    <span class="color-name">lightPink <span style="opacity:0.5">(Light pink)</span></span>
+    <span class="color-tuple">(255, 182, 193)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightPurple" data-r="182" data-g="102" data-b="210" onclick="copyColor(this, '(182, 102, 210)')">
+    <div class="color-swatch" style="background: rgb(182, 102, 210);"></div>
+    <span class="color-name">lightPurple <span style="opacity:0.5">(Light purple)</span></span>
+    <span class="color-tuple">(182, 102, 210)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightSalmon" data-r="255" data-g="160" data-b="122" onclick="copyColor(this, '(255, 160, 122)')">
+    <div class="color-swatch" style="background: rgb(255, 160, 122);"></div>
+    <span class="color-name">lightSalmon <span style="opacity:0.5">(Light salmon)</span></span>
+    <span class="color-tuple">(255, 160, 122)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightSeaGreen" data-r="32" data-g="178" data-b="170" onclick="copyColor(this, '(32, 178, 170)')">
+    <div class="color-swatch" style="background: rgb(32, 178, 170);"></div>
+    <span class="color-name">lightSeaGreen <span style="opacity:0.5">(Light sea green)</span></span>
+    <span class="color-tuple">(32, 178, 170)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightSkyBlue" data-r="135" data-g="206" data-b="250" onclick="copyColor(this, '(135, 206, 250)')">
+    <div class="color-swatch" style="background: rgb(135, 206, 250);"></div>
+    <span class="color-name">lightSkyBlue <span style="opacity:0.5">(Light sky blue)</span></span>
+    <span class="color-tuple">(135, 206, 250)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightSlateGray" data-r="119" data-g="136" data-b="153" onclick="copyColor(this, '(119, 136, 153)')">
+    <div class="color-swatch" style="background: rgb(119, 136, 153);"></div>
+    <span class="color-name">lightSlateGray <span style="opacity:0.5">(Light slate gray)</span></span>
+    <span class="color-tuple">(119, 136, 153)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightSteelBlue" data-r="176" data-g="196" data-b="222" onclick="copyColor(this, '(176, 196, 222)')">
+    <div class="color-swatch" style="background: rgb(176, 196, 222);"></div>
+    <span class="color-name">lightSteelBlue <span style="opacity:0.5">(Light steel blue)</span></span>
+    <span class="color-tuple">(176, 196, 222)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lightYellow" data-r="255" data-g="255" data-b="224" onclick="copyColor(this, '(255, 255, 224)')">
+    <div class="color-swatch" style="background: rgb(255, 255, 224);"></div>
+    <span class="color-name">lightYellow <span style="opacity:0.5">(Light yellow)</span></span>
+    <span class="color-tuple">(255, 255, 224)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lilac" data-r="200" data-g="162" data-b="200" onclick="copyColor(this, '(200, 162, 200)')">
+    <div class="color-swatch" style="background: rgb(200, 162, 200);"></div>
+    <span class="color-name">lilac</span>
+    <span class="color-tuple">(200, 162, 200)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lilacLuster" data-r="174" data-g="152" data-b="170" onclick="copyColor(this, '(174, 152, 170)')">
+    <div class="color-swatch" style="background: rgb(174, 152, 170);"></div>
+    <span class="color-name">lilacLuster <span style="opacity:0.5">(Lilac Luster)</span></span>
+    <span class="color-tuple">(174, 152, 170)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lime" data-r="191" data-g="255" data-b="0" onclick="copyColor(this, '(191, 255, 0)')">
+    <div class="color-swatch" style="background: rgb(191, 255, 0);"></div>
+    <span class="color-name">lime <span style="opacity:0.5">(Lime (color wheel))</span></span>
+    <span class="color-tuple">(191, 255, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="limeGreen" data-r="50" data-g="205" data-b="50" onclick="copyColor(this, '(50, 205, 50)')">
+    <div class="color-swatch" style="background: rgb(50, 205, 50);"></div>
+    <span class="color-name">limeGreen <span style="opacity:0.5">(Lime green)</span></span>
+    <span class="color-tuple">(50, 205, 50)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lincolnGreen" data-r="25" data-g="89" data-b="5" onclick="copyColor(this, '(25, 89, 5)')">
+    <div class="color-swatch" style="background: rgb(25, 89, 5);"></div>
+    <span class="color-name">lincolnGreen <span style="opacity:0.5">(Lincoln green)</span></span>
+    <span class="color-tuple">(25, 89, 5)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="linen" data-r="250" data-g="240" data-b="230" onclick="copyColor(this, '(250, 240, 230)')">
+    <div class="color-swatch" style="background: rgb(250, 240, 230);"></div>
+    <span class="color-name">linen</span>
+    <span class="color-tuple">(250, 240, 230)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lion" data-r="193" data-g="154" data-b="107" onclick="copyColor(this, '(193, 154, 107)')">
+    <div class="color-swatch" style="background: rgb(193, 154, 107);"></div>
+    <span class="color-name">lion</span>
+    <span class="color-tuple">(193, 154, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="liseranPurple" data-r="222" data-g="111" data-b="161" onclick="copyColor(this, '(222, 111, 161)')">
+    <div class="color-swatch" style="background: rgb(222, 111, 161);"></div>
+    <span class="color-name">liseranPurple <span style="opacity:0.5">(Liseran purple)</span></span>
+    <span class="color-tuple">(222, 111, 161)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="littleBoyBlue" data-r="108" data-g="160" data-b="220" onclick="copyColor(this, '(108, 160, 220)')">
+    <div class="color-swatch" style="background: rgb(108, 160, 220);"></div>
+    <span class="color-name">littleBoyBlue <span style="opacity:0.5">(Little boy blue)</span></span>
+    <span class="color-tuple">(108, 160, 220)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="liver" data-r="103" data-g="76" data-b="71" onclick="copyColor(this, '(103, 76, 71)')">
+    <div class="color-swatch" style="background: rgb(103, 76, 71);"></div>
+    <span class="color-name">liver</span>
+    <span class="color-tuple">(103, 76, 71)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="liverChestnut" data-r="152" data-g="116" data-b="86" onclick="copyColor(this, '(152, 116, 86)')">
+    <div class="color-swatch" style="background: rgb(152, 116, 86);"></div>
+    <span class="color-name">liverChestnut <span style="opacity:0.5">(Liver chestnut)</span></span>
+    <span class="color-tuple">(152, 116, 86)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="livid" data-r="102" data-g="153" data-b="204" onclick="copyColor(this, '(102, 153, 204)')">
+    <div class="color-swatch" style="background: rgb(102, 153, 204);"></div>
+    <span class="color-name">livid</span>
+    <span class="color-tuple">(102, 153, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="lustyGallant" data-r="233" data-g="118" data-b="140" onclick="copyColor(this, '(233, 118, 140)')">
+    <div class="color-swatch" style="background: rgb(233, 118, 140);"></div>
+    <span class="color-name">lustyGallant <span style="opacity:0.5">(Lusty Gallant)</span></span>
+    <span class="color-tuple">(233, 118, 140)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="macaroniAndCheese" data-r="255" data-g="189" data-b="136" onclick="copyColor(this, '(255, 189, 136)')">
+    <div class="color-swatch" style="background: rgb(255, 189, 136);"></div>
+    <span class="color-name">macaroniAndCheese <span style="opacity:0.5">(Macaroni and Cheese)</span></span>
+    <span class="color-tuple">(255, 189, 136)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="madderLake" data-r="204" data-g="51" data-b="54" onclick="copyColor(this, '(204, 51, 54)')">
+    <div class="color-swatch" style="background: rgb(204, 51, 54);"></div>
+    <span class="color-name">madderLake <span style="opacity:0.5">(Madder Lake)</span></span>
+    <span class="color-tuple">(204, 51, 54)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="magenta" data-r="255" data-g="0" data-b="255" onclick="copyColor(this, '(255, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(255, 0, 255);"></div>
+    <span class="color-name">magenta</span>
+    <span class="color-tuple">(255, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="magentaHaze" data-r="159" data-g="69" data-b="118" onclick="copyColor(this, '(159, 69, 118)')">
+    <div class="color-swatch" style="background: rgb(159, 69, 118);"></div>
+    <span class="color-name">magentaHaze <span style="opacity:0.5">(Magenta haze)</span></span>
+    <span class="color-tuple">(159, 69, 118)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="magicMint" data-r="170" data-g="240" data-b="209" onclick="copyColor(this, '(170, 240, 209)')">
+    <div class="color-swatch" style="background: rgb(170, 240, 209);"></div>
+    <span class="color-name">magicMint <span style="opacity:0.5">(Magic mint)</span></span>
+    <span class="color-tuple">(170, 240, 209)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="magnolia" data-r="248" data-g="244" data-b="255" onclick="copyColor(this, '(248, 244, 255)')">
+    <div class="color-swatch" style="background: rgb(248, 244, 255);"></div>
+    <span class="color-name">magnolia</span>
+    <span class="color-tuple">(248, 244, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mahogany" data-r="192" data-g="64" data-b="0" onclick="copyColor(this, '(192, 64, 0)')">
+    <div class="color-swatch" style="background: rgb(192, 64, 0);"></div>
+    <span class="color-name">mahogany</span>
+    <span class="color-tuple">(192, 64, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maize" data-r="251" data-g="236" data-b="93" onclick="copyColor(this, '(251, 236, 93)')">
+    <div class="color-swatch" style="background: rgb(251, 236, 93);"></div>
+    <span class="color-name">maize</span>
+    <span class="color-tuple">(251, 236, 93)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="majorelleBlue" data-r="96" data-g="80" data-b="220" onclick="copyColor(this, '(96, 80, 220)')">
+    <div class="color-swatch" style="background: rgb(96, 80, 220);"></div>
+    <span class="color-name">majorelleBlue <span style="opacity:0.5">(Majorelle blue)</span></span>
+    <span class="color-tuple">(96, 80, 220)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="malachite" data-r="11" data-g="218" data-b="81" onclick="copyColor(this, '(11, 218, 81)')">
+    <div class="color-swatch" style="background: rgb(11, 218, 81);"></div>
+    <span class="color-name">malachite</span>
+    <span class="color-tuple">(11, 218, 81)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="manatee" data-r="151" data-g="154" data-b="170" onclick="copyColor(this, '(151, 154, 170)')">
+    <div class="color-swatch" style="background: rgb(151, 154, 170);"></div>
+    <span class="color-name">manatee</span>
+    <span class="color-tuple">(151, 154, 170)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mandarin" data-r="243" data-g="122" data-b="72" onclick="copyColor(this, '(243, 122, 72)')">
+    <div class="color-swatch" style="background: rgb(243, 122, 72);"></div>
+    <span class="color-name">mandarin</span>
+    <span class="color-tuple">(243, 122, 72)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mango" data-r="255" data-g="130" data-b="67" onclick="copyColor(this, '(255, 130, 67)')">
+    <div class="color-swatch" style="background: rgb(255, 130, 67);"></div>
+    <span class="color-name">mango</span>
+    <span class="color-tuple">(255, 130, 67)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mangoTango" data-r="255" data-g="130" data-b="67" onclick="copyColor(this, '(255, 130, 67)')">
+    <div class="color-swatch" style="background: rgb(255, 130, 67);"></div>
+    <span class="color-name">mangoTango <span style="opacity:0.5">(Mango Tango)</span></span>
+    <span class="color-tuple">(255, 130, 67)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mantis" data-r="116" data-g="195" data-b="101" onclick="copyColor(this, '(116, 195, 101)')">
+    <div class="color-swatch" style="background: rgb(116, 195, 101);"></div>
+    <span class="color-name">mantis</span>
+    <span class="color-tuple">(116, 195, 101)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mardiGras" data-r="136" data-g="0" data-b="133" onclick="copyColor(this, '(136, 0, 133)')">
+    <div class="color-swatch" style="background: rgb(136, 0, 133);"></div>
+    <span class="color-name">mardiGras <span style="opacity:0.5">(Mardi Gras)</span></span>
+    <span class="color-tuple">(136, 0, 133)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="marigold" data-r="234" data-g="162" data-b="33" onclick="copyColor(this, '(234, 162, 33)')">
+    <div class="color-swatch" style="background: rgb(234, 162, 33);"></div>
+    <span class="color-name">marigold</span>
+    <span class="color-tuple">(234, 162, 33)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="marianBlue" data-r="35" data-g="56" data-b="139" onclick="copyColor(this, '(35, 56, 139)')">
+    <div class="color-swatch" style="background: rgb(35, 56, 139);"></div>
+    <span class="color-name">marianBlue <span style="opacity:0.5">(Marian blue)</span></span>
+    <span class="color-tuple">(35, 56, 139)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="marineBlue" data-r="0" data-g="104" data-b="139" onclick="copyColor(this, '(0, 104, 139)')">
+    <div class="color-swatch" style="background: rgb(0, 104, 139);"></div>
+    <span class="color-name">marineBlue <span style="opacity:0.5">(Marine blue)</span></span>
+    <span class="color-tuple">(0, 104, 139)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maroon" data-r="195" data-g="33" data-b="72" onclick="copyColor(this, '(195, 33, 72)')">
+    <div class="color-swatch" style="background: rgb(195, 33, 72);"></div>
+    <span class="color-name">maroon <span style="opacity:0.5">(Maroon (Crayola))</span></span>
+    <span class="color-tuple">(195, 33, 72)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mauve" data-r="224" data-g="176" data-b="255" onclick="copyColor(this, '(224, 176, 255)')">
+    <div class="color-swatch" style="background: rgb(224, 176, 255);"></div>
+    <span class="color-name">mauve</span>
+    <span class="color-tuple">(224, 176, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mauveTaupe" data-r="145" data-g="95" data-b="109" onclick="copyColor(this, '(145, 95, 109)')">
+    <div class="color-swatch" style="background: rgb(145, 95, 109);"></div>
+    <span class="color-name">mauveTaupe <span style="opacity:0.5">(Mauve taupe)</span></span>
+    <span class="color-tuple">(145, 95, 109)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mauvelous" data-r="239" data-g="152" data-b="170" onclick="copyColor(this, '(239, 152, 170)')">
+    <div class="color-swatch" style="background: rgb(239, 152, 170);"></div>
+    <span class="color-name">mauvelous</span>
+    <span class="color-tuple">(239, 152, 170)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumBlue" data-r="71" data-g="171" data-b="204" onclick="copyColor(this, '(71, 171, 204)')">
+    <div class="color-swatch" style="background: rgb(71, 171, 204);"></div>
+    <span class="color-name">maximumBlue <span style="opacity:0.5">(Maximum blue)</span></span>
+    <span class="color-tuple">(71, 171, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumBlueGreen" data-r="48" data-g="191" data-b="191" onclick="copyColor(this, '(48, 191, 191)')">
+    <div class="color-swatch" style="background: rgb(48, 191, 191);"></div>
+    <span class="color-name">maximumBlueGreen <span style="opacity:0.5">(Maximum blue green)</span></span>
+    <span class="color-tuple">(48, 191, 191)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumBluePurple" data-r="172" data-g="172" data-b="230" onclick="copyColor(this, '(172, 172, 230)')">
+    <div class="color-swatch" style="background: rgb(172, 172, 230);"></div>
+    <span class="color-name">maximumBluePurple <span style="opacity:0.5">(Maximum blue purple)</span></span>
+    <span class="color-tuple">(172, 172, 230)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumGreen" data-r="94" data-g="140" data-b="49" onclick="copyColor(this, '(94, 140, 49)')">
+    <div class="color-swatch" style="background: rgb(94, 140, 49);"></div>
+    <span class="color-name">maximumGreen <span style="opacity:0.5">(Maximum green)</span></span>
+    <span class="color-tuple">(94, 140, 49)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumGreenYellow" data-r="217" data-g="230" data-b="80" onclick="copyColor(this, '(217, 230, 80)')">
+    <div class="color-swatch" style="background: rgb(217, 230, 80);"></div>
+    <span class="color-name">maximumGreenYellow <span style="opacity:0.5">(Maximum green yellow)</span></span>
+    <span class="color-tuple">(217, 230, 80)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumPurple" data-r="115" data-g="51" data-b="128" onclick="copyColor(this, '(115, 51, 128)')">
+    <div class="color-swatch" style="background: rgb(115, 51, 128);"></div>
+    <span class="color-name">maximumPurple <span style="opacity:0.5">(Maximum purple)</span></span>
+    <span class="color-tuple">(115, 51, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumRed" data-r="217" data-g="33" data-b="33" onclick="copyColor(this, '(217, 33, 33)')">
+    <div class="color-swatch" style="background: rgb(217, 33, 33);"></div>
+    <span class="color-name">maximumRed <span style="opacity:0.5">(Maximum red)</span></span>
+    <span class="color-tuple">(217, 33, 33)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumRedPurple" data-r="166" data-g="58" data-b="121" onclick="copyColor(this, '(166, 58, 121)')">
+    <div class="color-swatch" style="background: rgb(166, 58, 121);"></div>
+    <span class="color-name">maximumRedPurple <span style="opacity:0.5">(Maximum red purple)</span></span>
+    <span class="color-tuple">(166, 58, 121)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumYellow" data-r="250" data-g="250" data-b="55" onclick="copyColor(this, '(250, 250, 55)')">
+    <div class="color-swatch" style="background: rgb(250, 250, 55);"></div>
+    <span class="color-name">maximumYellow <span style="opacity:0.5">(Maximum yellow)</span></span>
+    <span class="color-tuple">(250, 250, 55)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="maximumYellowRed" data-r="242" data-g="186" data-b="73" onclick="copyColor(this, '(242, 186, 73)')">
+    <div class="color-swatch" style="background: rgb(242, 186, 73);"></div>
+    <span class="color-name">maximumYellowRed <span style="opacity:0.5">(Maximum yellow red)</span></span>
+    <span class="color-tuple">(242, 186, 73)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mayGreen" data-r="76" data-g="145" data-b="65" onclick="copyColor(this, '(76, 145, 65)')">
+    <div class="color-swatch" style="background: rgb(76, 145, 65);"></div>
+    <span class="color-name">mayGreen <span style="opacity:0.5">(May green)</span></span>
+    <span class="color-tuple">(76, 145, 65)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mayaBlue" data-r="115" data-g="194" data-b="251" onclick="copyColor(this, '(115, 194, 251)')">
+    <div class="color-swatch" style="background: rgb(115, 194, 251);"></div>
+    <span class="color-name">mayaBlue <span style="opacity:0.5">(Maya blue)</span></span>
+    <span class="color-tuple">(115, 194, 251)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mazarine" data-r="40" data-g="67" data-b="132" onclick="copyColor(this, '(40, 67, 132)')">
+    <div class="color-swatch" style="background: rgb(40, 67, 132);"></div>
+    <span class="color-name">mazarine</span>
+    <span class="color-tuple">(40, 67, 132)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumAquamarine" data-r="102" data-g="221" data-b="170" onclick="copyColor(this, '(102, 221, 170)')">
+    <div class="color-swatch" style="background: rgb(102, 221, 170);"></div>
+    <span class="color-name">mediumAquamarine <span style="opacity:0.5">(Medium aquamarine)</span></span>
+    <span class="color-tuple">(102, 221, 170)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumBlue" data-r="0" data-g="0" data-b="205" onclick="copyColor(this, '(0, 0, 205)')">
+    <div class="color-swatch" style="background: rgb(0, 0, 205);"></div>
+    <span class="color-name">mediumBlue <span style="opacity:0.5">(Medium blue)</span></span>
+    <span class="color-tuple">(0, 0, 205)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumCandyAppleRed" data-r="226" data-g="6" data-b="44" onclick="copyColor(this, '(226, 6, 44)')">
+    <div class="color-swatch" style="background: rgb(226, 6, 44);"></div>
+    <span class="color-name">mediumCandyAppleRed <span style="opacity:0.5">(Medium candy apple red)</span></span>
+    <span class="color-tuple">(226, 6, 44)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumCarmine" data-r="175" data-g="64" data-b="53" onclick="copyColor(this, '(175, 64, 53)')">
+    <div class="color-swatch" style="background: rgb(175, 64, 53);"></div>
+    <span class="color-name">mediumCarmine <span style="opacity:0.5">(Medium carmine)</span></span>
+    <span class="color-tuple">(175, 64, 53)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumChampagne" data-r="243" data-g="229" data-b="171" onclick="copyColor(this, '(243, 229, 171)')">
+    <div class="color-swatch" style="background: rgb(243, 229, 171);"></div>
+    <span class="color-name">mediumChampagne <span style="opacity:0.5">(Medium champagne)</span></span>
+    <span class="color-tuple">(243, 229, 171)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumOrchid" data-r="186" data-g="85" data-b="211" onclick="copyColor(this, '(186, 85, 211)')">
+    <div class="color-swatch" style="background: rgb(186, 85, 211);"></div>
+    <span class="color-name">mediumOrchid <span style="opacity:0.5">(Medium orchid)</span></span>
+    <span class="color-tuple">(186, 85, 211)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumPurple" data-r="147" data-g="112" data-b="219" onclick="copyColor(this, '(147, 112, 219)')">
+    <div class="color-swatch" style="background: rgb(147, 112, 219);"></div>
+    <span class="color-name">mediumPurple <span style="opacity:0.5">(Medium purple)</span></span>
+    <span class="color-tuple">(147, 112, 219)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumSeaGreen" data-r="60" data-g="179" data-b="113" onclick="copyColor(this, '(60, 179, 113)')">
+    <div class="color-swatch" style="background: rgb(60, 179, 113);"></div>
+    <span class="color-name">mediumSeaGreen <span style="opacity:0.5">(Medium sea green)</span></span>
+    <span class="color-tuple">(60, 179, 113)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumSlateBlue" data-r="123" data-g="104" data-b="238" onclick="copyColor(this, '(123, 104, 238)')">
+    <div class="color-swatch" style="background: rgb(123, 104, 238);"></div>
+    <span class="color-name">mediumSlateBlue <span style="opacity:0.5">(Medium slate blue)</span></span>
+    <span class="color-tuple">(123, 104, 238)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumSpringGreen" data-r="0" data-g="250" data-b="154" onclick="copyColor(this, '(0, 250, 154)')">
+    <div class="color-swatch" style="background: rgb(0, 250, 154);"></div>
+    <span class="color-name">mediumSpringGreen <span style="opacity:0.5">(Medium spring green)</span></span>
+    <span class="color-tuple">(0, 250, 154)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumTurquoise" data-r="72" data-g="209" data-b="204" onclick="copyColor(this, '(72, 209, 204)')">
+    <div class="color-swatch" style="background: rgb(72, 209, 204);"></div>
+    <span class="color-name">mediumTurquoise <span style="opacity:0.5">(Medium turquoise)</span></span>
+    <span class="color-tuple">(72, 209, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mediumVioletRed" data-r="199" data-g="21" data-b="133" onclick="copyColor(this, '(199, 21, 133)')">
+    <div class="color-swatch" style="background: rgb(199, 21, 133);"></div>
+    <span class="color-name">mediumVioletRed <span style="opacity:0.5">(Medium violet-red)</span></span>
+    <span class="color-tuple">(199, 21, 133)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mellowApricot" data-r="248" data-g="184" data-b="120" onclick="copyColor(this, '(248, 184, 120)')">
+    <div class="color-swatch" style="background: rgb(248, 184, 120);"></div>
+    <span class="color-name">mellowApricot <span style="opacity:0.5">(Mellow apricot)</span></span>
+    <span class="color-tuple">(248, 184, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mellowYellow" data-r="248" data-g="222" data-b="126" onclick="copyColor(this, '(248, 222, 126)')">
+    <div class="color-swatch" style="background: rgb(248, 222, 126);"></div>
+    <span class="color-name">mellowYellow <span style="opacity:0.5">(Mellow yellow)</span></span>
+    <span class="color-tuple">(248, 222, 126)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="melon" data-r="253" data-g="188" data-b="180" onclick="copyColor(this, '(253, 188, 180)')">
+    <div class="color-swatch" style="background: rgb(253, 188, 180);"></div>
+    <span class="color-name">melon</span>
+    <span class="color-tuple">(253, 188, 180)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="metallicSeaweed" data-r="10" data-g="126" data-b="140" onclick="copyColor(this, '(10, 126, 140)')">
+    <div class="color-swatch" style="background: rgb(10, 126, 140);"></div>
+    <span class="color-name">metallicSeaweed <span style="opacity:0.5">(Metallic Seaweed)</span></span>
+    <span class="color-tuple">(10, 126, 140)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="metallicSunburst" data-r="156" data-g="124" data-b="56" onclick="copyColor(this, '(156, 124, 56)')">
+    <div class="color-swatch" style="background: rgb(156, 124, 56);"></div>
+    <span class="color-name">metallicSunburst <span style="opacity:0.5">(Metallic Sunburst)</span></span>
+    <span class="color-tuple">(156, 124, 56)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="metallicGold" data-r="211" data-g="175" data-b="55" onclick="copyColor(this, '(211, 175, 55)')">
+    <div class="color-swatch" style="background: rgb(211, 175, 55);"></div>
+    <span class="color-name">metallicGold <span style="opacity:0.5">(Metallic gold)</span></span>
+    <span class="color-tuple">(211, 175, 55)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mexicanPink" data-r="228" data-g="0" data-b="124" onclick="copyColor(this, '(228, 0, 124)')">
+    <div class="color-swatch" style="background: rgb(228, 0, 124);"></div>
+    <span class="color-name">mexicanPink <span style="opacity:0.5">(Mexican pink)</span></span>
+    <span class="color-tuple">(228, 0, 124)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleBlue" data-r="126" data-g="212" data-b="230" onclick="copyColor(this, '(126, 212, 230)')">
+    <div class="color-swatch" style="background: rgb(126, 212, 230);"></div>
+    <span class="color-name">middleBlue <span style="opacity:0.5">(Middle blue)</span></span>
+    <span class="color-tuple">(126, 212, 230)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleBlueGreen" data-r="141" data-g="217" data-b="204" onclick="copyColor(this, '(141, 217, 204)')">
+    <div class="color-swatch" style="background: rgb(141, 217, 204);"></div>
+    <span class="color-name">middleBlueGreen <span style="opacity:0.5">(Middle blue green)</span></span>
+    <span class="color-tuple">(141, 217, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleBluePurple" data-r="139" data-g="114" data-b="190" onclick="copyColor(this, '(139, 114, 190)')">
+    <div class="color-swatch" style="background: rgb(139, 114, 190);"></div>
+    <span class="color-name">middleBluePurple <span style="opacity:0.5">(Middle blue purple)</span></span>
+    <span class="color-tuple">(139, 114, 190)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleGreen" data-r="77" data-g="140" data-b="87" onclick="copyColor(this, '(77, 140, 87)')">
+    <div class="color-swatch" style="background: rgb(77, 140, 87);"></div>
+    <span class="color-name">middleGreen <span style="opacity:0.5">(Middle green)</span></span>
+    <span class="color-tuple">(77, 140, 87)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleGreenYellow" data-r="172" data-g="191" data-b="96" onclick="copyColor(this, '(172, 191, 96)')">
+    <div class="color-swatch" style="background: rgb(172, 191, 96);"></div>
+    <span class="color-name">middleGreenYellow <span style="opacity:0.5">(Middle green yellow)</span></span>
+    <span class="color-tuple">(172, 191, 96)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleGrey" data-r="139" data-g="134" data-b="128" onclick="copyColor(this, '(139, 134, 128)')">
+    <div class="color-swatch" style="background: rgb(139, 134, 128);"></div>
+    <span class="color-name">middleGrey <span style="opacity:0.5">(Middle grey)</span></span>
+    <span class="color-tuple">(139, 134, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middlePurple" data-r="217" data-g="130" data-b="181" onclick="copyColor(this, '(217, 130, 181)')">
+    <div class="color-swatch" style="background: rgb(217, 130, 181);"></div>
+    <span class="color-name">middlePurple <span style="opacity:0.5">(Middle purple)</span></span>
+    <span class="color-tuple">(217, 130, 181)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleRed" data-r="229" data-g="144" data-b="115" onclick="copyColor(this, '(229, 144, 115)')">
+    <div class="color-swatch" style="background: rgb(229, 144, 115);"></div>
+    <span class="color-name">middleRed <span style="opacity:0.5">(Middle red)</span></span>
+    <span class="color-tuple">(229, 144, 115)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleRedPurple" data-r="165" data-g="83" data-b="83" onclick="copyColor(this, '(165, 83, 83)')">
+    <div class="color-swatch" style="background: rgb(165, 83, 83);"></div>
+    <span class="color-name">middleRedPurple <span style="opacity:0.5">(Middle red purple)</span></span>
+    <span class="color-tuple">(165, 83, 83)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleYellow" data-r="255" data-g="235" data-b="0" onclick="copyColor(this, '(255, 235, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 235, 0);"></div>
+    <span class="color-name">middleYellow <span style="opacity:0.5">(Middle yellow)</span></span>
+    <span class="color-tuple">(255, 235, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="middleYellowRed" data-r="236" data-g="177" data-b="98" onclick="copyColor(this, '(236, 177, 98)')">
+    <div class="color-swatch" style="background: rgb(236, 177, 98);"></div>
+    <span class="color-name">middleYellowRed <span style="opacity:0.5">(Middle yellow red)</span></span>
+    <span class="color-tuple">(236, 177, 98)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="midnight" data-r="112" data-g="38" data-b="112" onclick="copyColor(this, '(112, 38, 112)')">
+    <div class="color-swatch" style="background: rgb(112, 38, 112);"></div>
+    <span class="color-name">midnight</span>
+    <span class="color-tuple">(112, 38, 112)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="midnightBlue" data-r="25" data-g="25" data-b="112" onclick="copyColor(this, '(25, 25, 112)')">
+    <div class="color-swatch" style="background: rgb(25, 25, 112);"></div>
+    <span class="color-name">midnightBlue <span style="opacity:0.5">(Midnight blue)</span></span>
+    <span class="color-tuple">(25, 25, 112)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="midnightGreen" data-r="0" data-g="73" data-b="83" onclick="copyColor(this, '(0, 73, 83)')">
+    <div class="color-swatch" style="background: rgb(0, 73, 83);"></div>
+    <span class="color-name">midnightGreen <span style="opacity:0.5">(Midnight green (eagle green))</span></span>
+    <span class="color-tuple">(0, 73, 83)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mikadoYellow" data-r="255" data-g="196" data-b="12" onclick="copyColor(this, '(255, 196, 12)')">
+    <div class="color-swatch" style="background: rgb(255, 196, 12);"></div>
+    <span class="color-name">mikadoYellow <span style="opacity:0.5">(Mikado yellow)</span></span>
+    <span class="color-tuple">(255, 196, 12)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mimiPink" data-r="255" data-g="218" data-b="233" onclick="copyColor(this, '(255, 218, 233)')">
+    <div class="color-swatch" style="background: rgb(255, 218, 233);"></div>
+    <span class="color-name">mimiPink <span style="opacity:0.5">(Mimi pink)</span></span>
+    <span class="color-tuple">(255, 218, 233)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mindaro" data-r="227" data-g="249" data-b="136" onclick="copyColor(this, '(227, 249, 136)')">
+    <div class="color-swatch" style="background: rgb(227, 249, 136);"></div>
+    <span class="color-name">mindaro</span>
+    <span class="color-tuple">(227, 249, 136)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ming" data-r="54" data-g="116" data-b="125" onclick="copyColor(this, '(54, 116, 125)')">
+    <div class="color-swatch" style="background: rgb(54, 116, 125);"></div>
+    <span class="color-name">ming</span>
+    <span class="color-tuple">(54, 116, 125)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="minionYellow" data-r="245" data-g="224" data-b="80" onclick="copyColor(this, '(245, 224, 80)')">
+    <div class="color-swatch" style="background: rgb(245, 224, 80);"></div>
+    <span class="color-name">minionYellow <span style="opacity:0.5">(Minion yellow)</span></span>
+    <span class="color-tuple">(245, 224, 80)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mint" data-r="62" data-g="180" data-b="137" onclick="copyColor(this, '(62, 180, 137)')">
+    <div class="color-swatch" style="background: rgb(62, 180, 137);"></div>
+    <span class="color-name">mint</span>
+    <span class="color-tuple">(62, 180, 137)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mintCream" data-r="245" data-g="255" data-b="250" onclick="copyColor(this, '(245, 255, 250)')">
+    <div class="color-swatch" style="background: rgb(245, 255, 250);"></div>
+    <span class="color-name">mintCream <span style="opacity:0.5">(Mint cream)</span></span>
+    <span class="color-tuple">(245, 255, 250)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mintGreen" data-r="152" data-g="255" data-b="152" onclick="copyColor(this, '(152, 255, 152)')">
+    <div class="color-swatch" style="background: rgb(152, 255, 152);"></div>
+    <span class="color-name">mintGreen <span style="opacity:0.5">(Mint green)</span></span>
+    <span class="color-tuple">(152, 255, 152)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mistyMoss" data-r="187" data-g="180" data-b="119" onclick="copyColor(this, '(187, 180, 119)')">
+    <div class="color-swatch" style="background: rgb(187, 180, 119);"></div>
+    <span class="color-name">mistyMoss <span style="opacity:0.5">(Misty moss)</span></span>
+    <span class="color-tuple">(187, 180, 119)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mistyRose" data-r="255" data-g="228" data-b="225" onclick="copyColor(this, '(255, 228, 225)')">
+    <div class="color-swatch" style="background: rgb(255, 228, 225);"></div>
+    <span class="color-name">mistyRose <span style="opacity:0.5">(Misty rose)</span></span>
+    <span class="color-tuple">(255, 228, 225)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="moccasin" data-r="250" data-g="235" data-b="215" onclick="copyColor(this, '(250, 235, 215)')">
+    <div class="color-swatch" style="background: rgb(250, 235, 215);"></div>
+    <span class="color-name">moccasin</span>
+    <span class="color-tuple">(250, 235, 215)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="modeBeige" data-r="150" data-g="113" data-b="23" onclick="copyColor(this, '(150, 113, 23)')">
+    <div class="color-swatch" style="background: rgb(150, 113, 23);"></div>
+    <span class="color-name">modeBeige <span style="opacity:0.5">(Mode beige)</span></span>
+    <span class="color-tuple">(150, 113, 23)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="monaLisa" data-r="255" data-g="162" data-b="150" onclick="copyColor(this, '(255, 162, 150)')">
+    <div class="color-swatch" style="background: rgb(255, 162, 150);"></div>
+    <span class="color-name">monaLisa <span style="opacity:0.5">(Mona Lisa)</span></span>
+    <span class="color-tuple">(255, 162, 150)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="morningBlue" data-r="141" data-g="163" data-b="153" onclick="copyColor(this, '(141, 163, 153)')">
+    <div class="color-swatch" style="background: rgb(141, 163, 153);"></div>
+    <span class="color-name">morningBlue <span style="opacity:0.5">(Morning blue)</span></span>
+    <span class="color-tuple">(141, 163, 153)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mossGreen" data-r="138" data-g="154" data-b="91" onclick="copyColor(this, '(138, 154, 91)')">
+    <div class="color-swatch" style="background: rgb(138, 154, 91);"></div>
+    <span class="color-name">mossGreen <span style="opacity:0.5">(Moss green)</span></span>
+    <span class="color-tuple">(138, 154, 91)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mountainMeadow" data-r="48" data-g="186" data-b="143" onclick="copyColor(this, '(48, 186, 143)')">
+    <div class="color-swatch" style="background: rgb(48, 186, 143);"></div>
+    <span class="color-name">mountainMeadow <span style="opacity:0.5">(Mountain Meadow)</span></span>
+    <span class="color-tuple">(48, 186, 143)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mountbattenPink" data-r="153" data-g="122" data-b="141" onclick="copyColor(this, '(153, 122, 141)')">
+    <div class="color-swatch" style="background: rgb(153, 122, 141);"></div>
+    <span class="color-name">mountbattenPink <span style="opacity:0.5">(Mountbatten pink)</span></span>
+    <span class="color-tuple">(153, 122, 141)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="msuGreen" data-r="24" data-g="69" data-b="59" onclick="copyColor(this, '(24, 69, 59)')">
+    <div class="color-swatch" style="background: rgb(24, 69, 59);"></div>
+    <span class="color-name">msuGreen <span style="opacity:0.5">(MSU green)</span></span>
+    <span class="color-tuple">(24, 69, 59)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mulberry" data-r="197" data-g="75" data-b="140" onclick="copyColor(this, '(197, 75, 140)')">
+    <div class="color-swatch" style="background: rgb(197, 75, 140);"></div>
+    <span class="color-name">mulberry</span>
+    <span class="color-tuple">(197, 75, 140)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mummyBrown" data-r="130" data-g="75" data-b="39" onclick="copyColor(this, '(130, 75, 39)')">
+    <div class="color-swatch" style="background: rgb(130, 75, 39);"></div>
+    <span class="color-name">mummyBrown <span style="opacity:0.5">(Mummy brown)</span></span>
+    <span class="color-tuple">(130, 75, 39)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mustard" data-r="255" data-g="219" data-b="88" onclick="copyColor(this, '(255, 219, 88)')">
+    <div class="color-swatch" style="background: rgb(255, 219, 88);"></div>
+    <span class="color-name">mustard</span>
+    <span class="color-tuple">(255, 219, 88)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="myrtleGreen" data-r="49" data-g="120" data-b="115" onclick="copyColor(this, '(49, 120, 115)')">
+    <div class="color-swatch" style="background: rgb(49, 120, 115);"></div>
+    <span class="color-name">myrtleGreen <span style="opacity:0.5">(Myrtle green)</span></span>
+    <span class="color-tuple">(49, 120, 115)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mystic" data-r="214" data-g="82" data-b="130" onclick="copyColor(this, '(214, 82, 130)')">
+    <div class="color-swatch" style="background: rgb(214, 82, 130);"></div>
+    <span class="color-name">mystic</span>
+    <span class="color-tuple">(214, 82, 130)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="mysticMaroon" data-r="173" data-g="67" data-b="121" onclick="copyColor(this, '(173, 67, 121)')">
+    <div class="color-swatch" style="background: rgb(173, 67, 121);"></div>
+    <span class="color-name">mysticMaroon <span style="opacity:0.5">(Mystic maroon)</span></span>
+    <span class="color-tuple">(173, 67, 121)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="nadeshikoPink" data-r="246" data-g="173" data-b="198" onclick="copyColor(this, '(246, 173, 198)')">
+    <div class="color-swatch" style="background: rgb(246, 173, 198);"></div>
+    <span class="color-name">nadeshikoPink <span style="opacity:0.5">(Nadeshiko pink)</span></span>
+    <span class="color-tuple">(246, 173, 198)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="naplesYellow" data-r="250" data-g="218" data-b="94" onclick="copyColor(this, '(250, 218, 94)')">
+    <div class="color-swatch" style="background: rgb(250, 218, 94);"></div>
+    <span class="color-name">naplesYellow <span style="opacity:0.5">(Naples yellow)</span></span>
+    <span class="color-tuple">(250, 218, 94)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="navajoWhite" data-r="255" data-g="222" data-b="173" onclick="copyColor(this, '(255, 222, 173)')">
+    <div class="color-swatch" style="background: rgb(255, 222, 173);"></div>
+    <span class="color-name">navajoWhite <span style="opacity:0.5">(Navajo white)</span></span>
+    <span class="color-tuple">(255, 222, 173)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="navyBlue" data-r="0" data-g="0" data-b="128" onclick="copyColor(this, '(0, 0, 128)')">
+    <div class="color-swatch" style="background: rgb(0, 0, 128);"></div>
+    <span class="color-name">navyBlue <span style="opacity:0.5">(Navy blue)</span></span>
+    <span class="color-tuple">(0, 0, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="neonBlue" data-r="70" data-g="102" data-b="255" onclick="copyColor(this, '(70, 102, 255)')">
+    <div class="color-swatch" style="background: rgb(70, 102, 255);"></div>
+    <span class="color-name">neonBlue <span style="opacity:0.5">(Neon blue)</span></span>
+    <span class="color-tuple">(70, 102, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="neonFuchsia" data-r="254" data-g="65" data-b="100" onclick="copyColor(this, '(254, 65, 100)')">
+    <div class="color-swatch" style="background: rgb(254, 65, 100);"></div>
+    <span class="color-name">neonFuchsia <span style="opacity:0.5">(Neon fuchsia)</span></span>
+    <span class="color-tuple">(254, 65, 100)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="neonGreen" data-r="57" data-g="255" data-b="20" onclick="copyColor(this, '(57, 255, 20)')">
+    <div class="color-swatch" style="background: rgb(57, 255, 20);"></div>
+    <span class="color-name">neonGreen <span style="opacity:0.5">(Neon green)</span></span>
+    <span class="color-tuple">(57, 255, 20)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="newCar" data-r="33" data-g="79" data-b="198" onclick="copyColor(this, '(33, 79, 198)')">
+    <div class="color-swatch" style="background: rgb(33, 79, 198);"></div>
+    <span class="color-name">newCar <span style="opacity:0.5">(New Car)</span></span>
+    <span class="color-tuple">(33, 79, 198)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="newYorkPink" data-r="215" data-g="131" data-b="127" onclick="copyColor(this, '(215, 131, 127)')">
+    <div class="color-swatch" style="background: rgb(215, 131, 127);"></div>
+    <span class="color-name">newYorkPink <span style="opacity:0.5">(New York pink)</span></span>
+    <span class="color-tuple">(215, 131, 127)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="nickel" data-r="114" data-g="116" data-b="114" onclick="copyColor(this, '(114, 116, 114)')">
+    <div class="color-swatch" style="background: rgb(114, 116, 114);"></div>
+    <span class="color-name">nickel</span>
+    <span class="color-tuple">(114, 116, 114)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="nonPhotoBlue" data-r="164" data-g="221" data-b="237" onclick="copyColor(this, '(164, 221, 237)')">
+    <div class="color-swatch" style="background: rgb(164, 221, 237);"></div>
+    <span class="color-name">nonPhotoBlue <span style="opacity:0.5">(Non-photo blue)</span></span>
+    <span class="color-tuple">(164, 221, 237)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="nyanza" data-r="233" data-g="255" data-b="219" onclick="copyColor(this, '(233, 255, 219)')">
+    <div class="color-swatch" style="background: rgb(233, 255, 219);"></div>
+    <span class="color-name">nyanza</span>
+    <span class="color-tuple">(233, 255, 219)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ocher" data-r="204" data-g="119" data-b="34" onclick="copyColor(this, '(204, 119, 34)')">
+    <div class="color-swatch" style="background: rgb(204, 119, 34);"></div>
+    <span class="color-name">ocher <span style="opacity:0.5">(Ocher (Ochre))</span></span>
+    <span class="color-tuple">(204, 119, 34)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oldBurgundy" data-r="67" data-g="48" data-b="46" onclick="copyColor(this, '(67, 48, 46)')">
+    <div class="color-swatch" style="background: rgb(67, 48, 46);"></div>
+    <span class="color-name">oldBurgundy <span style="opacity:0.5">(Old burgundy)</span></span>
+    <span class="color-tuple">(67, 48, 46)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oldGold" data-r="207" data-g="181" data-b="59" onclick="copyColor(this, '(207, 181, 59)')">
+    <div class="color-swatch" style="background: rgb(207, 181, 59);"></div>
+    <span class="color-name">oldGold <span style="opacity:0.5">(Old gold)</span></span>
+    <span class="color-tuple">(207, 181, 59)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oldLace" data-r="253" data-g="245" data-b="230" onclick="copyColor(this, '(253, 245, 230)')">
+    <div class="color-swatch" style="background: rgb(253, 245, 230);"></div>
+    <span class="color-name">oldLace <span style="opacity:0.5">(Old lace)</span></span>
+    <span class="color-tuple">(253, 245, 230)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oldLavender" data-r="121" data-g="104" data-b="120" onclick="copyColor(this, '(121, 104, 120)')">
+    <div class="color-swatch" style="background: rgb(121, 104, 120);"></div>
+    <span class="color-name">oldLavender <span style="opacity:0.5">(Old lavender)</span></span>
+    <span class="color-tuple">(121, 104, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oldMauve" data-r="103" data-g="49" data-b="71" onclick="copyColor(this, '(103, 49, 71)')">
+    <div class="color-swatch" style="background: rgb(103, 49, 71);"></div>
+    <span class="color-name">oldMauve <span style="opacity:0.5">(Old mauve)</span></span>
+    <span class="color-tuple">(103, 49, 71)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oldRose" data-r="192" data-g="128" data-b="129" onclick="copyColor(this, '(192, 128, 129)')">
+    <div class="color-swatch" style="background: rgb(192, 128, 129);"></div>
+    <span class="color-name">oldRose <span style="opacity:0.5">(Old rose)</span></span>
+    <span class="color-tuple">(192, 128, 129)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oldSilver" data-r="132" data-g="132" data-b="130" onclick="copyColor(this, '(132, 132, 130)')">
+    <div class="color-swatch" style="background: rgb(132, 132, 130);"></div>
+    <span class="color-name">oldSilver <span style="opacity:0.5">(Old silver)</span></span>
+    <span class="color-tuple">(132, 132, 130)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="olive" data-r="128" data-g="128" data-b="0" onclick="copyColor(this, '(128, 128, 0)')">
+    <div class="color-swatch" style="background: rgb(128, 128, 0);"></div>
+    <span class="color-name">olive</span>
+    <span class="color-tuple">(128, 128, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oliveDrab" data-r="107" data-g="142" data-b="35" onclick="copyColor(this, '(107, 142, 35)')">
+    <div class="color-swatch" style="background: rgb(107, 142, 35);"></div>
+    <span class="color-name">oliveDrab <span style="opacity:0.5">(Olive Drab (#3))</span></span>
+    <span class="color-tuple">(107, 142, 35)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oliveGreen" data-r="181" data-g="179" data-b="0" onclick="copyColor(this, '(181, 179, 0)')">
+    <div class="color-swatch" style="background: rgb(181, 179, 0);"></div>
+    <span class="color-name">oliveGreen <span style="opacity:0.5">(Olive green)</span></span>
+    <span class="color-tuple">(181, 179, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="olivine" data-r="154" data-g="185" data-b="115" onclick="copyColor(this, '(154, 185, 115)')">
+    <div class="color-swatch" style="background: rgb(154, 185, 115);"></div>
+    <span class="color-name">olivine</span>
+    <span class="color-tuple">(154, 185, 115)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="onyx" data-r="53" data-g="56" data-b="57" onclick="copyColor(this, '(53, 56, 57)')">
+    <div class="color-swatch" style="background: rgb(53, 56, 57);"></div>
+    <span class="color-name">onyx</span>
+    <span class="color-tuple">(53, 56, 57)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="opal" data-r="168" data-g="195" data-b="188" onclick="copyColor(this, '(168, 195, 188)')">
+    <div class="color-swatch" style="background: rgb(168, 195, 188);"></div>
+    <span class="color-name">opal</span>
+    <span class="color-tuple">(168, 195, 188)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="operaMauve" data-r="183" data-g="132" data-b="167" onclick="copyColor(this, '(183, 132, 167)')">
+    <div class="color-swatch" style="background: rgb(183, 132, 167);"></div>
+    <span class="color-name">operaMauve <span style="opacity:0.5">(Opera mauve)</span></span>
+    <span class="color-tuple">(183, 132, 167)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="orange" data-r="255" data-g="165" data-b="0" onclick="copyColor(this, '(255, 165, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 165, 0);"></div>
+    <span class="color-name">orange</span>
+    <span class="color-tuple">(255, 165, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="orangePeel" data-r="255" data-g="159" data-b="0" onclick="copyColor(this, '(255, 159, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 159, 0);"></div>
+    <span class="color-name">orangePeel <span style="opacity:0.5">(Orange peel)</span></span>
+    <span class="color-tuple">(255, 159, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="orangeSoda" data-r="250" data-g="91" data-b="61" onclick="copyColor(this, '(250, 91, 61)')">
+    <div class="color-swatch" style="background: rgb(250, 91, 61);"></div>
+    <span class="color-name">orangeSoda <span style="opacity:0.5">(Orange soda)</span></span>
+    <span class="color-tuple">(250, 91, 61)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="orangeRed" data-r="255" data-g="104" data-b="31" onclick="copyColor(this, '(255, 104, 31)')">
+    <div class="color-swatch" style="background: rgb(255, 104, 31);"></div>
+    <span class="color-name">orangeRed <span style="opacity:0.5">(Orange-red)</span></span>
+    <span class="color-tuple">(255, 104, 31)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="orangeYellow" data-r="248" data-g="213" data-b="104" onclick="copyColor(this, '(248, 213, 104)')">
+    <div class="color-swatch" style="background: rgb(248, 213, 104);"></div>
+    <span class="color-name">orangeYellow <span style="opacity:0.5">(Orange-yellow)</span></span>
+    <span class="color-tuple">(248, 213, 104)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="orchid" data-r="218" data-g="112" data-b="214" onclick="copyColor(this, '(218, 112, 214)')">
+    <div class="color-swatch" style="background: rgb(218, 112, 214);"></div>
+    <span class="color-name">orchid</span>
+    <span class="color-tuple">(218, 112, 214)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="orchidPink" data-r="242" data-g="189" data-b="205" onclick="copyColor(this, '(242, 189, 205)')">
+    <div class="color-swatch" style="background: rgb(242, 189, 205);"></div>
+    <span class="color-name">orchidPink <span style="opacity:0.5">(Orchid pink)</span></span>
+    <span class="color-tuple">(242, 189, 205)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="outerSpace" data-r="45" data-g="56" data-b="58" onclick="copyColor(this, '(45, 56, 58)')">
+    <div class="color-swatch" style="background: rgb(45, 56, 58);"></div>
+    <span class="color-name">outerSpace <span style="opacity:0.5">(Outer space (Crayola))</span></span>
+    <span class="color-tuple">(45, 56, 58)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="outrageousOrange" data-r="255" data-g="110" data-b="74" onclick="copyColor(this, '(255, 110, 74)')">
+    <div class="color-swatch" style="background: rgb(255, 110, 74);"></div>
+    <span class="color-name">outrageousOrange <span style="opacity:0.5">(Outrageous Orange)</span></span>
+    <span class="color-tuple">(255, 110, 74)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oxblood" data-r="128" data-g="0" data-b="0" onclick="copyColor(this, '(128, 0, 0)')">
+    <div class="color-swatch" style="background: rgb(128, 0, 0);"></div>
+    <span class="color-name">oxblood</span>
+    <span class="color-tuple">(128, 0, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="oxfordBlue" data-r="0" data-g="33" data-b="71" onclick="copyColor(this, '(0, 33, 71)')">
+    <div class="color-swatch" style="background: rgb(0, 33, 71);"></div>
+    <span class="color-name">oxfordBlue <span style="opacity:0.5">(Oxford blue)</span></span>
+    <span class="color-tuple">(0, 33, 71)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ouCrimsonRed" data-r="153" data-g="0" data-b="0" onclick="copyColor(this, '(153, 0, 0)')">
+    <div class="color-swatch" style="background: rgb(153, 0, 0);"></div>
+    <span class="color-name">ouCrimsonRed <span style="opacity:0.5">(OU Crimson red)</span></span>
+    <span class="color-tuple">(153, 0, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pacificBlue" data-r="28" data-g="169" data-b="201" onclick="copyColor(this, '(28, 169, 201)')">
+    <div class="color-swatch" style="background: rgb(28, 169, 201);"></div>
+    <span class="color-name">pacificBlue <span style="opacity:0.5">(Pacific blue)</span></span>
+    <span class="color-tuple">(28, 169, 201)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pakistanGreen" data-r="0" data-g="102" data-b="0" onclick="copyColor(this, '(0, 102, 0)')">
+    <div class="color-swatch" style="background: rgb(0, 102, 0);"></div>
+    <span class="color-name">pakistanGreen <span style="opacity:0.5">(Pakistan green)</span></span>
+    <span class="color-tuple">(0, 102, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="palatinatePurple" data-r="104" data-g="40" data-b="96" onclick="copyColor(this, '(104, 40, 96)')">
+    <div class="color-swatch" style="background: rgb(104, 40, 96);"></div>
+    <span class="color-name">palatinatePurple <span style="opacity:0.5">(Palatinate purple)</span></span>
+    <span class="color-tuple">(104, 40, 96)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="paleAqua" data-r="188" data-g="212" data-b="230" onclick="copyColor(this, '(188, 212, 230)')">
+    <div class="color-swatch" style="background: rgb(188, 212, 230);"></div>
+    <span class="color-name">paleAqua <span style="opacity:0.5">(Pale aqua)</span></span>
+    <span class="color-tuple">(188, 212, 230)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="paleCerulean" data-r="155" data-g="196" data-b="226" onclick="copyColor(this, '(155, 196, 226)')">
+    <div class="color-swatch" style="background: rgb(155, 196, 226);"></div>
+    <span class="color-name">paleCerulean <span style="opacity:0.5">(Pale cerulean)</span></span>
+    <span class="color-tuple">(155, 196, 226)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="paleDogwood" data-r="237" data-g="207" data-b="199" onclick="copyColor(this, '(237, 207, 199)')">
+    <div class="color-swatch" style="background: rgb(237, 207, 199);"></div>
+    <span class="color-name">paleDogwood <span style="opacity:0.5">(Pale Dogwood)</span></span>
+    <span class="color-tuple">(237, 207, 199)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="palePink" data-r="250" data-g="218" data-b="221" onclick="copyColor(this, '(250, 218, 221)')">
+    <div class="color-swatch" style="background: rgb(250, 218, 221);"></div>
+    <span class="color-name">palePink <span style="opacity:0.5">(Pale pink)</span></span>
+    <span class="color-tuple">(250, 218, 221)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="palePurple" data-r="250" data-g="230" data-b="250" onclick="copyColor(this, '(250, 230, 250)')">
+    <div class="color-swatch" style="background: rgb(250, 230, 250);"></div>
+    <span class="color-name">palePurple <span style="opacity:0.5">(Pale purple (Pantone))</span></span>
+    <span class="color-tuple">(250, 230, 250)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="paleSpringBud" data-r="236" data-g="235" data-b="189" onclick="copyColor(this, '(236, 235, 189)')">
+    <div class="color-swatch" style="background: rgb(236, 235, 189);"></div>
+    <span class="color-name">paleSpringBud <span style="opacity:0.5">(Pale spring bud)</span></span>
+    <span class="color-tuple">(236, 235, 189)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pansyPurple" data-r="120" data-g="24" data-b="74" onclick="copyColor(this, '(120, 24, 74)')">
+    <div class="color-swatch" style="background: rgb(120, 24, 74);"></div>
+    <span class="color-name">pansyPurple <span style="opacity:0.5">(Pansy purple)</span></span>
+    <span class="color-tuple">(120, 24, 74)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="paoloVeroneseGreen" data-r="0" data-g="155" data-b="125" onclick="copyColor(this, '(0, 155, 125)')">
+    <div class="color-swatch" style="background: rgb(0, 155, 125);"></div>
+    <span class="color-name">paoloVeroneseGreen <span style="opacity:0.5">(Paolo Veronese green)</span></span>
+    <span class="color-tuple">(0, 155, 125)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="papayaWhip" data-r="255" data-g="239" data-b="213" onclick="copyColor(this, '(255, 239, 213)')">
+    <div class="color-swatch" style="background: rgb(255, 239, 213);"></div>
+    <span class="color-name">papayaWhip <span style="opacity:0.5">(Papaya whip)</span></span>
+    <span class="color-tuple">(255, 239, 213)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="paradisePink" data-r="230" data-g="62" data-b="98" onclick="copyColor(this, '(230, 62, 98)')">
+    <div class="color-swatch" style="background: rgb(230, 62, 98);"></div>
+    <span class="color-name">paradisePink <span style="opacity:0.5">(Paradise pink)</span></span>
+    <span class="color-tuple">(230, 62, 98)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="parchment" data-r="241" data-g="233" data-b="210" onclick="copyColor(this, '(241, 233, 210)')">
+    <div class="color-swatch" style="background: rgb(241, 233, 210);"></div>
+    <span class="color-name">parchment</span>
+    <span class="color-tuple">(241, 233, 210)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="parisGreen" data-r="80" data-g="200" data-b="120" onclick="copyColor(this, '(80, 200, 120)')">
+    <div class="color-swatch" style="background: rgb(80, 200, 120);"></div>
+    <span class="color-name">parisGreen <span style="opacity:0.5">(Paris Green)</span></span>
+    <span class="color-tuple">(80, 200, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pastelPink" data-r="222" data-g="165" data-b="164" onclick="copyColor(this, '(222, 165, 164)')">
+    <div class="color-swatch" style="background: rgb(222, 165, 164);"></div>
+    <span class="color-name">pastelPink <span style="opacity:0.5">(Pastel pink)</span></span>
+    <span class="color-tuple">(222, 165, 164)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="patriarch" data-r="128" data-g="0" data-b="128" onclick="copyColor(this, '(128, 0, 128)')">
+    <div class="color-swatch" style="background: rgb(128, 0, 128);"></div>
+    <span class="color-name">patriarch</span>
+    <span class="color-tuple">(128, 0, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="paua" data-r="38" data-g="0" data-b="80" onclick="copyColor(this, '(38, 0, 80)')">
+    <div class="color-swatch" style="background: rgb(38, 0, 80);"></div>
+    <span class="color-name">paua</span>
+    <span class="color-tuple">(38, 0, 80)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="paynesGrey" data-r="83" data-g="104" data-b="120" onclick="copyColor(this, '(83, 104, 120)')">
+    <div class="color-swatch" style="background: rgb(83, 104, 120);"></div>
+    <span class="color-name">paynesGrey <span style="opacity:0.5">(Payne&#x27;s grey)</span></span>
+    <span class="color-tuple">(83, 104, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="peach" data-r="255" data-g="229" data-b="180" onclick="copyColor(this, '(255, 229, 180)')">
+    <div class="color-swatch" style="background: rgb(255, 229, 180);"></div>
+    <span class="color-name">peach</span>
+    <span class="color-tuple">(255, 229, 180)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="peachPuff" data-r="255" data-g="218" data-b="185" onclick="copyColor(this, '(255, 218, 185)')">
+    <div class="color-swatch" style="background: rgb(255, 218, 185);"></div>
+    <span class="color-name">peachPuff <span style="opacity:0.5">(Peach puff)</span></span>
+    <span class="color-tuple">(255, 218, 185)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pear" data-r="209" data-g="226" data-b="49" onclick="copyColor(this, '(209, 226, 49)')">
+    <div class="color-swatch" style="background: rgb(209, 226, 49);"></div>
+    <span class="color-name">pear</span>
+    <span class="color-tuple">(209, 226, 49)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pearlyPurple" data-r="183" data-g="104" data-b="162" onclick="copyColor(this, '(183, 104, 162)')">
+    <div class="color-swatch" style="background: rgb(183, 104, 162);"></div>
+    <span class="color-name">pearlyPurple <span style="opacity:0.5">(Pearly purple)</span></span>
+    <span class="color-tuple">(183, 104, 162)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="permanentGeraniumLake" data-r="225" data-g="44" data-b="44" onclick="copyColor(this, '(225, 44, 44)')">
+    <div class="color-swatch" style="background: rgb(225, 44, 44);"></div>
+    <span class="color-name">permanentGeraniumLake <span style="opacity:0.5">(Permanent Geranium Lake)</span></span>
+    <span class="color-tuple">(225, 44, 44)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="periwinkle" data-r="204" data-g="204" data-b="255" onclick="copyColor(this, '(204, 204, 255)')">
+    <div class="color-swatch" style="background: rgb(204, 204, 255);"></div>
+    <span class="color-name">periwinkle</span>
+    <span class="color-tuple">(204, 204, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="persianBlue" data-r="28" data-g="57" data-b="187" onclick="copyColor(this, '(28, 57, 187)')">
+    <div class="color-swatch" style="background: rgb(28, 57, 187);"></div>
+    <span class="color-name">persianBlue <span style="opacity:0.5">(Persian blue)</span></span>
+    <span class="color-tuple">(28, 57, 187)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="persianGreen" data-r="0" data-g="166" data-b="147" onclick="copyColor(this, '(0, 166, 147)')">
+    <div class="color-swatch" style="background: rgb(0, 166, 147);"></div>
+    <span class="color-name">persianGreen <span style="opacity:0.5">(Persian green)</span></span>
+    <span class="color-tuple">(0, 166, 147)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="persianIndigo" data-r="50" data-g="18" data-b="122" onclick="copyColor(this, '(50, 18, 122)')">
+    <div class="color-swatch" style="background: rgb(50, 18, 122);"></div>
+    <span class="color-name">persianIndigo <span style="opacity:0.5">(Persian indigo)</span></span>
+    <span class="color-tuple">(50, 18, 122)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="persianOrange" data-r="217" data-g="144" data-b="88" onclick="copyColor(this, '(217, 144, 88)')">
+    <div class="color-swatch" style="background: rgb(217, 144, 88);"></div>
+    <span class="color-name">persianOrange <span style="opacity:0.5">(Persian orange)</span></span>
+    <span class="color-tuple">(217, 144, 88)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="persianPink" data-r="247" data-g="127" data-b="190" onclick="copyColor(this, '(247, 127, 190)')">
+    <div class="color-swatch" style="background: rgb(247, 127, 190);"></div>
+    <span class="color-name">persianPink <span style="opacity:0.5">(Persian pink)</span></span>
+    <span class="color-tuple">(247, 127, 190)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="persianPlum" data-r="112" data-g="28" data-b="28" onclick="copyColor(this, '(112, 28, 28)')">
+    <div class="color-swatch" style="background: rgb(112, 28, 28);"></div>
+    <span class="color-name">persianPlum <span style="opacity:0.5">(Persian plum)</span></span>
+    <span class="color-tuple">(112, 28, 28)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="persianRed" data-r="204" data-g="51" data-b="51" onclick="copyColor(this, '(204, 51, 51)')">
+    <div class="color-swatch" style="background: rgb(204, 51, 51);"></div>
+    <span class="color-name">persianRed <span style="opacity:0.5">(Persian red)</span></span>
+    <span class="color-tuple">(204, 51, 51)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="persianRose" data-r="254" data-g="40" data-b="162" onclick="copyColor(this, '(254, 40, 162)')">
+    <div class="color-swatch" style="background: rgb(254, 40, 162);"></div>
+    <span class="color-name">persianRose <span style="opacity:0.5">(Persian rose)</span></span>
+    <span class="color-tuple">(254, 40, 162)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="persimmon" data-r="236" data-g="88" data-b="0" onclick="copyColor(this, '(236, 88, 0)')">
+    <div class="color-swatch" style="background: rgb(236, 88, 0);"></div>
+    <span class="color-name">persimmon</span>
+    <span class="color-tuple">(236, 88, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="petunia" data-r="173" data-g="67" data-b="121" onclick="copyColor(this, '(173, 67, 121)')">
+    <div class="color-swatch" style="background: rgb(173, 67, 121);"></div>
+    <span class="color-name">petunia</span>
+    <span class="color-tuple">(173, 67, 121)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pewterBlue" data-r="139" data-g="168" data-b="183" onclick="copyColor(this, '(139, 168, 183)')">
+    <div class="color-swatch" style="background: rgb(139, 168, 183);"></div>
+    <span class="color-name">pewterBlue <span style="opacity:0.5">(Pewter Blue)</span></span>
+    <span class="color-tuple">(139, 168, 183)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="phlox" data-r="223" data-g="0" data-b="255" onclick="copyColor(this, '(223, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(223, 0, 255);"></div>
+    <span class="color-name">phlox</span>
+    <span class="color-tuple">(223, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="phthaloBlue" data-r="0" data-g="15" data-b="137" onclick="copyColor(this, '(0, 15, 137)')">
+    <div class="color-swatch" style="background: rgb(0, 15, 137);"></div>
+    <span class="color-name">phthaloBlue <span style="opacity:0.5">(Phthalo blue)</span></span>
+    <span class="color-tuple">(0, 15, 137)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="phthaloGreen" data-r="18" data-g="53" data-b="36" onclick="copyColor(this, '(18, 53, 36)')">
+    <div class="color-swatch" style="background: rgb(18, 53, 36);"></div>
+    <span class="color-name">phthaloGreen <span style="opacity:0.5">(Phthalo green)</span></span>
+    <span class="color-tuple">(18, 53, 36)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="picoteeBlue" data-r="46" data-g="39" data-b="135" onclick="copyColor(this, '(46, 39, 135)')">
+    <div class="color-swatch" style="background: rgb(46, 39, 135);"></div>
+    <span class="color-name">picoteeBlue <span style="opacity:0.5">(Picotee blue)</span></span>
+    <span class="color-tuple">(46, 39, 135)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pictorialCarmine" data-r="195" data-g="11" data-b="78" onclick="copyColor(this, '(195, 11, 78)')">
+    <div class="color-swatch" style="background: rgb(195, 11, 78);"></div>
+    <span class="color-name">pictorialCarmine <span style="opacity:0.5">(Pictorial carmine)</span></span>
+    <span class="color-tuple">(195, 11, 78)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="piggyPink" data-r="253" data-g="221" data-b="230" onclick="copyColor(this, '(253, 221, 230)')">
+    <div class="color-swatch" style="background: rgb(253, 221, 230);"></div>
+    <span class="color-name">piggyPink <span style="opacity:0.5">(Piggy pink)</span></span>
+    <span class="color-tuple">(253, 221, 230)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pineGreen" data-r="1" data-g="121" data-b="111" onclick="copyColor(this, '(1, 121, 111)')">
+    <div class="color-swatch" style="background: rgb(1, 121, 111);"></div>
+    <span class="color-name">pineGreen <span style="opacity:0.5">(Pine green)</span></span>
+    <span class="color-tuple">(1, 121, 111)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pink" data-r="255" data-g="192" data-b="203" onclick="copyColor(this, '(255, 192, 203)')">
+    <div class="color-swatch" style="background: rgb(255, 192, 203);"></div>
+    <span class="color-name">pink</span>
+    <span class="color-tuple">(255, 192, 203)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pinkSherbet" data-r="247" data-g="143" data-b="167" onclick="copyColor(this, '(247, 143, 167)')">
+    <div class="color-swatch" style="background: rgb(247, 143, 167);"></div>
+    <span class="color-name">pinkSherbet <span style="opacity:0.5">(Pink Sherbet)</span></span>
+    <span class="color-tuple">(247, 143, 167)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pinkLace" data-r="255" data-g="221" data-b="244" onclick="copyColor(this, '(255, 221, 244)')">
+    <div class="color-swatch" style="background: rgb(255, 221, 244);"></div>
+    <span class="color-name">pinkLace <span style="opacity:0.5">(Pink lace)</span></span>
+    <span class="color-tuple">(255, 221, 244)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pinkLavender" data-r="216" data-g="178" data-b="209" onclick="copyColor(this, '(216, 178, 209)')">
+    <div class="color-swatch" style="background: rgb(216, 178, 209);"></div>
+    <span class="color-name">pinkLavender <span style="opacity:0.5">(Pink lavender)</span></span>
+    <span class="color-tuple">(216, 178, 209)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pistachio" data-r="147" data-g="197" data-b="114" onclick="copyColor(this, '(147, 197, 114)')">
+    <div class="color-swatch" style="background: rgb(147, 197, 114);"></div>
+    <span class="color-name">pistachio</span>
+    <span class="color-tuple">(147, 197, 114)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="platinum" data-r="229" data-g="228" data-b="226" onclick="copyColor(this, '(229, 228, 226)')">
+    <div class="color-swatch" style="background: rgb(229, 228, 226);"></div>
+    <span class="color-name">platinum</span>
+    <span class="color-tuple">(229, 228, 226)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="plum" data-r="142" data-g="69" data-b="133" onclick="copyColor(this, '(142, 69, 133)')">
+    <div class="color-swatch" style="background: rgb(142, 69, 133);"></div>
+    <span class="color-name">plum</span>
+    <span class="color-tuple">(142, 69, 133)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="plumpPurple" data-r="89" data-g="70" data-b="178" onclick="copyColor(this, '(89, 70, 178)')">
+    <div class="color-swatch" style="background: rgb(89, 70, 178);"></div>
+    <span class="color-name">plumpPurple <span style="opacity:0.5">(Plump Purple)</span></span>
+    <span class="color-tuple">(89, 70, 178)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="polishedPine" data-r="93" data-g="164" data-b="147" onclick="copyColor(this, '(93, 164, 147)')">
+    <div class="color-swatch" style="background: rgb(93, 164, 147);"></div>
+    <span class="color-name">polishedPine <span style="opacity:0.5">(Polished Pine)</span></span>
+    <span class="color-tuple">(93, 164, 147)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pompAndPower" data-r="134" data-g="96" data-b="142" onclick="copyColor(this, '(134, 96, 142)')">
+    <div class="color-swatch" style="background: rgb(134, 96, 142);"></div>
+    <span class="color-name">pompAndPower <span style="opacity:0.5">(Pomp and Power)</span></span>
+    <span class="color-tuple">(134, 96, 142)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="popstar" data-r="190" data-g="79" data-b="98" onclick="copyColor(this, '(190, 79, 98)')">
+    <div class="color-swatch" style="background: rgb(190, 79, 98);"></div>
+    <span class="color-name">popstar</span>
+    <span class="color-tuple">(190, 79, 98)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="portlandOrange" data-r="255" data-g="90" data-b="54" onclick="copyColor(this, '(255, 90, 54)')">
+    <div class="color-swatch" style="background: rgb(255, 90, 54);"></div>
+    <span class="color-name">portlandOrange <span style="opacity:0.5">(Portland Orange)</span></span>
+    <span class="color-tuple">(255, 90, 54)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="powderBlue" data-r="176" data-g="224" data-b="230" onclick="copyColor(this, '(176, 224, 230)')">
+    <div class="color-swatch" style="background: rgb(176, 224, 230);"></div>
+    <span class="color-name">powderBlue <span style="opacity:0.5">(Powder blue)</span></span>
+    <span class="color-tuple">(176, 224, 230)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="prairieGold" data-r="210" data-g="159" data-b="63" onclick="copyColor(this, '(210, 159, 63)')">
+    <div class="color-swatch" style="background: rgb(210, 159, 63);"></div>
+    <span class="color-name">prairieGold <span style="opacity:0.5">(Prairie gold)</span></span>
+    <span class="color-tuple">(210, 159, 63)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="princetonOrange" data-r="245" data-g="128" data-b="37" onclick="copyColor(this, '(245, 128, 37)')">
+    <div class="color-swatch" style="background: rgb(245, 128, 37);"></div>
+    <span class="color-name">princetonOrange <span style="opacity:0.5">(Princeton orange)</span></span>
+    <span class="color-tuple">(245, 128, 37)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="processCyan" data-r="0" data-g="183" data-b="235" onclick="copyColor(this, '(0, 183, 235)')">
+    <div class="color-swatch" style="background: rgb(0, 183, 235);"></div>
+    <span class="color-name">processCyan <span style="opacity:0.5">(Process Cyan)</span></span>
+    <span class="color-tuple">(0, 183, 235)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="prune" data-r="112" data-g="28" data-b="28" onclick="copyColor(this, '(112, 28, 28)')">
+    <div class="color-swatch" style="background: rgb(112, 28, 28);"></div>
+    <span class="color-name">prune</span>
+    <span class="color-tuple">(112, 28, 28)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="prussianBlue" data-r="0" data-g="49" data-b="83" onclick="copyColor(this, '(0, 49, 83)')">
+    <div class="color-swatch" style="background: rgb(0, 49, 83);"></div>
+    <span class="color-name">prussianBlue <span style="opacity:0.5">(Prussian blue)</span></span>
+    <span class="color-tuple">(0, 49, 83)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="psychedelicPurple" data-r="223" data-g="0" data-b="255" onclick="copyColor(this, '(223, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(223, 0, 255);"></div>
+    <span class="color-name">psychedelicPurple <span style="opacity:0.5">(Psychedelic purple)</span></span>
+    <span class="color-tuple">(223, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="puce" data-r="204" data-g="136" data-b="153" onclick="copyColor(this, '(204, 136, 153)')">
+    <div class="color-swatch" style="background: rgb(204, 136, 153);"></div>
+    <span class="color-name">puce</span>
+    <span class="color-tuple">(204, 136, 153)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="puke" data-r="164" data-g="166" data-b="0" onclick="copyColor(this, '(164, 166, 0)')">
+    <div class="color-swatch" style="background: rgb(164, 166, 0);"></div>
+    <span class="color-name">puke</span>
+    <span class="color-tuple">(164, 166, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pullmanBrown" data-r="100" data-g="65" data-b="23" onclick="copyColor(this, '(100, 65, 23)')">
+    <div class="color-swatch" style="background: rgb(100, 65, 23);"></div>
+    <span class="color-name">pullmanBrown <span style="opacity:0.5">(Pullman Brown (UPS Brown))</span></span>
+    <span class="color-tuple">(100, 65, 23)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="pumpkin" data-r="255" data-g="117" data-b="24" onclick="copyColor(this, '(255, 117, 24)')">
+    <div class="color-swatch" style="background: rgb(255, 117, 24);"></div>
+    <span class="color-name">pumpkin</span>
+    <span class="color-tuple">(255, 117, 24)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="purple" data-r="128" data-g="0" data-b="128" onclick="copyColor(this, '(128, 0, 128)')">
+    <div class="color-swatch" style="background: rgb(128, 0, 128);"></div>
+    <span class="color-name">purple</span>
+    <span class="color-tuple">(128, 0, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="purplePlum" data-r="156" data-g="81" data-b="182" onclick="copyColor(this, '(156, 81, 182)')">
+    <div class="color-swatch" style="background: rgb(156, 81, 182);"></div>
+    <span class="color-name">purplePlum <span style="opacity:0.5">(Purple Plum)</span></span>
+    <span class="color-tuple">(156, 81, 182)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="purpleMountainMajesty" data-r="150" data-g="120" data-b="182" onclick="copyColor(this, '(150, 120, 182)')">
+    <div class="color-swatch" style="background: rgb(150, 120, 182);"></div>
+    <span class="color-name">purpleMountainMajesty <span style="opacity:0.5">(Purple mountain majesty)</span></span>
+    <span class="color-tuple">(150, 120, 182)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="purpleNavy" data-r="78" data-g="81" data-b="128" onclick="copyColor(this, '(78, 81, 128)')">
+    <div class="color-swatch" style="background: rgb(78, 81, 128);"></div>
+    <span class="color-name">purpleNavy <span style="opacity:0.5">(Purple navy)</span></span>
+    <span class="color-tuple">(78, 81, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="purplePizzazz" data-r="254" data-g="78" data-b="218" onclick="copyColor(this, '(254, 78, 218)')">
+    <div class="color-swatch" style="background: rgb(254, 78, 218);"></div>
+    <span class="color-name">purplePizzazz <span style="opacity:0.5">(Purple pizzazz)</span></span>
+    <span class="color-tuple">(254, 78, 218)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="queenBlue" data-r="67" data-g="107" data-b="149" onclick="copyColor(this, '(67, 107, 149)')">
+    <div class="color-swatch" style="background: rgb(67, 107, 149);"></div>
+    <span class="color-name">queenBlue <span style="opacity:0.5">(Queen blue)</span></span>
+    <span class="color-tuple">(67, 107, 149)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="queenPink" data-r="232" data-g="204" data-b="215" onclick="copyColor(this, '(232, 204, 215)')">
+    <div class="color-swatch" style="background: rgb(232, 204, 215);"></div>
+    <span class="color-name">queenPink <span style="opacity:0.5">(Queen pink)</span></span>
+    <span class="color-tuple">(232, 204, 215)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="quercitron" data-r="248" data-g="195" data-b="0" onclick="copyColor(this, '(248, 195, 0)')">
+    <div class="color-swatch" style="background: rgb(248, 195, 0);"></div>
+    <span class="color-name">quercitron</span>
+    <span class="color-tuple">(248, 195, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="quickSilver" data-r="166" data-g="166" data-b="166" onclick="copyColor(this, '(166, 166, 166)')">
+    <div class="color-swatch" style="background: rgb(166, 166, 166);"></div>
+    <span class="color-name">quickSilver <span style="opacity:0.5">(Quick Silver)</span></span>
+    <span class="color-tuple">(166, 166, 166)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="quinacridoneMagenta" data-r="142" data-g="58" data-b="89" onclick="copyColor(this, '(142, 58, 89)')">
+    <div class="color-swatch" style="background: rgb(142, 58, 89);"></div>
+    <span class="color-name">quinacridoneMagenta <span style="opacity:0.5">(Quinacridone magenta)</span></span>
+    <span class="color-tuple">(142, 58, 89)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="radicalRed" data-r="255" data-g="53" data-b="94" onclick="copyColor(this, '(255, 53, 94)')">
+    <div class="color-swatch" style="background: rgb(255, 53, 94);"></div>
+    <span class="color-name">radicalRed <span style="opacity:0.5">(Radical Red)</span></span>
+    <span class="color-tuple">(255, 53, 94)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="raisinBlack" data-r="36" data-g="33" data-b="36" onclick="copyColor(this, '(36, 33, 36)')">
+    <div class="color-swatch" style="background: rgb(36, 33, 36);"></div>
+    <span class="color-name">raisinBlack <span style="opacity:0.5">(Raisin black)</span></span>
+    <span class="color-tuple">(36, 33, 36)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rajah" data-r="251" data-g="171" data-b="96" onclick="copyColor(this, '(251, 171, 96)')">
+    <div class="color-swatch" style="background: rgb(251, 171, 96);"></div>
+    <span class="color-name">rajah</span>
+    <span class="color-tuple">(251, 171, 96)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="raspberry" data-r="227" data-g="11" data-b="93" onclick="copyColor(this, '(227, 11, 93)')">
+    <div class="color-swatch" style="background: rgb(227, 11, 93);"></div>
+    <span class="color-name">raspberry</span>
+    <span class="color-tuple">(227, 11, 93)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="raspberryGlace" data-r="145" data-g="95" data-b="109" onclick="copyColor(this, '(145, 95, 109)')">
+    <div class="color-swatch" style="background: rgb(145, 95, 109);"></div>
+    <span class="color-name">raspberryGlace <span style="opacity:0.5">(Raspberry glacé)</span></span>
+    <span class="color-tuple">(145, 95, 109)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="raspberryRose" data-r="179" data-g="68" data-b="108" onclick="copyColor(this, '(179, 68, 108)')">
+    <div class="color-swatch" style="background: rgb(179, 68, 108);"></div>
+    <span class="color-name">raspberryRose <span style="opacity:0.5">(Raspberry rose)</span></span>
+    <span class="color-tuple">(179, 68, 108)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rawSienna" data-r="214" data-g="150" data-b="97" onclick="copyColor(this, '(214, 150, 97)')">
+    <div class="color-swatch" style="background: rgb(214, 150, 97);"></div>
+    <span class="color-name">rawSienna <span style="opacity:0.5">(Raw sienna)</span></span>
+    <span class="color-tuple">(214, 150, 97)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rawUmber" data-r="130" data-g="102" data-b="68" onclick="copyColor(this, '(130, 102, 68)')">
+    <div class="color-swatch" style="background: rgb(130, 102, 68);"></div>
+    <span class="color-name">rawUmber <span style="opacity:0.5">(Raw umber)</span></span>
+    <span class="color-tuple">(130, 102, 68)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="razzleDazzleRose" data-r="255" data-g="51" data-b="204" onclick="copyColor(this, '(255, 51, 204)')">
+    <div class="color-swatch" style="background: rgb(255, 51, 204);"></div>
+    <span class="color-name">razzleDazzleRose <span style="opacity:0.5">(Razzle dazzle rose)</span></span>
+    <span class="color-tuple">(255, 51, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="razzmatazz" data-r="227" data-g="37" data-b="107" onclick="copyColor(this, '(227, 37, 107)')">
+    <div class="color-swatch" style="background: rgb(227, 37, 107);"></div>
+    <span class="color-name">razzmatazz</span>
+    <span class="color-tuple">(227, 37, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="razzmicBerry" data-r="141" data-g="78" data-b="133" onclick="copyColor(this, '(141, 78, 133)')">
+    <div class="color-swatch" style="background: rgb(141, 78, 133);"></div>
+    <span class="color-name">razzmicBerry <span style="opacity:0.5">(Razzmic Berry)</span></span>
+    <span class="color-tuple">(141, 78, 133)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rebeccaPurple" data-r="102" data-g="51" data-b="153" onclick="copyColor(this, '(102, 51, 153)')">
+    <div class="color-swatch" style="background: rgb(102, 51, 153);"></div>
+    <span class="color-name">rebeccaPurple <span style="opacity:0.5">(Rebecca Purple)</span></span>
+    <span class="color-tuple">(102, 51, 153)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="red" data-r="255" data-g="0" data-b="0" onclick="copyColor(this, '(255, 0, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 0, 0);"></div>
+    <span class="color-name">red</span>
+    <span class="color-tuple">(255, 0, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="redSalsa" data-r="253" data-g="58" data-b="74" onclick="copyColor(this, '(253, 58, 74)')">
+    <div class="color-swatch" style="background: rgb(253, 58, 74);"></div>
+    <span class="color-name">redSalsa <span style="opacity:0.5">(Red Salsa)</span></span>
+    <span class="color-tuple">(253, 58, 74)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="redOcher" data-r="145" data-g="56" data-b="49" onclick="copyColor(this, '(145, 56, 49)')">
+    <div class="color-swatch" style="background: rgb(145, 56, 49);"></div>
+    <span class="color-name">redOcher <span style="opacity:0.5">(Red ocher (Red ochre))</span></span>
+    <span class="color-tuple">(145, 56, 49)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="redOchre" data-r="145" data-g="56" data-b="49" onclick="copyColor(this, '(145, 56, 49)')">
+    <div class="color-swatch" style="background: rgb(145, 56, 49);"></div>
+    <span class="color-name">redOchre <span style="opacity:0.5">(Red ochre)</span></span>
+    <span class="color-tuple">(145, 56, 49)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="redOrange" data-r="255" data-g="83" data-b="73" onclick="copyColor(this, '(255, 83, 73)')">
+    <div class="color-swatch" style="background: rgb(255, 83, 73);"></div>
+    <span class="color-name">redOrange <span style="opacity:0.5">(Red-orange)</span></span>
+    <span class="color-tuple">(255, 83, 73)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="redPurple" data-r="228" data-g="0" data-b="120" onclick="copyColor(this, '(228, 0, 120)')">
+    <div class="color-swatch" style="background: rgb(228, 0, 120);"></div>
+    <span class="color-name">redPurple <span style="opacity:0.5">(Red-purple)</span></span>
+    <span class="color-tuple">(228, 0, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="redViolet" data-r="199" data-g="21" data-b="133" onclick="copyColor(this, '(199, 21, 133)')">
+    <div class="color-swatch" style="background: rgb(199, 21, 133);"></div>
+    <span class="color-name">redViolet <span style="opacity:0.5">(Red-violet)</span></span>
+    <span class="color-tuple">(199, 21, 133)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="redwood" data-r="164" data-g="90" data-b="82" onclick="copyColor(this, '(164, 90, 82)')">
+    <div class="color-swatch" style="background: rgb(164, 90, 82);"></div>
+    <span class="color-name">redwood</span>
+    <span class="color-tuple">(164, 90, 82)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="resolutionBlue" data-r="0" data-g="35" data-b="135" onclick="copyColor(this, '(0, 35, 135)')">
+    <div class="color-swatch" style="background: rgb(0, 35, 135);"></div>
+    <span class="color-name">resolutionBlue <span style="opacity:0.5">(Resolution blue)</span></span>
+    <span class="color-tuple">(0, 35, 135)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rhythm" data-r="119" data-g="118" data-b="150" onclick="copyColor(this, '(119, 118, 150)')">
+    <div class="color-swatch" style="background: rgb(119, 118, 150);"></div>
+    <span class="color-name">rhythm</span>
+    <span class="color-tuple">(119, 118, 150)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="richBlack" data-r="0" data-g="64" data-b="64" onclick="copyColor(this, '(0, 64, 64)')">
+    <div class="color-swatch" style="background: rgb(0, 64, 64);"></div>
+    <span class="color-name">richBlack <span style="opacity:0.5">(Rich black)</span></span>
+    <span class="color-tuple">(0, 64, 64)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rifleGreen" data-r="68" data-g="76" data-b="56" onclick="copyColor(this, '(68, 76, 56)')">
+    <div class="color-swatch" style="background: rgb(68, 76, 56);"></div>
+    <span class="color-name">rifleGreen <span style="opacity:0.5">(Rifle green)</span></span>
+    <span class="color-tuple">(68, 76, 56)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="robinEggBlue" data-r="0" data-g="204" data-b="204" onclick="copyColor(this, '(0, 204, 204)')">
+    <div class="color-swatch" style="background: rgb(0, 204, 204);"></div>
+    <span class="color-name">robinEggBlue <span style="opacity:0.5">(Robin egg blue)</span></span>
+    <span class="color-tuple">(0, 204, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rocketMetallic" data-r="138" data-g="127" data-b="128" onclick="copyColor(this, '(138, 127, 128)')">
+    <div class="color-swatch" style="background: rgb(138, 127, 128);"></div>
+    <span class="color-name">rocketMetallic <span style="opacity:0.5">(Rocket metallic)</span></span>
+    <span class="color-tuple">(138, 127, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rojoSpanishRed" data-r="169" data-g="17" data-b="1" onclick="copyColor(this, '(169, 17, 1)')">
+    <div class="color-swatch" style="background: rgb(169, 17, 1);"></div>
+    <span class="color-name">rojoSpanishRed <span style="opacity:0.5">(Rojo Spanish red)</span></span>
+    <span class="color-tuple">(169, 17, 1)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="romanSilver" data-r="131" data-g="137" data-b="150" onclick="copyColor(this, '(131, 137, 150)')">
+    <div class="color-swatch" style="background: rgb(131, 137, 150);"></div>
+    <span class="color-name">romanSilver <span style="opacity:0.5">(Roman silver)</span></span>
+    <span class="color-tuple">(131, 137, 150)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rose" data-r="255" data-g="0" data-b="127" onclick="copyColor(this, '(255, 0, 127)')">
+    <div class="color-swatch" style="background: rgb(255, 0, 127);"></div>
+    <span class="color-name">rose</span>
+    <span class="color-tuple">(255, 0, 127)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="roseDust" data-r="158" data-g="94" data-b="111" onclick="copyColor(this, '(158, 94, 111)')">
+    <div class="color-swatch" style="background: rgb(158, 94, 111);"></div>
+    <span class="color-name">roseDust <span style="opacity:0.5">(Rose Dust)</span></span>
+    <span class="color-tuple">(158, 94, 111)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rosePompadour" data-r="237" data-g="122" data-b="155" onclick="copyColor(this, '(237, 122, 155)')">
+    <div class="color-swatch" style="background: rgb(237, 122, 155);"></div>
+    <span class="color-name">rosePompadour <span style="opacity:0.5">(Rose Pompadour)</span></span>
+    <span class="color-tuple">(237, 122, 155)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="roseBonbon" data-r="249" data-g="66" data-b="158" onclick="copyColor(this, '(249, 66, 158)')">
+    <div class="color-swatch" style="background: rgb(249, 66, 158);"></div>
+    <span class="color-name">roseBonbon <span style="opacity:0.5">(Rose bonbon)</span></span>
+    <span class="color-tuple">(249, 66, 158)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="roseEbony" data-r="103" data-g="72" data-b="70" onclick="copyColor(this, '(103, 72, 70)')">
+    <div class="color-swatch" style="background: rgb(103, 72, 70);"></div>
+    <span class="color-name">roseEbony <span style="opacity:0.5">(Rose ebony)</span></span>
+    <span class="color-tuple">(103, 72, 70)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="roseMadder" data-r="227" data-g="38" data-b="54" onclick="copyColor(this, '(227, 38, 54)')">
+    <div class="color-swatch" style="background: rgb(227, 38, 54);"></div>
+    <span class="color-name">roseMadder <span style="opacity:0.5">(Rose madder)</span></span>
+    <span class="color-tuple">(227, 38, 54)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rosePink" data-r="255" data-g="102" data-b="204" onclick="copyColor(this, '(255, 102, 204)')">
+    <div class="color-swatch" style="background: rgb(255, 102, 204);"></div>
+    <span class="color-name">rosePink <span style="opacity:0.5">(Rose pink)</span></span>
+    <span class="color-tuple">(255, 102, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="roseRed" data-r="194" data-g="30" data-b="86" onclick="copyColor(this, '(194, 30, 86)')">
+    <div class="color-swatch" style="background: rgb(194, 30, 86);"></div>
+    <span class="color-name">roseRed <span style="opacity:0.5">(Rose red)</span></span>
+    <span class="color-tuple">(194, 30, 86)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="roseTaupe" data-r="144" data-g="93" data-b="93" onclick="copyColor(this, '(144, 93, 93)')">
+    <div class="color-swatch" style="background: rgb(144, 93, 93);"></div>
+    <span class="color-name">roseTaupe <span style="opacity:0.5">(Rose taupe)</span></span>
+    <span class="color-tuple">(144, 93, 93)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="roseVale" data-r="171" data-g="78" data-b="82" onclick="copyColor(this, '(171, 78, 82)')">
+    <div class="color-swatch" style="background: rgb(171, 78, 82);"></div>
+    <span class="color-name">roseVale <span style="opacity:0.5">(Rose vale)</span></span>
+    <span class="color-tuple">(171, 78, 82)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rosewood" data-r="101" data-g="0" data-b="11" onclick="copyColor(this, '(101, 0, 11)')">
+    <div class="color-swatch" style="background: rgb(101, 0, 11);"></div>
+    <span class="color-name">rosewood</span>
+    <span class="color-tuple">(101, 0, 11)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rossoCorsa" data-r="212" data-g="0" data-b="0" onclick="copyColor(this, '(212, 0, 0)')">
+    <div class="color-swatch" style="background: rgb(212, 0, 0);"></div>
+    <span class="color-name">rossoCorsa <span style="opacity:0.5">(Rosso corsa)</span></span>
+    <span class="color-tuple">(212, 0, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rosyBrown" data-r="188" data-g="143" data-b="143" onclick="copyColor(this, '(188, 143, 143)')">
+    <div class="color-swatch" style="background: rgb(188, 143, 143);"></div>
+    <span class="color-name">rosyBrown <span style="opacity:0.5">(Rosy brown)</span></span>
+    <span class="color-tuple">(188, 143, 143)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="royalBlue" data-r="0" data-g="35" data-b="102" onclick="copyColor(this, '(0, 35, 102)')">
+    <div class="color-swatch" style="background: rgb(0, 35, 102);"></div>
+    <span class="color-name">royalBlue <span style="opacity:0.5">(Royal blue (dark))</span></span>
+    <span class="color-tuple">(0, 35, 102)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="royalPurple" data-r="120" data-g="81" data-b="169" onclick="copyColor(this, '(120, 81, 169)')">
+    <div class="color-swatch" style="background: rgb(120, 81, 169);"></div>
+    <span class="color-name">royalPurple <span style="opacity:0.5">(Royal purple)</span></span>
+    <span class="color-tuple">(120, 81, 169)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="royalYellow" data-r="250" data-g="218" data-b="94" onclick="copyColor(this, '(250, 218, 94)')">
+    <div class="color-swatch" style="background: rgb(250, 218, 94);"></div>
+    <span class="color-name">royalYellow <span style="opacity:0.5">(Royal yellow)</span></span>
+    <span class="color-tuple">(250, 218, 94)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ruber" data-r="206" data-g="70" data-b="118" onclick="copyColor(this, '(206, 70, 118)')">
+    <div class="color-swatch" style="background: rgb(206, 70, 118);"></div>
+    <span class="color-name">ruber</span>
+    <span class="color-tuple">(206, 70, 118)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rubineRed" data-r="209" data-g="0" data-b="86" onclick="copyColor(this, '(209, 0, 86)')">
+    <div class="color-swatch" style="background: rgb(209, 0, 86);"></div>
+    <span class="color-name">rubineRed <span style="opacity:0.5">(Rubine red)</span></span>
+    <span class="color-tuple">(209, 0, 86)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ruby" data-r="224" data-g="17" data-b="95" onclick="copyColor(this, '(224, 17, 95)')">
+    <div class="color-swatch" style="background: rgb(224, 17, 95);"></div>
+    <span class="color-name">ruby</span>
+    <span class="color-tuple">(224, 17, 95)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rubyRed" data-r="155" data-g="17" data-b="30" onclick="copyColor(this, '(155, 17, 30)')">
+    <div class="color-swatch" style="background: rgb(155, 17, 30);"></div>
+    <span class="color-name">rubyRed <span style="opacity:0.5">(Ruby red)</span></span>
+    <span class="color-tuple">(155, 17, 30)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rufous" data-r="168" data-g="28" data-b="7" onclick="copyColor(this, '(168, 28, 7)')">
+    <div class="color-swatch" style="background: rgb(168, 28, 7);"></div>
+    <span class="color-name">rufous</span>
+    <span class="color-tuple">(168, 28, 7)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="russet" data-r="128" data-g="70" data-b="27" onclick="copyColor(this, '(128, 70, 27)')">
+    <div class="color-swatch" style="background: rgb(128, 70, 27);"></div>
+    <span class="color-name">russet</span>
+    <span class="color-tuple">(128, 70, 27)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="russianGreen" data-r="103" data-g="146" data-b="103" onclick="copyColor(this, '(103, 146, 103)')">
+    <div class="color-swatch" style="background: rgb(103, 146, 103);"></div>
+    <span class="color-name">russianGreen <span style="opacity:0.5">(Russian green)</span></span>
+    <span class="color-tuple">(103, 146, 103)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="russianViolet" data-r="50" data-g="23" data-b="77" onclick="copyColor(this, '(50, 23, 77)')">
+    <div class="color-swatch" style="background: rgb(50, 23, 77);"></div>
+    <span class="color-name">russianViolet <span style="opacity:0.5">(Russian violet)</span></span>
+    <span class="color-tuple">(50, 23, 77)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rust" data-r="183" data-g="65" data-b="14" onclick="copyColor(this, '(183, 65, 14)')">
+    <div class="color-swatch" style="background: rgb(183, 65, 14);"></div>
+    <span class="color-name">rust</span>
+    <span class="color-tuple">(183, 65, 14)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="rustyRed" data-r="218" data-g="44" data-b="67" onclick="copyColor(this, '(218, 44, 67)')">
+    <div class="color-swatch" style="background: rgb(218, 44, 67);"></div>
+    <span class="color-name">rustyRed <span style="opacity:0.5">(Rusty red)</span></span>
+    <span class="color-tuple">(218, 44, 67)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sacramentoStateGreen" data-r="0" data-g="86" data-b="63" onclick="copyColor(this, '(0, 86, 63)')">
+    <div class="color-swatch" style="background: rgb(0, 86, 63);"></div>
+    <span class="color-name">sacramentoStateGreen <span style="opacity:0.5">(Sacramento State green)</span></span>
+    <span class="color-tuple">(0, 86, 63)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="saddleBrown" data-r="139" data-g="69" data-b="19" onclick="copyColor(this, '(139, 69, 19)')">
+    <div class="color-swatch" style="background: rgb(139, 69, 19);"></div>
+    <span class="color-name">saddleBrown <span style="opacity:0.5">(Saddle brown)</span></span>
+    <span class="color-tuple">(139, 69, 19)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="safetyOrange" data-r="255" data-g="120" data-b="0" onclick="copyColor(this, '(255, 120, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 120, 0);"></div>
+    <span class="color-name">safetyOrange <span style="opacity:0.5">(Safety orange)</span></span>
+    <span class="color-tuple">(255, 120, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="safetyYellow" data-r="238" data-g="210" data-b="2" onclick="copyColor(this, '(238, 210, 2)')">
+    <div class="color-swatch" style="background: rgb(238, 210, 2);"></div>
+    <span class="color-name">safetyYellow <span style="opacity:0.5">(Safety yellow)</span></span>
+    <span class="color-tuple">(238, 210, 2)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="saffron" data-r="244" data-g="196" data-b="48" onclick="copyColor(this, '(244, 196, 48)')">
+    <div class="color-swatch" style="background: rgb(244, 196, 48);"></div>
+    <span class="color-name">saffron</span>
+    <span class="color-tuple">(244, 196, 48)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sage" data-r="188" data-g="184" data-b="138" onclick="copyColor(this, '(188, 184, 138)')">
+    <div class="color-swatch" style="background: rgb(188, 184, 138);"></div>
+    <span class="color-name">sage</span>
+    <span class="color-tuple">(188, 184, 138)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="salmon" data-r="250" data-g="128" data-b="114" onclick="copyColor(this, '(250, 128, 114)')">
+    <div class="color-swatch" style="background: rgb(250, 128, 114);"></div>
+    <span class="color-name">salmon</span>
+    <span class="color-tuple">(250, 128, 114)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="salmonPink" data-r="255" data-g="145" data-b="164" onclick="copyColor(this, '(255, 145, 164)')">
+    <div class="color-swatch" style="background: rgb(255, 145, 164);"></div>
+    <span class="color-name">salmonPink <span style="opacity:0.5">(Salmon pink)</span></span>
+    <span class="color-tuple">(255, 145, 164)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sand" data-r="194" data-g="178" data-b="128" onclick="copyColor(this, '(194, 178, 128)')">
+    <div class="color-swatch" style="background: rgb(194, 178, 128);"></div>
+    <span class="color-name">sand</span>
+    <span class="color-tuple">(194, 178, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sandDune" data-r="150" data-g="113" data-b="23" onclick="copyColor(this, '(150, 113, 23)')">
+    <div class="color-swatch" style="background: rgb(150, 113, 23);"></div>
+    <span class="color-name">sandDune <span style="opacity:0.5">(Sand dune)</span></span>
+    <span class="color-tuple">(150, 113, 23)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sandyBrown" data-r="244" data-g="164" data-b="96" onclick="copyColor(this, '(244, 164, 96)')">
+    <div class="color-swatch" style="background: rgb(244, 164, 96);"></div>
+    <span class="color-name">sandyBrown <span style="opacity:0.5">(Sandy brown)</span></span>
+    <span class="color-tuple">(244, 164, 96)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sapGreen" data-r="80" data-g="125" data-b="42" onclick="copyColor(this, '(80, 125, 42)')">
+    <div class="color-swatch" style="background: rgb(80, 125, 42);"></div>
+    <span class="color-name">sapGreen <span style="opacity:0.5">(Sap green)</span></span>
+    <span class="color-tuple">(80, 125, 42)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sapphire" data-r="15" data-g="82" data-b="186" onclick="copyColor(this, '(15, 82, 186)')">
+    <div class="color-swatch" style="background: rgb(15, 82, 186);"></div>
+    <span class="color-name">sapphire</span>
+    <span class="color-tuple">(15, 82, 186)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sapphireBlue" data-r="0" data-g="103" data-b="165" onclick="copyColor(this, '(0, 103, 165)')">
+    <div class="color-swatch" style="background: rgb(0, 103, 165);"></div>
+    <span class="color-name">sapphireBlue <span style="opacity:0.5">(Sapphire blue)</span></span>
+    <span class="color-tuple">(0, 103, 165)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sarcoline" data-r="255" data-g="221" data-b="170" onclick="copyColor(this, '(255, 221, 170)')">
+    <div class="color-swatch" style="background: rgb(255, 221, 170);"></div>
+    <span class="color-name">sarcoline</span>
+    <span class="color-tuple">(255, 221, 170)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="satinSheenGold" data-r="203" data-g="161" data-b="53" onclick="copyColor(this, '(203, 161, 53)')">
+    <div class="color-swatch" style="background: rgb(203, 161, 53);"></div>
+    <span class="color-name">satinSheenGold <span style="opacity:0.5">(Satin sheen gold)</span></span>
+    <span class="color-tuple">(203, 161, 53)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="scarlet" data-r="255" data-g="36" data-b="0" onclick="copyColor(this, '(255, 36, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 36, 0);"></div>
+    <span class="color-name">scarlet</span>
+    <span class="color-tuple">(255, 36, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="schaussPink" data-r="255" data-g="145" data-b="175" onclick="copyColor(this, '(255, 145, 175)')">
+    <div class="color-swatch" style="background: rgb(255, 145, 175);"></div>
+    <span class="color-name">schaussPink <span style="opacity:0.5">(Schauss pink)</span></span>
+    <span class="color-tuple">(255, 145, 175)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="schoolBusYellow" data-r="255" data-g="216" data-b="0" onclick="copyColor(this, '(255, 216, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 216, 0);"></div>
+    <span class="color-name">schoolBusYellow <span style="opacity:0.5">(School bus yellow)</span></span>
+    <span class="color-tuple">(255, 216, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="screaminGreen" data-r="118" data-g="255" data-b="122" onclick="copyColor(this, '(118, 255, 122)')">
+    <div class="color-swatch" style="background: rgb(118, 255, 122);"></div>
+    <span class="color-name">screaminGreen <span style="opacity:0.5">(Screamin&#x27; Green)</span></span>
+    <span class="color-tuple">(118, 255, 122)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="seaGreen" data-r="46" data-g="139" data-b="87" onclick="copyColor(this, '(46, 139, 87)')">
+    <div class="color-swatch" style="background: rgb(46, 139, 87);"></div>
+    <span class="color-name">seaGreen <span style="opacity:0.5">(Sea green)</span></span>
+    <span class="color-tuple">(46, 139, 87)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="seance" data-r="113" data-g="41" data-b="148" onclick="copyColor(this, '(113, 41, 148)')">
+    <div class="color-swatch" style="background: rgb(113, 41, 148);"></div>
+    <span class="color-name">seance</span>
+    <span class="color-tuple">(113, 41, 148)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sealBrown" data-r="89" data-g="38" data-b="11" onclick="copyColor(this, '(89, 38, 11)')">
+    <div class="color-swatch" style="background: rgb(89, 38, 11);"></div>
+    <span class="color-name">sealBrown <span style="opacity:0.5">(Seal brown)</span></span>
+    <span class="color-tuple">(89, 38, 11)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="seashell" data-r="255" data-g="245" data-b="238" onclick="copyColor(this, '(255, 245, 238)')">
+    <div class="color-swatch" style="background: rgb(255, 245, 238);"></div>
+    <span class="color-name">seashell</span>
+    <span class="color-tuple">(255, 245, 238)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="secret" data-r="118" data-g="66" data-b="78" onclick="copyColor(this, '(118, 66, 78)')">
+    <div class="color-swatch" style="background: rgb(118, 66, 78);"></div>
+    <span class="color-name">secret</span>
+    <span class="color-tuple">(118, 66, 78)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="selectiveYellow" data-r="255" data-g="186" data-b="0" onclick="copyColor(this, '(255, 186, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 186, 0);"></div>
+    <span class="color-name">selectiveYellow <span style="opacity:0.5">(Selective yellow)</span></span>
+    <span class="color-tuple">(255, 186, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sepia" data-r="112" data-g="66" data-b="20" onclick="copyColor(this, '(112, 66, 20)')">
+    <div class="color-swatch" style="background: rgb(112, 66, 20);"></div>
+    <span class="color-name">sepia</span>
+    <span class="color-tuple">(112, 66, 20)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="shadow" data-r="138" data-g="121" data-b="93" onclick="copyColor(this, '(138, 121, 93)')">
+    <div class="color-swatch" style="background: rgb(138, 121, 93);"></div>
+    <span class="color-name">shadow</span>
+    <span class="color-tuple">(138, 121, 93)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="shadowBlue" data-r="119" data-g="139" data-b="165" onclick="copyColor(this, '(119, 139, 165)')">
+    <div class="color-swatch" style="background: rgb(119, 139, 165);"></div>
+    <span class="color-name">shadowBlue <span style="opacity:0.5">(Shadow blue)</span></span>
+    <span class="color-tuple">(119, 139, 165)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="shamrockGreen" data-r="0" data-g="158" data-b="96" onclick="copyColor(this, '(0, 158, 96)')">
+    <div class="color-swatch" style="background: rgb(0, 158, 96);"></div>
+    <span class="color-name">shamrockGreen <span style="opacity:0.5">(Shamrock green)</span></span>
+    <span class="color-tuple">(0, 158, 96)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sheenGreen" data-r="143" data-g="212" data-b="0" onclick="copyColor(this, '(143, 212, 0)')">
+    <div class="color-swatch" style="background: rgb(143, 212, 0);"></div>
+    <span class="color-name">sheenGreen <span style="opacity:0.5">(Sheen green)</span></span>
+    <span class="color-tuple">(143, 212, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="shimmeringBlush" data-r="217" data-g="134" data-b="149" onclick="copyColor(this, '(217, 134, 149)')">
+    <div class="color-swatch" style="background: rgb(217, 134, 149);"></div>
+    <span class="color-name">shimmeringBlush <span style="opacity:0.5">(Shimmering Blush)</span></span>
+    <span class="color-tuple">(217, 134, 149)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="shinyShamrock" data-r="95" data-g="167" data-b="120" onclick="copyColor(this, '(95, 167, 120)')">
+    <div class="color-swatch" style="background: rgb(95, 167, 120);"></div>
+    <span class="color-name">shinyShamrock <span style="opacity:0.5">(Shiny Shamrock)</span></span>
+    <span class="color-tuple">(95, 167, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="shockingPink" data-r="252" data-g="15" data-b="192" onclick="copyColor(this, '(252, 15, 192)')">
+    <div class="color-swatch" style="background: rgb(252, 15, 192);"></div>
+    <span class="color-name">shockingPink <span style="opacity:0.5">(Shocking pink)</span></span>
+    <span class="color-tuple">(252, 15, 192)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sienna" data-r="136" data-g="45" data-b="23" onclick="copyColor(this, '(136, 45, 23)')">
+    <div class="color-swatch" style="background: rgb(136, 45, 23);"></div>
+    <span class="color-name">sienna</span>
+    <span class="color-tuple">(136, 45, 23)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="silver" data-r="192" data-g="192" data-b="192" onclick="copyColor(this, '(192, 192, 192)')">
+    <div class="color-swatch" style="background: rgb(192, 192, 192);"></div>
+    <span class="color-name">silver</span>
+    <span class="color-tuple">(192, 192, 192)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="silverChalice" data-r="172" data-g="172" data-b="172" onclick="copyColor(this, '(172, 172, 172)')">
+    <div class="color-swatch" style="background: rgb(172, 172, 172);"></div>
+    <span class="color-name">silverChalice <span style="opacity:0.5">(Silver chalice)</span></span>
+    <span class="color-tuple">(172, 172, 172)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="silverPink" data-r="196" data-g="174" data-b="173" onclick="copyColor(this, '(196, 174, 173)')">
+    <div class="color-swatch" style="background: rgb(196, 174, 173);"></div>
+    <span class="color-name">silverPink <span style="opacity:0.5">(Silver pink)</span></span>
+    <span class="color-tuple">(196, 174, 173)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="silverSand" data-r="191" data-g="193" data-b="194" onclick="copyColor(this, '(191, 193, 194)')">
+    <div class="color-swatch" style="background: rgb(191, 193, 194);"></div>
+    <span class="color-name">silverSand <span style="opacity:0.5">(Silver sand)</span></span>
+    <span class="color-tuple">(191, 193, 194)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sinopia" data-r="203" data-g="65" data-b="11" onclick="copyColor(this, '(203, 65, 11)')">
+    <div class="color-swatch" style="background: rgb(203, 65, 11);"></div>
+    <span class="color-name">sinopia</span>
+    <span class="color-tuple">(203, 65, 11)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sizzlingRed" data-r="255" data-g="56" data-b="85" onclick="copyColor(this, '(255, 56, 85)')">
+    <div class="color-swatch" style="background: rgb(255, 56, 85);"></div>
+    <span class="color-name">sizzlingRed <span style="opacity:0.5">(Sizzling Red)</span></span>
+    <span class="color-tuple">(255, 56, 85)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sizzlingSunrise" data-r="255" data-g="219" data-b="0" onclick="copyColor(this, '(255, 219, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 219, 0);"></div>
+    <span class="color-name">sizzlingSunrise <span style="opacity:0.5">(Sizzling Sunrise)</span></span>
+    <span class="color-tuple">(255, 219, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="skobeloff" data-r="0" data-g="116" data-b="116" onclick="copyColor(this, '(0, 116, 116)')">
+    <div class="color-swatch" style="background: rgb(0, 116, 116);"></div>
+    <span class="color-name">skobeloff</span>
+    <span class="color-tuple">(0, 116, 116)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="skinColor" data-r="255" data-g="220" data-b="177" onclick="copyColor(this, '(255, 220, 177)')">
+    <div class="color-swatch" style="background: rgb(255, 220, 177);"></div>
+    <span class="color-name">skinColor <span style="opacity:0.5">(Skin color)</span></span>
+    <span class="color-tuple">(255, 220, 177)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="skyBlue" data-r="135" data-g="206" data-b="235" onclick="copyColor(this, '(135, 206, 235)')">
+    <div class="color-swatch" style="background: rgb(135, 206, 235);"></div>
+    <span class="color-name">skyBlue <span style="opacity:0.5">(Sky blue)</span></span>
+    <span class="color-tuple">(135, 206, 235)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="skyMagenta" data-r="207" data-g="113" data-b="175" onclick="copyColor(this, '(207, 113, 175)')">
+    <div class="color-swatch" style="background: rgb(207, 113, 175);"></div>
+    <span class="color-name">skyMagenta <span style="opacity:0.5">(Sky magenta)</span></span>
+    <span class="color-tuple">(207, 113, 175)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="slateBlue" data-r="106" data-g="90" data-b="205" onclick="copyColor(this, '(106, 90, 205)')">
+    <div class="color-swatch" style="background: rgb(106, 90, 205);"></div>
+    <span class="color-name">slateBlue <span style="opacity:0.5">(Slate blue)</span></span>
+    <span class="color-tuple">(106, 90, 205)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="slateGray" data-r="112" data-g="128" data-b="144" onclick="copyColor(this, '(112, 128, 144)')">
+    <div class="color-swatch" style="background: rgb(112, 128, 144);"></div>
+    <span class="color-name">slateGray <span style="opacity:0.5">(Slate gray)</span></span>
+    <span class="color-tuple">(112, 128, 144)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="slimyGreen" data-r="41" data-g="150" data-b="23" onclick="copyColor(this, '(41, 150, 23)')">
+    <div class="color-swatch" style="background: rgb(41, 150, 23);"></div>
+    <span class="color-name">slimyGreen <span style="opacity:0.5">(Slimy green)</span></span>
+    <span class="color-tuple">(41, 150, 23)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="smaragdine" data-r="74" data-g="153" data-b="118" onclick="copyColor(this, '(74, 153, 118)')">
+    <div class="color-swatch" style="background: rgb(74, 153, 118);"></div>
+    <span class="color-name">smaragdine</span>
+    <span class="color-tuple">(74, 153, 118)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="smitten" data-r="200" data-g="65" data-b="134" onclick="copyColor(this, '(200, 65, 134)')">
+    <div class="color-swatch" style="background: rgb(200, 65, 134);"></div>
+    <span class="color-name">smitten</span>
+    <span class="color-tuple">(200, 65, 134)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="smokyBlack" data-r="16" data-g="12" data-b="8" onclick="copyColor(this, '(16, 12, 8)')">
+    <div class="color-swatch" style="background: rgb(16, 12, 8);"></div>
+    <span class="color-name">smokyBlack <span style="opacity:0.5">(Smoky black)</span></span>
+    <span class="color-tuple">(16, 12, 8)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="snugglepuss" data-r="156" data-g="148" data-b="187" onclick="copyColor(this, '(156, 148, 187)')">
+    <div class="color-swatch" style="background: rgb(156, 148, 187);"></div>
+    <span class="color-name">snugglepuss</span>
+    <span class="color-tuple">(156, 148, 187)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="snow" data-r="255" data-g="250" data-b="250" onclick="copyColor(this, '(255, 250, 250)')">
+    <div class="color-swatch" style="background: rgb(255, 250, 250);"></div>
+    <span class="color-name">snow</span>
+    <span class="color-tuple">(255, 250, 250)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="solidPink" data-r="137" data-g="56" data-b="67" onclick="copyColor(this, '(137, 56, 67)')">
+    <div class="color-swatch" style="background: rgb(137, 56, 67);"></div>
+    <span class="color-name">solidPink <span style="opacity:0.5">(Solid pink)</span></span>
+    <span class="color-tuple">(137, 56, 67)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sonicSilver" data-r="117" data-g="117" data-b="117" onclick="copyColor(this, '(117, 117, 117)')">
+    <div class="color-swatch" style="background: rgb(117, 117, 117);"></div>
+    <span class="color-name">sonicSilver <span style="opacity:0.5">(Sonic silver)</span></span>
+    <span class="color-tuple">(117, 117, 117)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spaceCadet" data-r="29" data-g="41" data-b="81" onclick="copyColor(this, '(29, 41, 81)')">
+    <div class="color-swatch" style="background: rgb(29, 41, 81);"></div>
+    <span class="color-name">spaceCadet <span style="opacity:0.5">(Space cadet)</span></span>
+    <span class="color-tuple">(29, 41, 81)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishBistre" data-r="128" data-g="117" data-b="90" onclick="copyColor(this, '(128, 117, 90)')">
+    <div class="color-swatch" style="background: rgb(128, 117, 90);"></div>
+    <span class="color-name">spanishBistre <span style="opacity:0.5">(Spanish bistre)</span></span>
+    <span class="color-tuple">(128, 117, 90)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishBlue" data-r="0" data-g="112" data-b="184" onclick="copyColor(this, '(0, 112, 184)')">
+    <div class="color-swatch" style="background: rgb(0, 112, 184);"></div>
+    <span class="color-name">spanishBlue <span style="opacity:0.5">(Spanish blue)</span></span>
+    <span class="color-tuple">(0, 112, 184)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishCarmine" data-r="209" data-g="0" data-b="71" onclick="copyColor(this, '(209, 0, 71)')">
+    <div class="color-swatch" style="background: rgb(209, 0, 71);"></div>
+    <span class="color-name">spanishCarmine <span style="opacity:0.5">(Spanish carmine)</span></span>
+    <span class="color-tuple">(209, 0, 71)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishGray" data-r="152" data-g="152" data-b="152" onclick="copyColor(this, '(152, 152, 152)')">
+    <div class="color-swatch" style="background: rgb(152, 152, 152);"></div>
+    <span class="color-name">spanishGray <span style="opacity:0.5">(Spanish gray)</span></span>
+    <span class="color-tuple">(152, 152, 152)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishGreen" data-r="0" data-g="145" data-b="80" onclick="copyColor(this, '(0, 145, 80)')">
+    <div class="color-swatch" style="background: rgb(0, 145, 80);"></div>
+    <span class="color-name">spanishGreen <span style="opacity:0.5">(Spanish green)</span></span>
+    <span class="color-tuple">(0, 145, 80)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishOrange" data-r="232" data-g="97" data-b="0" onclick="copyColor(this, '(232, 97, 0)')">
+    <div class="color-swatch" style="background: rgb(232, 97, 0);"></div>
+    <span class="color-name">spanishOrange <span style="opacity:0.5">(Spanish orange)</span></span>
+    <span class="color-tuple">(232, 97, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishPink" data-r="247" data-g="191" data-b="190" onclick="copyColor(this, '(247, 191, 190)')">
+    <div class="color-swatch" style="background: rgb(247, 191, 190);"></div>
+    <span class="color-name">spanishPink <span style="opacity:0.5">(Spanish pink)</span></span>
+    <span class="color-tuple">(247, 191, 190)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishRed" data-r="230" data-g="0" data-b="38" onclick="copyColor(this, '(230, 0, 38)')">
+    <div class="color-swatch" style="background: rgb(230, 0, 38);"></div>
+    <span class="color-name">spanishRed <span style="opacity:0.5">(Spanish red)</span></span>
+    <span class="color-tuple">(230, 0, 38)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishSkyBlue" data-r="0" data-g="255" data-b="255" onclick="copyColor(this, '(0, 255, 255)')">
+    <div class="color-swatch" style="background: rgb(0, 255, 255);"></div>
+    <span class="color-name">spanishSkyBlue <span style="opacity:0.5">(Spanish sky blue)</span></span>
+    <span class="color-tuple">(0, 255, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishViolet" data-r="76" data-g="40" data-b="130" onclick="copyColor(this, '(76, 40, 130)')">
+    <div class="color-swatch" style="background: rgb(76, 40, 130);"></div>
+    <span class="color-name">spanishViolet <span style="opacity:0.5">(Spanish violet)</span></span>
+    <span class="color-tuple">(76, 40, 130)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="spanishViridian" data-r="0" data-g="127" data-b="92" onclick="copyColor(this, '(0, 127, 92)')">
+    <div class="color-swatch" style="background: rgb(0, 127, 92);"></div>
+    <span class="color-name">spanishViridian <span style="opacity:0.5">(Spanish viridian)</span></span>
+    <span class="color-tuple">(0, 127, 92)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="springFrost" data-r="135" data-g="255" data-b="42" onclick="copyColor(this, '(135, 255, 42)')">
+    <div class="color-swatch" style="background: rgb(135, 255, 42);"></div>
+    <span class="color-name">springFrost <span style="opacity:0.5">(Spring Frost)</span></span>
+    <span class="color-tuple">(135, 255, 42)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="springBud" data-r="167" data-g="252" data-b="0" onclick="copyColor(this, '(167, 252, 0)')">
+    <div class="color-swatch" style="background: rgb(167, 252, 0);"></div>
+    <span class="color-name">springBud <span style="opacity:0.5">(Spring bud)</span></span>
+    <span class="color-tuple">(167, 252, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="springGreen" data-r="0" data-g="255" data-b="127" onclick="copyColor(this, '(0, 255, 127)')">
+    <div class="color-swatch" style="background: rgb(0, 255, 127);"></div>
+    <span class="color-name">springGreen <span style="opacity:0.5">(Spring green)</span></span>
+    <span class="color-tuple">(0, 255, 127)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="stPatricksBlue" data-r="35" data-g="41" data-b="122" onclick="copyColor(this, '(35, 41, 122)')">
+    <div class="color-swatch" style="background: rgb(35, 41, 122);"></div>
+    <span class="color-name">stPatricksBlue <span style="opacity:0.5">(St. Patrick&#x27;s blue)</span></span>
+    <span class="color-tuple">(35, 41, 122)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="starCommandBlue" data-r="0" data-g="123" data-b="184" onclick="copyColor(this, '(0, 123, 184)')">
+    <div class="color-swatch" style="background: rgb(0, 123, 184);"></div>
+    <span class="color-name">starCommandBlue <span style="opacity:0.5">(Star command blue)</span></span>
+    <span class="color-tuple">(0, 123, 184)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="steelBlue" data-r="70" data-g="130" data-b="180" onclick="copyColor(this, '(70, 130, 180)')">
+    <div class="color-swatch" style="background: rgb(70, 130, 180);"></div>
+    <span class="color-name">steelBlue <span style="opacity:0.5">(Steel blue)</span></span>
+    <span class="color-tuple">(70, 130, 180)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="steelPink" data-r="204" data-g="51" data-b="204" onclick="copyColor(this, '(204, 51, 204)')">
+    <div class="color-swatch" style="background: rgb(204, 51, 204);"></div>
+    <span class="color-name">steelPink <span style="opacity:0.5">(Steel pink)</span></span>
+    <span class="color-tuple">(204, 51, 204)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="stilDeGrainYellow" data-r="250" data-g="218" data-b="94" onclick="copyColor(this, '(250, 218, 94)')">
+    <div class="color-swatch" style="background: rgb(250, 218, 94);"></div>
+    <span class="color-name">stilDeGrainYellow <span style="opacity:0.5">(Stil de grain yellow)</span></span>
+    <span class="color-tuple">(250, 218, 94)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="straw" data-r="228" data-g="217" data-b="111" onclick="copyColor(this, '(228, 217, 111)')">
+    <div class="color-swatch" style="background: rgb(228, 217, 111);"></div>
+    <span class="color-name">straw</span>
+    <span class="color-tuple">(228, 217, 111)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="strawberry" data-r="252" data-g="90" data-b="141" onclick="copyColor(this, '(252, 90, 141)')">
+    <div class="color-swatch" style="background: rgb(252, 90, 141);"></div>
+    <span class="color-name">strawberry</span>
+    <span class="color-tuple">(252, 90, 141)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="strawberryBlonde" data-r="255" data-g="147" data-b="107" onclick="copyColor(this, '(255, 147, 107)')">
+    <div class="color-swatch" style="background: rgb(255, 147, 107);"></div>
+    <span class="color-name">strawberryBlonde <span style="opacity:0.5">(Strawberry Blonde)</span></span>
+    <span class="color-tuple">(255, 147, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="strongLimeGreen" data-r="51" data-g="204" data-b="51" onclick="copyColor(this, '(51, 204, 51)')">
+    <div class="color-swatch" style="background: rgb(51, 204, 51);"></div>
+    <span class="color-name">strongLimeGreen <span style="opacity:0.5">(Strong Lime Green)</span></span>
+    <span class="color-tuple">(51, 204, 51)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sugarPlum" data-r="145" data-g="78" data-b="131" onclick="copyColor(this, '(145, 78, 131)')">
+    <div class="color-swatch" style="background: rgb(145, 78, 131);"></div>
+    <span class="color-name">sugarPlum <span style="opacity:0.5">(Sugar Plum)</span></span>
+    <span class="color-tuple">(145, 78, 131)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sunglow" data-r="255" data-g="204" data-b="51" onclick="copyColor(this, '(255, 204, 51)')">
+    <div class="color-swatch" style="background: rgb(255, 204, 51);"></div>
+    <span class="color-name">sunglow</span>
+    <span class="color-tuple">(255, 204, 51)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sunray" data-r="227" data-g="171" data-b="87" onclick="copyColor(this, '(227, 171, 87)')">
+    <div class="color-swatch" style="background: rgb(227, 171, 87);"></div>
+    <span class="color-name">sunray</span>
+    <span class="color-tuple">(227, 171, 87)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sunset" data-r="250" data-g="214" data-b="165" onclick="copyColor(this, '(250, 214, 165)')">
+    <div class="color-swatch" style="background: rgb(250, 214, 165);"></div>
+    <span class="color-name">sunset</span>
+    <span class="color-tuple">(250, 214, 165)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="superPink" data-r="207" data-g="107" data-b="169" onclick="copyColor(this, '(207, 107, 169)')">
+    <div class="color-swatch" style="background: rgb(207, 107, 169);"></div>
+    <span class="color-name">superPink <span style="opacity:0.5">(Super pink)</span></span>
+    <span class="color-tuple">(207, 107, 169)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="sweetBrown" data-r="168" data-g="55" data-b="49" onclick="copyColor(this, '(168, 55, 49)')">
+    <div class="color-swatch" style="background: rgb(168, 55, 49);"></div>
+    <span class="color-name">sweetBrown <span style="opacity:0.5">(Sweet Brown)</span></span>
+    <span class="color-tuple">(168, 55, 49)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="syracuseOrange" data-r="212" data-g="69" data-b="0" onclick="copyColor(this, '(212, 69, 0)')">
+    <div class="color-swatch" style="background: rgb(212, 69, 0);"></div>
+    <span class="color-name">syracuseOrange <span style="opacity:0.5">(Syracuse Orange)</span></span>
+    <span class="color-tuple">(212, 69, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tan" data-r="210" data-g="180" data-b="140" onclick="copyColor(this, '(210, 180, 140)')">
+    <div class="color-swatch" style="background: rgb(210, 180, 140);"></div>
+    <span class="color-name">tan</span>
+    <span class="color-tuple">(210, 180, 140)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tangerine" data-r="255" data-g="153" data-b="0" onclick="copyColor(this, '(255, 153, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 153, 0);"></div>
+    <span class="color-name">tangerine</span>
+    <span class="color-tuple">(255, 153, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tangoPink" data-r="228" data-g="113" data-b="122" onclick="copyColor(this, '(228, 113, 122)')">
+    <div class="color-swatch" style="background: rgb(228, 113, 122);"></div>
+    <span class="color-name">tangoPink <span style="opacity:0.5">(Tango pink)</span></span>
+    <span class="color-tuple">(228, 113, 122)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tartOrange" data-r="251" data-g="77" data-b="70" onclick="copyColor(this, '(251, 77, 70)')">
+    <div class="color-swatch" style="background: rgb(251, 77, 70);"></div>
+    <span class="color-name">tartOrange <span style="opacity:0.5">(Tart Orange)</span></span>
+    <span class="color-tuple">(251, 77, 70)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="taupe" data-r="72" data-g="60" data-b="50" onclick="copyColor(this, '(72, 60, 50)')">
+    <div class="color-swatch" style="background: rgb(72, 60, 50);"></div>
+    <span class="color-name">taupe</span>
+    <span class="color-tuple">(72, 60, 50)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="taupeGray" data-r="139" data-g="133" data-b="137" onclick="copyColor(this, '(139, 133, 137)')">
+    <div class="color-swatch" style="background: rgb(139, 133, 137);"></div>
+    <span class="color-name">taupeGray <span style="opacity:0.5">(Taupe gray)</span></span>
+    <span class="color-tuple">(139, 133, 137)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="teaGreen" data-r="208" data-g="240" data-b="192" onclick="copyColor(this, '(208, 240, 192)')">
+    <div class="color-swatch" style="background: rgb(208, 240, 192);"></div>
+    <span class="color-name">teaGreen <span style="opacity:0.5">(Tea green)</span></span>
+    <span class="color-tuple">(208, 240, 192)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="teaRose" data-r="244" data-g="194" data-b="194" onclick="copyColor(this, '(244, 194, 194)')">
+    <div class="color-swatch" style="background: rgb(244, 194, 194);"></div>
+    <span class="color-name">teaRose <span style="opacity:0.5">(Tea rose)</span></span>
+    <span class="color-tuple">(244, 194, 194)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="teal" data-r="0" data-g="128" data-b="128" onclick="copyColor(this, '(0, 128, 128)')">
+    <div class="color-swatch" style="background: rgb(0, 128, 128);"></div>
+    <span class="color-name">teal</span>
+    <span class="color-tuple">(0, 128, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tealBlue" data-r="54" data-g="117" data-b="136" onclick="copyColor(this, '(54, 117, 136)')">
+    <div class="color-swatch" style="background: rgb(54, 117, 136);"></div>
+    <span class="color-name">tealBlue <span style="opacity:0.5">(Teal blue)</span></span>
+    <span class="color-tuple">(54, 117, 136)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="technobotanica" data-r="0" data-g="128" data-b="128" onclick="copyColor(this, '(0, 128, 128)')">
+    <div class="color-swatch" style="background: rgb(0, 128, 128);"></div>
+    <span class="color-name">technobotanica</span>
+    <span class="color-tuple">(0, 128, 128)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="telemagenta" data-r="207" data-g="52" data-b="118" onclick="copyColor(this, '(207, 52, 118)')">
+    <div class="color-swatch" style="background: rgb(207, 52, 118);"></div>
+    <span class="color-name">telemagenta</span>
+    <span class="color-tuple">(207, 52, 118)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tenne" data-r="205" data-g="87" data-b="0" onclick="copyColor(this, '(205, 87, 0)')">
+    <div class="color-swatch" style="background: rgb(205, 87, 0);"></div>
+    <span class="color-name">tenne <span style="opacity:0.5">(Tenné)</span></span>
+    <span class="color-tuple">(205, 87, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="terraCotta" data-r="226" data-g="114" data-b="91" onclick="copyColor(this, '(226, 114, 91)')">
+    <div class="color-swatch" style="background: rgb(226, 114, 91);"></div>
+    <span class="color-name">terraCotta <span style="opacity:0.5">(Terra cotta)</span></span>
+    <span class="color-tuple">(226, 114, 91)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="thistle" data-r="216" data-g="191" data-b="216" onclick="copyColor(this, '(216, 191, 216)')">
+    <div class="color-swatch" style="background: rgb(216, 191, 216);"></div>
+    <span class="color-name">thistle</span>
+    <span class="color-tuple">(216, 191, 216)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="thulianPink" data-r="222" data-g="111" data-b="161" onclick="copyColor(this, '(222, 111, 161)')">
+    <div class="color-swatch" style="background: rgb(222, 111, 161);"></div>
+    <span class="color-name">thulianPink <span style="opacity:0.5">(Thulian pink)</span></span>
+    <span class="color-tuple">(222, 111, 161)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tickleMePink" data-r="252" data-g="137" data-b="172" onclick="copyColor(this, '(252, 137, 172)')">
+    <div class="color-swatch" style="background: rgb(252, 137, 172);"></div>
+    <span class="color-name">tickleMePink <span style="opacity:0.5">(Tickle Me Pink)</span></span>
+    <span class="color-tuple">(252, 137, 172)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tiffanyBlue" data-r="10" data-g="186" data-b="181" onclick="copyColor(this, '(10, 186, 181)')">
+    <div class="color-swatch" style="background: rgb(10, 186, 181);"></div>
+    <span class="color-name">tiffanyBlue <span style="opacity:0.5">(Tiffany Blue)</span></span>
+    <span class="color-tuple">(10, 186, 181)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="timberwolf" data-r="219" data-g="215" data-b="210" onclick="copyColor(this, '(219, 215, 210)')">
+    <div class="color-swatch" style="background: rgb(219, 215, 210);"></div>
+    <span class="color-name">timberwolf</span>
+    <span class="color-tuple">(219, 215, 210)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="titaniumYellow" data-r="238" data-g="230" data-b="0" onclick="copyColor(this, '(238, 230, 0)')">
+    <div class="color-swatch" style="background: rgb(238, 230, 0);"></div>
+    <span class="color-name">titaniumYellow <span style="opacity:0.5">(Titanium yellow)</span></span>
+    <span class="color-tuple">(238, 230, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tomato" data-r="255" data-g="99" data-b="71" onclick="copyColor(this, '(255, 99, 71)')">
+    <div class="color-swatch" style="background: rgb(255, 99, 71);"></div>
+    <span class="color-name">tomato</span>
+    <span class="color-tuple">(255, 99, 71)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tourmaline" data-r="134" data-g="164" data-b="156" onclick="copyColor(this, '(134, 164, 156)')">
+    <div class="color-swatch" style="background: rgb(134, 164, 156);"></div>
+    <span class="color-name">tourmaline</span>
+    <span class="color-tuple">(134, 164, 156)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tropicalRainforest" data-r="0" data-g="117" data-b="94" onclick="copyColor(this, '(0, 117, 94)')">
+    <div class="color-swatch" style="background: rgb(0, 117, 94);"></div>
+    <span class="color-name">tropicalRainforest <span style="opacity:0.5">(Tropical rainforest)</span></span>
+    <span class="color-tuple">(0, 117, 94)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="trueBlue" data-r="0" data-g="115" data-b="207" onclick="copyColor(this, '(0, 115, 207)')">
+    <div class="color-swatch" style="background: rgb(0, 115, 207);"></div>
+    <span class="color-name">trueBlue <span style="opacity:0.5">(True Blue)</span></span>
+    <span class="color-tuple">(0, 115, 207)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="trypanBlue" data-r="28" data-g="0" data-b="207" onclick="copyColor(this, '(28, 0, 207)')">
+    <div class="color-swatch" style="background: rgb(28, 0, 207);"></div>
+    <span class="color-name">trypanBlue <span style="opacity:0.5">(Trypan Blue)</span></span>
+    <span class="color-tuple">(28, 0, 207)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tuftsBlue" data-r="65" data-g="125" data-b="193" onclick="copyColor(this, '(65, 125, 193)')">
+    <div class="color-swatch" style="background: rgb(65, 125, 193);"></div>
+    <span class="color-name">tuftsBlue <span style="opacity:0.5">(Tufts blue)</span></span>
+    <span class="color-tuple">(65, 125, 193)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tumbleweed" data-r="222" data-g="170" data-b="136" onclick="copyColor(this, '(222, 170, 136)')">
+    <div class="color-swatch" style="background: rgb(222, 170, 136);"></div>
+    <span class="color-name">tumbleweed</span>
+    <span class="color-tuple">(222, 170, 136)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="turquoise" data-r="64" data-g="224" data-b="208" onclick="copyColor(this, '(64, 224, 208)')">
+    <div class="color-swatch" style="background: rgb(64, 224, 208);"></div>
+    <span class="color-name">turquoise</span>
+    <span class="color-tuple">(64, 224, 208)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="turquoiseBlue" data-r="0" data-g="199" data-b="190" onclick="copyColor(this, '(0, 199, 190)')">
+    <div class="color-swatch" style="background: rgb(0, 199, 190);"></div>
+    <span class="color-name">turquoiseBlue <span style="opacity:0.5">(Turquoise blue)</span></span>
+    <span class="color-tuple">(0, 199, 190)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="turquoiseGreen" data-r="160" data-g="214" data-b="180" onclick="copyColor(this, '(160, 214, 180)')">
+    <div class="color-swatch" style="background: rgb(160, 214, 180);"></div>
+    <span class="color-name">turquoiseGreen <span style="opacity:0.5">(Turquoise green)</span></span>
+    <span class="color-tuple">(160, 214, 180)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="turtleGreen" data-r="138" data-g="154" data-b="91" onclick="copyColor(this, '(138, 154, 91)')">
+    <div class="color-swatch" style="background: rgb(138, 154, 91);"></div>
+    <span class="color-name">turtleGreen <span style="opacity:0.5">(Turtle green)</span></span>
+    <span class="color-tuple">(138, 154, 91)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tuscan" data-r="250" data-g="214" data-b="165" onclick="copyColor(this, '(250, 214, 165)')">
+    <div class="color-swatch" style="background: rgb(250, 214, 165);"></div>
+    <span class="color-name">tuscan</span>
+    <span class="color-tuple">(250, 214, 165)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tuscanBrown" data-r="111" data-g="78" data-b="55" onclick="copyColor(this, '(111, 78, 55)')">
+    <div class="color-swatch" style="background: rgb(111, 78, 55);"></div>
+    <span class="color-name">tuscanBrown <span style="opacity:0.5">(Tuscan brown)</span></span>
+    <span class="color-tuple">(111, 78, 55)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tuscanRed" data-r="124" data-g="72" data-b="72" onclick="copyColor(this, '(124, 72, 72)')">
+    <div class="color-swatch" style="background: rgb(124, 72, 72);"></div>
+    <span class="color-name">tuscanRed <span style="opacity:0.5">(Tuscan red)</span></span>
+    <span class="color-tuple">(124, 72, 72)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tuscanTan" data-r="166" data-g="123" data-b="91" onclick="copyColor(this, '(166, 123, 91)')">
+    <div class="color-swatch" style="background: rgb(166, 123, 91);"></div>
+    <span class="color-name">tuscanTan <span style="opacity:0.5">(Tuscan tan)</span></span>
+    <span class="color-tuple">(166, 123, 91)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tuscany" data-r="192" data-g="153" data-b="153" onclick="copyColor(this, '(192, 153, 153)')">
+    <div class="color-swatch" style="background: rgb(192, 153, 153);"></div>
+    <span class="color-name">tuscany</span>
+    <span class="color-tuple">(192, 153, 153)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="twilightLavender" data-r="138" data-g="73" data-b="107" onclick="copyColor(this, '(138, 73, 107)')">
+    <div class="color-swatch" style="background: rgb(138, 73, 107);"></div>
+    <span class="color-name">twilightLavender <span style="opacity:0.5">(Twilight lavender)</span></span>
+    <span class="color-tuple">(138, 73, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="tyrianPurple" data-r="102" data-g="2" data-b="60" onclick="copyColor(this, '(102, 2, 60)')">
+    <div class="color-swatch" style="background: rgb(102, 2, 60);"></div>
+    <span class="color-name">tyrianPurple <span style="opacity:0.5">(Tyrian purple)</span></span>
+    <span class="color-tuple">(102, 2, 60)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="uaBlue" data-r="0" data-g="51" data-b="170" onclick="copyColor(this, '(0, 51, 170)')">
+    <div class="color-swatch" style="background: rgb(0, 51, 170);"></div>
+    <span class="color-name">uaBlue <span style="opacity:0.5">(UA blue)</span></span>
+    <span class="color-tuple">(0, 51, 170)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="uaRed" data-r="217" data-g="0" data-b="76" onclick="copyColor(this, '(217, 0, 76)')">
+    <div class="color-swatch" style="background: rgb(217, 0, 76);"></div>
+    <span class="color-name">uaRed <span style="opacity:0.5">(UA red)</span></span>
+    <span class="color-tuple">(217, 0, 76)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ultraPink" data-r="255" data-g="111" data-b="255" onclick="copyColor(this, '(255, 111, 255)')">
+    <div class="color-swatch" style="background: rgb(255, 111, 255);"></div>
+    <span class="color-name">ultraPink <span style="opacity:0.5">(Ultra pink)</span></span>
+    <span class="color-tuple">(255, 111, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ultraRed" data-r="252" data-g="108" data-b="133" onclick="copyColor(this, '(252, 108, 133)')">
+    <div class="color-swatch" style="background: rgb(252, 108, 133);"></div>
+    <span class="color-name">ultraRed <span style="opacity:0.5">(Ultra red)</span></span>
+    <span class="color-tuple">(252, 108, 133)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ultramarine" data-r="63" data-g="0" data-b="255" onclick="copyColor(this, '(63, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(63, 0, 255);"></div>
+    <span class="color-name">ultramarine</span>
+    <span class="color-tuple">(63, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="ultramarineBlue" data-r="65" data-g="102" data-b="245" onclick="copyColor(this, '(65, 102, 245)')">
+    <div class="color-swatch" style="background: rgb(65, 102, 245);"></div>
+    <span class="color-name">ultramarineBlue <span style="opacity:0.5">(Ultramarine blue)</span></span>
+    <span class="color-tuple">(65, 102, 245)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="umber" data-r="99" data-g="81" data-b="71" onclick="copyColor(this, '(99, 81, 71)')">
+    <div class="color-swatch" style="background: rgb(99, 81, 71);"></div>
+    <span class="color-name">umber</span>
+    <span class="color-tuple">(99, 81, 71)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="unTealWeMeet" data-r="123" data-g="199" data-b="203" onclick="copyColor(this, '(123, 199, 203)')">
+    <div class="color-swatch" style="background: rgb(123, 199, 203);"></div>
+    <span class="color-name">unTealWeMeet <span style="opacity:0.5">(Un-Teal We Meet)</span></span>
+    <span class="color-tuple">(123, 199, 203)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="unbleachedSilk" data-r="255" data-g="221" data-b="202" onclick="copyColor(this, '(255, 221, 202)')">
+    <div class="color-swatch" style="background: rgb(255, 221, 202);"></div>
+    <span class="color-name">unbleachedSilk <span style="opacity:0.5">(Unbleached silk)</span></span>
+    <span class="color-tuple">(255, 221, 202)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="unitedNationsBlue" data-r="91" data-g="146" data-b="229" onclick="copyColor(this, '(91, 146, 229)')">
+    <div class="color-swatch" style="background: rgb(91, 146, 229);"></div>
+    <span class="color-name">unitedNationsBlue <span style="opacity:0.5">(United Nations blue)</span></span>
+    <span class="color-tuple">(91, 146, 229)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="universityOfPennsylvaniaRed" data-r="165" data-g="0" data-b="33" onclick="copyColor(this, '(165, 0, 33)')">
+    <div class="color-swatch" style="background: rgb(165, 0, 33);"></div>
+    <span class="color-name">universityOfPennsylvaniaRed <span style="opacity:0.5">(University of Pennsylvania red)</span></span>
+    <span class="color-tuple">(165, 0, 33)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="unmellowYellow" data-r="255" data-g="255" data-b="102" onclick="copyColor(this, '(255, 255, 102)')">
+    <div class="color-swatch" style="background: rgb(255, 255, 102);"></div>
+    <span class="color-name">unmellowYellow <span style="opacity:0.5">(Unmellow yellow)</span></span>
+    <span class="color-tuple">(255, 255, 102)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="upForestGreen" data-r="1" data-g="68" data-b="33" onclick="copyColor(this, '(1, 68, 33)')">
+    <div class="color-swatch" style="background: rgb(1, 68, 33);"></div>
+    <span class="color-name">upForestGreen <span style="opacity:0.5">(UP Forest green)</span></span>
+    <span class="color-tuple">(1, 68, 33)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="upMaroon" data-r="123" data-g="17" data-b="19" onclick="copyColor(this, '(123, 17, 19)')">
+    <div class="color-swatch" style="background: rgb(123, 17, 19);"></div>
+    <span class="color-name">upMaroon <span style="opacity:0.5">(UP maroon)</span></span>
+    <span class="color-tuple">(123, 17, 19)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="upsdellRed" data-r="174" data-g="32" data-b="41" onclick="copyColor(this, '(174, 32, 41)')">
+    <div class="color-swatch" style="background: rgb(174, 32, 41);"></div>
+    <span class="color-name">upsdellRed <span style="opacity:0.5">(Upsdell red)</span></span>
+    <span class="color-tuple">(174, 32, 41)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="uranianBlue" data-r="175" data-g="219" data-b="245" onclick="copyColor(this, '(175, 219, 245)')">
+    <div class="color-swatch" style="background: rgb(175, 219, 245);"></div>
+    <span class="color-name">uranianBlue <span style="opacity:0.5">(Uranian blue)</span></span>
+    <span class="color-tuple">(175, 219, 245)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="usafaBlue" data-r="0" data-g="79" data-b="152" onclick="copyColor(this, '(0, 79, 152)')">
+    <div class="color-swatch" style="background: rgb(0, 79, 152);"></div>
+    <span class="color-name">usafaBlue <span style="opacity:0.5">(USAFA blue)</span></span>
+    <span class="color-tuple">(0, 79, 152)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vanDykeBrown" data-r="102" data-g="66" data-b="40" onclick="copyColor(this, '(102, 66, 40)')">
+    <div class="color-swatch" style="background: rgb(102, 66, 40);"></div>
+    <span class="color-name">vanDykeBrown <span style="opacity:0.5">(Van Dyke brown)</span></span>
+    <span class="color-tuple">(102, 66, 40)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vanilla" data-r="243" data-g="229" data-b="171" onclick="copyColor(this, '(243, 229, 171)')">
+    <div class="color-swatch" style="background: rgb(243, 229, 171);"></div>
+    <span class="color-name">vanilla</span>
+    <span class="color-tuple">(243, 229, 171)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vanillaIce" data-r="243" data-g="143" data-b="169" onclick="copyColor(this, '(243, 143, 169)')">
+    <div class="color-swatch" style="background: rgb(243, 143, 169);"></div>
+    <span class="color-name">vanillaIce <span style="opacity:0.5">(Vanilla ice)</span></span>
+    <span class="color-tuple">(243, 143, 169)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vantgBlue" data-r="46" data-g="80" data-b="144" onclick="copyColor(this, '(46, 80, 144)')">
+    <div class="color-swatch" style="background: rgb(46, 80, 144);"></div>
+    <span class="color-name">vantgBlue <span style="opacity:0.5">(Vantg blue)</span></span>
+    <span class="color-tuple">(46, 80, 144)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vegasGold" data-r="197" data-g="179" data-b="88" onclick="copyColor(this, '(197, 179, 88)')">
+    <div class="color-swatch" style="background: rgb(197, 179, 88);"></div>
+    <span class="color-name">vegasGold <span style="opacity:0.5">(Vegas gold)</span></span>
+    <span class="color-tuple">(197, 179, 88)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="venetianRed" data-r="200" data-g="8" data-b="21" onclick="copyColor(this, '(200, 8, 21)')">
+    <div class="color-swatch" style="background: rgb(200, 8, 21);"></div>
+    <span class="color-name">venetianRed <span style="opacity:0.5">(Venetian red)</span></span>
+    <span class="color-tuple">(200, 8, 21)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="verdigris" data-r="67" data-g="179" data-b="174" onclick="copyColor(this, '(67, 179, 174)')">
+    <div class="color-swatch" style="background: rgb(67, 179, 174);"></div>
+    <span class="color-name">verdigris</span>
+    <span class="color-tuple">(67, 179, 174)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vermilion" data-r="227" data-g="66" data-b="52" onclick="copyColor(this, '(227, 66, 52)')">
+    <div class="color-swatch" style="background: rgb(227, 66, 52);"></div>
+    <span class="color-name">vermilion</span>
+    <span class="color-tuple">(227, 66, 52)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="veronica" data-r="160" data-g="32" data-b="240" onclick="copyColor(this, '(160, 32, 240)')">
+    <div class="color-swatch" style="background: rgb(160, 32, 240);"></div>
+    <span class="color-name">veronica</span>
+    <span class="color-tuple">(160, 32, 240)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="violet" data-r="143" data-g="0" data-b="255" onclick="copyColor(this, '(143, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(143, 0, 255);"></div>
+    <span class="color-name">violet</span>
+    <span class="color-tuple">(143, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="violetBlue" data-r="50" data-g="74" data-b="178" onclick="copyColor(this, '(50, 74, 178)')">
+    <div class="color-swatch" style="background: rgb(50, 74, 178);"></div>
+    <span class="color-name">violetBlue <span style="opacity:0.5">(Violet-blue)</span></span>
+    <span class="color-tuple">(50, 74, 178)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="violetRed" data-r="247" data-g="83" data-b="148" onclick="copyColor(this, '(247, 83, 148)')">
+    <div class="color-swatch" style="background: rgb(247, 83, 148);"></div>
+    <span class="color-name">violetRed <span style="opacity:0.5">(Violet-red)</span></span>
+    <span class="color-tuple">(247, 83, 148)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="viridian" data-r="64" data-g="130" data-b="109" onclick="copyColor(this, '(64, 130, 109)')">
+    <div class="color-swatch" style="background: rgb(64, 130, 109);"></div>
+    <span class="color-name">viridian</span>
+    <span class="color-tuple">(64, 130, 109)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="viridianGreen" data-r="0" data-g="148" data-b="116" onclick="copyColor(this, '(0, 148, 116)')">
+    <div class="color-swatch" style="background: rgb(0, 148, 116);"></div>
+    <span class="color-name">viridianGreen <span style="opacity:0.5">(Viridian green)</span></span>
+    <span class="color-tuple">(0, 148, 116)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vividBurgundy" data-r="159" data-g="29" data-b="53" onclick="copyColor(this, '(159, 29, 53)')">
+    <div class="color-swatch" style="background: rgb(159, 29, 53);"></div>
+    <span class="color-name">vividBurgundy <span style="opacity:0.5">(Vivid burgundy)</span></span>
+    <span class="color-tuple">(159, 29, 53)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vividSkyBlue" data-r="0" data-g="204" data-b="255" onclick="copyColor(this, '(0, 204, 255)')">
+    <div class="color-swatch" style="background: rgb(0, 204, 255);"></div>
+    <span class="color-name">vividSkyBlue <span style="opacity:0.5">(Vivid sky blue)</span></span>
+    <span class="color-tuple">(0, 204, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vividTangerine" data-r="255" data-g="160" data-b="137" onclick="copyColor(this, '(255, 160, 137)')">
+    <div class="color-swatch" style="background: rgb(255, 160, 137);"></div>
+    <span class="color-name">vividTangerine <span style="opacity:0.5">(Vivid tangerine)</span></span>
+    <span class="color-tuple">(255, 160, 137)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="vividViolet" data-r="159" data-g="0" data-b="255" onclick="copyColor(this, '(159, 0, 255)')">
+    <div class="color-swatch" style="background: rgb(159, 0, 255);"></div>
+    <span class="color-name">vividViolet <span style="opacity:0.5">(Vivid violet)</span></span>
+    <span class="color-tuple">(159, 0, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="volt" data-r="205" data-g="255" data-b="0" onclick="copyColor(this, '(205, 255, 0)')">
+    <div class="color-swatch" style="background: rgb(205, 255, 0);"></div>
+    <span class="color-name">volt</span>
+    <span class="color-tuple">(205, 255, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="warmBlack" data-r="0" data-g="66" data-b="66" onclick="copyColor(this, '(0, 66, 66)')">
+    <div class="color-swatch" style="background: rgb(0, 66, 66);"></div>
+    <span class="color-name">warmBlack <span style="opacity:0.5">(Warm black)</span></span>
+    <span class="color-tuple">(0, 66, 66)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="watchet" data-r="143" data-g="186" data-b="188" onclick="copyColor(this, '(143, 186, 188)')">
+    <div class="color-swatch" style="background: rgb(143, 186, 188);"></div>
+    <span class="color-name">watchet</span>
+    <span class="color-tuple">(143, 186, 188)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="weezyBlue" data-r="133" data-g="156" data-b="200" onclick="copyColor(this, '(133, 156, 200)')">
+    <div class="color-swatch" style="background: rgb(133, 156, 200);"></div>
+    <span class="color-name">weezyBlue <span style="opacity:0.5">(Weezy Blue)</span></span>
+    <span class="color-tuple">(133, 156, 200)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wheat" data-r="245" data-g="222" data-b="179" onclick="copyColor(this, '(245, 222, 179)')">
+    <div class="color-swatch" style="background: rgb(245, 222, 179);"></div>
+    <span class="color-name">wheat</span>
+    <span class="color-tuple">(245, 222, 179)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="white" data-r="255" data-g="255" data-b="255" onclick="copyColor(this, '(255, 255, 255)')">
+    <div class="color-swatch" style="background: rgb(255, 255, 255);"></div>
+    <span class="color-name">white</span>
+    <span class="color-tuple">(255, 255, 255)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wildStrawberry" data-r="255" data-g="67" data-b="164" onclick="copyColor(this, '(255, 67, 164)')">
+    <div class="color-swatch" style="background: rgb(255, 67, 164);"></div>
+    <span class="color-name">wildStrawberry <span style="opacity:0.5">(Wild Strawberry)</span></span>
+    <span class="color-tuple">(255, 67, 164)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wildBlueYonder" data-r="162" data-g="173" data-b="208" onclick="copyColor(this, '(162, 173, 208)')">
+    <div class="color-swatch" style="background: rgb(162, 173, 208);"></div>
+    <span class="color-name">wildBlueYonder <span style="opacity:0.5">(Wild blue yonder)</span></span>
+    <span class="color-tuple">(162, 173, 208)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wildOrchid" data-r="212" data-g="112" data-b="162" onclick="copyColor(this, '(212, 112, 162)')">
+    <div class="color-swatch" style="background: rgb(212, 112, 162);"></div>
+    <span class="color-name">wildOrchid <span style="opacity:0.5">(Wild orchid)</span></span>
+    <span class="color-tuple">(212, 112, 162)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wildWatermelon" data-r="252" data-g="108" data-b="133" onclick="copyColor(this, '(252, 108, 133)')">
+    <div class="color-swatch" style="background: rgb(252, 108, 133);"></div>
+    <span class="color-name">wildWatermelon <span style="opacity:0.5">(Wild watermelon)</span></span>
+    <span class="color-tuple">(252, 108, 133)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="willpowerOrange" data-r="253" data-g="88" data-b="0" onclick="copyColor(this, '(253, 88, 0)')">
+    <div class="color-swatch" style="background: rgb(253, 88, 0);"></div>
+    <span class="color-name">willpowerOrange <span style="opacity:0.5">(Willpower orange)</span></span>
+    <span class="color-tuple">(253, 88, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="windsorTan" data-r="167" data-g="85" data-b="2" onclick="copyColor(this, '(167, 85, 2)')">
+    <div class="color-swatch" style="background: rgb(167, 85, 2);"></div>
+    <span class="color-name">windsorTan <span style="opacity:0.5">(Windsor tan)</span></span>
+    <span class="color-tuple">(167, 85, 2)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wine" data-r="114" data-g="47" data-b="55" onclick="copyColor(this, '(114, 47, 55)')">
+    <div class="color-swatch" style="background: rgb(114, 47, 55);"></div>
+    <span class="color-name">wine</span>
+    <span class="color-tuple">(114, 47, 55)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wineRed" data-r="177" data-g="18" data-b="38" onclick="copyColor(this, '(177, 18, 38)')">
+    <div class="color-swatch" style="background: rgb(177, 18, 38);"></div>
+    <span class="color-name">wineRed <span style="opacity:0.5">(Wine Red)</span></span>
+    <span class="color-tuple">(177, 18, 38)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wineDregs" data-r="103" data-g="49" data-b="71" onclick="copyColor(this, '(103, 49, 71)')">
+    <div class="color-swatch" style="background: rgb(103, 49, 71);"></div>
+    <span class="color-name">wineDregs <span style="opacity:0.5">(Wine dregs)</span></span>
+    <span class="color-tuple">(103, 49, 71)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="winterSky" data-r="255" data-g="0" data-b="124" onclick="copyColor(this, '(255, 0, 124)')">
+    <div class="color-swatch" style="background: rgb(255, 0, 124);"></div>
+    <span class="color-name">winterSky <span style="opacity:0.5">(Winter Sky)</span></span>
+    <span class="color-tuple">(255, 0, 124)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wintergreenDream" data-r="86" data-g="136" data-b="125" onclick="copyColor(this, '(86, 136, 125)')">
+    <div class="color-swatch" style="background: rgb(86, 136, 125);"></div>
+    <span class="color-name">wintergreenDream <span style="opacity:0.5">(Wintergreen Dream)</span></span>
+    <span class="color-tuple">(86, 136, 125)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="wisteria" data-r="201" data-g="160" data-b="220" onclick="copyColor(this, '(201, 160, 220)')">
+    <div class="color-swatch" style="background: rgb(201, 160, 220);"></div>
+    <span class="color-name">wisteria</span>
+    <span class="color-tuple">(201, 160, 220)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="woodBrown" data-r="193" data-g="154" data-b="107" onclick="copyColor(this, '(193, 154, 107)')">
+    <div class="color-swatch" style="background: rgb(193, 154, 107);"></div>
+    <span class="color-name">woodBrown <span style="opacity:0.5">(Wood brown)</span></span>
+    <span class="color-tuple">(193, 154, 107)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="xanadu" data-r="115" data-g="134" data-b="120" onclick="copyColor(this, '(115, 134, 120)')">
+    <div class="color-swatch" style="background: rgb(115, 134, 120);"></div>
+    <span class="color-name">xanadu</span>
+    <span class="color-tuple">(115, 134, 120)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="xanthic" data-r="238" data-g="237" data-b="9" onclick="copyColor(this, '(238, 237, 9)')">
+    <div class="color-swatch" style="background: rgb(238, 237, 9);"></div>
+    <span class="color-name">xanthic</span>
+    <span class="color-tuple">(238, 237, 9)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="xanthous" data-r="241" data-g="180" data-b="47" onclick="copyColor(this, '(241, 180, 47)')">
+    <div class="color-swatch" style="background: rgb(241, 180, 47);"></div>
+    <span class="color-name">xanthous</span>
+    <span class="color-tuple">(241, 180, 47)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="yaleBlue" data-r="15" data-g="77" data-b="146" onclick="copyColor(this, '(15, 77, 146)')">
+    <div class="color-swatch" style="background: rgb(15, 77, 146);"></div>
+    <span class="color-name">yaleBlue <span style="opacity:0.5">(Yale Blue)</span></span>
+    <span class="color-tuple">(15, 77, 146)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="yellow" data-r="255" data-g="255" data-b="0" onclick="copyColor(this, '(255, 255, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 255, 0);"></div>
+    <span class="color-name">yellow</span>
+    <span class="color-tuple">(255, 255, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="yellowOrange" data-r="255" data-g="174" data-b="66" onclick="copyColor(this, '(255, 174, 66)')">
+    <div class="color-swatch" style="background: rgb(255, 174, 66);"></div>
+    <span class="color-name">yellowOrange <span style="opacity:0.5">(Yellow Orange)</span></span>
+    <span class="color-tuple">(255, 174, 66)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="yellowRose" data-r="255" data-g="240" data-b="0" onclick="copyColor(this, '(255, 240, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 240, 0);"></div>
+    <span class="color-name">yellowRose <span style="opacity:0.5">(Yellow Rose)</span></span>
+    <span class="color-tuple">(255, 240, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="yellowSunshine" data-r="255" data-g="247" data-b="0" onclick="copyColor(this, '(255, 247, 0)')">
+    <div class="color-swatch" style="background: rgb(255, 247, 0);"></div>
+    <span class="color-name">yellowSunshine <span style="opacity:0.5">(Yellow Sunshine)</span></span>
+    <span class="color-tuple">(255, 247, 0)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="yellowGreen" data-r="154" data-g="205" data-b="50" onclick="copyColor(this, '(154, 205, 50)')">
+    <div class="color-swatch" style="background: rgb(154, 205, 50);"></div>
+    <span class="color-name">yellowGreen <span style="opacity:0.5">(Yellow-green)</span></span>
+    <span class="color-tuple">(154, 205, 50)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="yinmnBlue" data-r="46" data-g="80" data-b="144" onclick="copyColor(this, '(46, 80, 144)')">
+    <div class="color-swatch" style="background: rgb(46, 80, 144);"></div>
+    <span class="color-name">yinmnBlue <span style="opacity:0.5">(YInMn Blue)</span></span>
+    <span class="color-tuple">(46, 80, 144)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="zaffer" data-r="0" data-g="20" data-b="168" onclick="copyColor(this, '(0, 20, 168)')">
+    <div class="color-swatch" style="background: rgb(0, 20, 168);"></div>
+    <span class="color-name">zaffer <span style="opacity:0.5">(Zaffer (Zaffre))</span></span>
+    <span class="color-tuple">(0, 20, 168)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="zarqa" data-r="50" data-g="180" data-b="200" onclick="copyColor(this, '(50, 180, 200)')">
+    <div class="color-swatch" style="background: rgb(50, 180, 200);"></div>
+    <span class="color-name">zarqa</span>
+    <span class="color-tuple">(50, 180, 200)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="zebraWhite" data-r="241" data-g="240" data-b="232" onclick="copyColor(this, '(241, 240, 232)')">
+    <div class="color-swatch" style="background: rgb(241, 240, 232);"></div>
+    <span class="color-name">zebraWhite <span style="opacity:0.5">(Zebra White)</span></span>
+    <span class="color-tuple">(241, 240, 232)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="zincWhite" data-r="253" data-g="248" data-b="240" onclick="copyColor(this, '(253, 248, 240)')">
+    <div class="color-swatch" style="background: rgb(253, 248, 240);"></div>
+    <span class="color-name">zincWhite <span style="opacity:0.5">(Zinc white)</span></span>
+    <span class="color-tuple">(253, 248, 240)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="zinnwalditeBrown" data-r="44" data-g="22" data-b="8" onclick="copyColor(this, '(44, 22, 8)')">
+    <div class="color-swatch" style="background: rgb(44, 22, 8);"></div>
+    <span class="color-name">zinnwalditeBrown <span style="opacity:0.5">(Zinnwaldite brown)</span></span>
+    <span class="color-tuple">(44, 22, 8)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="zinzolin" data-r="88" data-g="44" data-b="77" onclick="copyColor(this, '(88, 44, 77)')">
+    <div class="color-swatch" style="background: rgb(88, 44, 77);"></div>
+    <span class="color-name">zinzolin</span>
+    <span class="color-tuple">(88, 44, 77)</span>
+    <span class="color-copied">copied</span>
+  </div>
+  <div class="color-row" data-name="zomp" data-r="57" data-g="167" data-b="142" onclick="copyColor(this, '(57, 167, 142)')">
+    <div class="color-swatch" style="background: rgb(57, 167, 142);"></div>
+    <span class="color-name">zomp</span>
+    <span class="color-tuple">(57, 167, 142)</span>
+    <span class="color-copied">copied</span>
+  </div>
+</div>
+
+<script>
+var currentSort = 'color';
+
+function copyColor(row, tuple) {
+  navigator.clipboard.writeText(tuple);
+  var badge = row.querySelector('.color-copied');
+  badge.classList.add('show');
+  setTimeout(function() { badge.classList.remove('show'); }, 1200);
+}
+
+function rgbToHsl(r, g, b) {
+  r /= 255; g /= 255; b /= 255;
+  var max = Math.max(r, g, b), min = Math.min(r, g, b);
+  var h, s, l = (max + min) / 2;
+  if (max === min) {
+    h = s = 0;
+  } else {
+    var d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+      case g: h = ((b - r) / d + 2) / 6; break;
+      case b: h = ((r - g) / d + 4) / 6; break;
+    }
+  }
+  return [h * 360, s, l];
+}
+
+function getColorCategory(r, g, b) {
+  var hsl = rgbToHsl(r, g, b);
+  var h = hsl[0], s = hsl[1], l = hsl[2];
+
+  // Black: very dark
+  if (l < 0.09) return { cat: 9, name: 'Black', l: l };
+  // White: very light and low saturation
+  if (l > 0.92 && s < 0.15) return { cat: 0, name: 'White', l: l };
+  // Grey: low saturation
+  if (s < 0.12) {
+    if (l > 0.65) return { cat: 0, name: 'White', l: l };
+    if (l < 0.2) return { cat: 9, name: 'Black', l: l };
+    return { cat: 1, name: 'Grey', l: l };
+  }
+  // Brown: low-ish saturation + dark-ish + warm hue range
+  if (h >= 10 && h <= 50 && s < 0.65 && l < 0.52 && l > 0.08) return { cat: 8, name: 'Brown', l: l };
+  // Chromatic categories by hue
+  if (h < 15 || h >= 345) return { cat: 4, name: 'Red', l: l };
+  if (h < 40) return { cat: 3, name: 'Orange', l: l };
+  if (h < 70) return { cat: 2, name: 'Yellow', l: l };
+  if (h < 165) return { cat: 6, name: 'Green', l: l };
+  if (h < 255) return { cat: 5, name: 'Blue', l: l };
+  if (h < 345) return { cat: 4.5, name: 'Purple', l: l };
+  return { cat: 4, name: 'Red', l: l };
+}
+
+function sortByColor() {
+  var grid = document.getElementById('colorGrid');
+  var rows = Array.from(grid.querySelectorAll('.color-row'));
+
+  // Remove any existing category headers
+  grid.querySelectorAll('.category-header').forEach(function(el) { el.remove(); });
+
+  // Classify each row
+  rows.forEach(function(row) {
+    var r = parseInt(row.dataset.r);
+    var g = parseInt(row.dataset.g);
+    var b = parseInt(row.dataset.b);
+    var info = getColorCategory(r, g, b);
+    row._catOrder = info.cat;
+    row._catName = info.name;
+    row._lightness = info.l;
+  });
+
+  // Sort: by category order, then lightness descending (brightest first)
+  rows.sort(function(a, b) {
+    if (a._catOrder !== b._catOrder) return a._catOrder - b._catOrder;
+    return b._lightness - a._lightness;
+  });
+
+  // Re-append with category headers
+  var lastCat = null;
+  rows.forEach(function(row) {
+    if (row._catName !== lastCat) {
+      var header = document.createElement('div');
+      header.className = 'category-header';
+      header.id = 'cat-' + row._catName.toLowerCase();
+      header.textContent = row._catName;
+      grid.appendChild(header);
+      lastCat = row._catName;
+    }
+    grid.appendChild(row);
+  });
+}
+
+function sortByAlpha() {
+  var grid = document.getElementById('colorGrid');
+  var rows = Array.from(grid.querySelectorAll('.color-row'));
+
+  // Remove any category headers
+  grid.querySelectorAll('.category-header').forEach(function(el) { el.remove(); });
+
+  rows.sort(function(a, b) {
+    return a.dataset.name.localeCompare(b.dataset.name);
+  });
+
+  var lastLetter = null;
+  rows.forEach(function(row) {
+    var letter = row.dataset.name.charAt(0).toUpperCase();
+    if (letter !== lastLetter) {
+      var header = document.createElement('div');
+      header.className = 'category-header';
+      header.id = 'letter-' + letter.toLowerCase();
+      header.textContent = letter;
+      grid.appendChild(header);
+      lastLetter = letter;
+    }
+    grid.appendChild(row);
+  });
+}
+
+var catColors = {
+  'White': '#f5f5f5', 'Grey': '#999', 'Yellow': '#ffd700',
+  'Orange': '#ff8c00', 'Red': '#e03030', 'Purple': '#9050d0',
+  'Blue': '#3080e0', 'Green': '#30a050', 'Brown': '#8b5e3c', 'Black': '#222'
+};
+var catOrder = ['White','Grey','Yellow','Orange','Red','Purple','Blue','Green','Brown','Black'];
+
+function buildNav() {
+  var nav = document.getElementById('colorNav');
+  nav.innerHTML = '';
+  if (currentSort === 'color') {
+    catOrder.forEach(function(cat) {
+      var a = document.createElement('a');
+      a.href = '#cat-' + cat.toLowerCase();
+      a.innerHTML = '<span class="nav-dot" style="background:' + catColors[cat] + ';"></span>' + cat;
+      nav.appendChild(a);
+    });
+  } else {
+    var grid = document.getElementById('colorGrid');
+    var headers = grid.querySelectorAll('.category-header');
+    headers.forEach(function(h) {
+      var letter = h.textContent;
+      var a = document.createElement('a');
+      a.href = '#letter-' + letter.toLowerCase();
+      a.textContent = letter;
+      nav.appendChild(a);
+    });
+  }
+}
+
+function switchSort(mode) {
+  if (mode === currentSort) return;
+  currentSort = mode;
+  if (mode === 'color') {
+    sortByColor();
+  } else {
+    sortByAlpha();
+  }
+  buildNav();
+}
+
+// Default: sort by color on load
+document.addEventListener('DOMContentLoaded', function() {
+  sortByColor();
+  buildNav();
+});
+// Also run immediately in case DOMContentLoaded already fired
+if (document.readyState !== 'loading') {
+  sortByColor();
+  buildNav();
+}
+</script>

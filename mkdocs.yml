@@ -1,0 +1,32 @@
+site_name: ZippyGame Documentation
+nav:
+  - Overview: index.md
+  - Particle System: particles.md
+  - Colors: colors.md
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.top       # "back to top" button
+    - search.highlight     # highlights search matches
+    - content.code.copy    # copy button on code blocks
+
+markdown_extensions:
+  - tables                 # your tables render properly
+  - fenced_code            # ```python code blocks
+  - codehilite             # syntax highlighting
+  - toc:
+      permalink: true      # clickable anchor links on every heading
