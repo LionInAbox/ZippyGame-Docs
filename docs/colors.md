@@ -5,6 +5,7 @@ There are 873 colors that you can reference by name using ZippyGame's *color* cl
 **Usage:**
 
 ```python
+from zippyGame import *
 color.red          # returns (255, 0, 0)
 color.red()        # returns (255, 0, 0, 255)
 color.red(113)     # returns (255, 0, 0, 113)
