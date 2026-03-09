@@ -1,0 +1,1503 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="particles/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>ZippyGame Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zippygame-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="ZippyGame Documentation" class="md-header__button md-logo" aria-label="ZippyGame Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZippyGame Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="ZippyGame Documentation" class="md-nav__button md-logo" aria-label="ZippyGame Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ZippyGame Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-creating-a-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Creating a Game
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-scenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Scenes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sprites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-the-image-handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. The Image Handle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. The Image Handle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convenience-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convenience Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Angles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Camera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-parallax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Parallax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-tinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Tinting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-bulk-numpy-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Bulk Numpy Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-configuration-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Configuration Defaults
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Utilities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-using-pyglet-alongside-zippygame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Using Pyglet Alongside ZippyGame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Project Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-performance-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Performance Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. Performance Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sprites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Particles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="particles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Particle System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="colors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-creating-a-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Creating a Game
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-scenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Scenes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sprites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-the-image-handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. The Image Handle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. The Image Handle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convenience-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convenience Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Angles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Camera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-parallax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Parallax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-tinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Tinting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-bulk-numpy-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Bulk Numpy Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-configuration-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Configuration Defaults
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Utilities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-using-pyglet-alongside-zippygame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Using Pyglet Alongside ZippyGame
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Project Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-performance-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Performance Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. Performance Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sprites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Particles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="zippygame-documentation">ZippyGame Documentation<a class="headerlink" href="#zippygame-documentation" title="Permanent link">&para;</a></h1>
+<p>A high-performance 2D game framework built on OpenGL instanced rendering.
+Capable of rendering <strong>200,000+ sprites at 80 FPS</strong> with per-sprite rotation, tinting, parallax, and transparency — plus a GPU-driven particle system with 100,000+ particles at near-zero CPU cost.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-requirements">Requirements</a></li>
+<li><a href="#2-quick-start">Quick Start</a></li>
+<li><a href="#3-creating-a-game">Creating a Game</a></li>
+<li><a href="#4-scenes">Scenes</a></li>
+<li><a href="#5-sprites">Sprites</a></li>
+<li><a href="#6-the-image-handle">The Image Handle</a></li>
+<li><a href="#7-angles">Angles</a></li>
+<li><a href="#8-camera">Camera</a></li>
+<li><a href="#9-parallax">Parallax</a></li>
+<li><a href="#10-tinting">Tinting</a></li>
+<li><a href="#11-particle-system">Particle System</a></li>
+<li><a href="#12-bulk-numpy-access">Bulk Numpy Access</a></li>
+<li><a href="#13-configuration-defaults">Configuration Defaults</a></li>
+<li><a href="#14-utilities">Utilities</a></li>
+<li><a href="#15-using-pyglet-alongside-zippygame">Using Pyglet Alongside ZippyGame</a></li>
+<li><a href="#16-project-structure">Project Structure</a></li>
+<li><a href="#17-performance-notes">Performance Notes</a></li>
+</ol>
+<hr />
+<h2 id="1-requirements">1. Requirements<a class="headerlink" href="#1-requirements" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>pip install pyglet numpy Pillow
+</code></pre></div>
+
+<p>Minimum OpenGL 3.3. The framework automatically detects your GPU capabilities and selects the fastest available rendering backend.</p>
+<hr />
+<h2 id="2-quick-start">2. Quick Start<a class="headerlink" href="#2-quick-start" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">game</span> <span class="o">=</span> <span class="n">newGame</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Game&quot;</span><span class="p">)</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;level 1&quot;</span><span class="p">)</span>
+
+<span class="n">hero</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;graphics/hero.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">hero</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="n">game</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<p>That's it — a window opens, your sprite appears, and the game loop runs.</p>
+<hr />
+<h2 id="3-creating-a-game">3. Creating a Game<a class="headerlink" href="#3-creating-a-game" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">game</span> <span class="o">=</span> <span class="n">newGame</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">1280</span><span class="p">,</span>              <span class="c1"># window width in pixels (default: 1280)</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span>              <span class="c1"># window height in pixels (default: 720)</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Game&quot;</span><span class="p">,</span>         <span class="c1"># window title</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span> <span class="c1"># see below for options</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Background color</strong> accepts a preset string or a custom RGBA tuple:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Presets:</span>
+<span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span>       <span class="c1"># (0.08, 0.08, 0.12, 1.0)</span>
+<span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>       <span class="c1"># (1.0, 1.0, 1.0, 1.0)</span>
+<span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;dark_gray&quot;</span>   <span class="c1"># (0.15, 0.15, 0.15, 1.0)</span>
+
+<span class="c1"># Custom:</span>
+<span class="n">background_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>   <span class="c1"># dark purple</span>
+</code></pre></div>
+
+<p>For a wider range of colors check out ZippyGame's 873  <a href="colors/">colors</a></p>
+<hr />
+<h2 id="4-scenes">4. Scenes<a class="headerlink" href="#4-scenes" title="Permanent link">&para;</a></h2>
+<p>A scene holds all sprites, particles, textures, and rendering state for one level or screen.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;level 1&quot;</span><span class="p">,</span> <span class="n">max_image_count</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong><code>max_image_count</code></strong> is how many sprites this scene can hold. It determines how much memory is allocated up front. The default is 10,000. If you plan to use more sprites, set it higher:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">,</span> <span class="n">max_image_count</span><span class="o">=</span><span class="mi">300000</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Memory cost is small — roughly 36 bytes per slot (CPU arrays + static data). 300,000 slots is about 10 MB. However, the number directly affects GPU buffer sizes and upload bandwidth, so don't set it to millions if you only need thousands.</p>
+<p><strong>Important: all <code>addImage()</code> calls within a scene must currently use the same texture file.</strong> This is the single-texture constraint for sprites. A texture atlas system to remove this limitation is planned. Particle emitters have their own textures and are not affected by this constraint.</p>
+<hr />
+<h2 id="5-sprites">5. Sprites<a class="headerlink" href="#5-sprites" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">img</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span>
+    <span class="s2">&quot;graphics/bug.png&quot;</span><span class="p">,</span>    <span class="c1"># path to image file (required)</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>                 <span class="c1"># x position, default: window center</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>                 <span class="c1"># y position, default: window center</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>              <span class="c1"># sprite width in pixels, default: texture width</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>             <span class="c1"># sprite height in pixels, default: texture height</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>             <span class="c1"># opacity 0-255, default: 255 (fully opaque)</span>
+    <span class="n">angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>               <span class="c1"># rotation in degrees (0-360), default: 0</span>
+    <span class="n">flip_x</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>          <span class="c1"># horizontal flip</span>
+    <span class="n">flip_y</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>          <span class="c1"># vertical flip</span>
+    <span class="n">tint_r</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>            <span class="c1"># tint red 0-255, default: 255</span>
+    <span class="n">tint_g</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>            <span class="c1"># tint green 0-255, default: 255</span>
+    <span class="n">tint_b</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>            <span class="c1"># tint blue 0-255, default: 255</span>
+    <span class="n">tint_blend</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>          <span class="c1"># tint mode 0-255, default: 0 (see Tinting)</span>
+    <span class="n">parallax_x</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>        <span class="c1"># horizontal parallax, default: 1.0 (see Parallax)</span>
+    <span class="n">parallax_y</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>        <span class="c1"># vertical parallax, default: 1.0</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Every parameter except <code>image_path</code> is optional. <code>addImage()</code> returns an <strong>Image handle</strong> you can use to modify the sprite later.</p>
+<p>You can call <code>addImage()</code> before or after <code>game.run()</code>. Sprites are usable immediately.</p>
+<p><strong>Scaling sprites to a target size</strong> while preserving aspect ratio:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">tex_w</span><span class="p">,</span> <span class="n">tex_h</span> <span class="o">=</span> <span class="n">getImageSize</span><span class="p">(</span><span class="s2">&quot;graphics/bug.png&quot;</span><span class="p">)</span>
+<span class="n">target_size</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="k">if</span> <span class="n">tex_w</span> <span class="o">&gt;</span> <span class="n">tex_h</span><span class="p">:</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">target_size</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">target_size</span><span class="p">)</span> <span class="o">*</span> <span class="n">tex_h</span> <span class="o">/</span> <span class="n">tex_w</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">target_size</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">target_size</span><span class="p">)</span> <span class="o">*</span> <span class="n">tex_w</span> <span class="o">/</span> <span class="n">tex_h</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;graphics/bug.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Maximum sprite dimensions:</strong> width and height are stored as 12-bit integers internally, so the maximum is 4095 pixels per dimension.</p>
+<hr />
+<h2 id="6-the-image-handle">6. The Image Handle<a class="headerlink" href="#6-the-image-handle" title="Permanent link">&para;</a></h2>
+<p><code>addImage()</code> returns an Image object — a lightweight handle (~64 bytes) that reads and writes directly into the scene's internal arrays. No data is duplicated.</p>
+<h3 id="dynamic-properties">Dynamic Properties<a class="headerlink" href="#dynamic-properties" title="Permanent link">&para;</a></h3>
+<p>These update instantly with no GPU overhead (uploaded automatically each frame):</p>
+<div class="codehilite"><pre><span></span><code><span class="n">img</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">500.0</span>          <span class="c1"># float — horizontal position</span>
+<span class="n">img</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">200.0</span>          <span class="c1"># float — vertical position</span>
+<span class="n">img</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="mi">45</span>         <span class="c1"># float — rotation in degrees (0-360, wraps automatically)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">128</span>        <span class="c1"># int 0-255 — opacity</span>
+<span class="n">img</span><span class="o">.</span><span class="n">flip_x</span> <span class="o">=</span> <span class="kc">True</span>      <span class="c1"># bool — horizontal flip</span>
+<span class="n">img</span><span class="o">.</span><span class="n">flip_y</span> <span class="o">=</span> <span class="kc">False</span>     <span class="c1"># bool — vertical flip</span>
+<span class="n">img</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">True</span>     <span class="c1"># bool — visibility (stub, for future use)</span>
+</code></pre></div>
+
+<h3 id="static-properties">Static Properties<a class="headerlink" href="#static-properties" title="Permanent link">&para;</a></h3>
+<p>These update the GPU static buffer when changed. Setting them is still fast, but each change triggers a small GPU upload for that sprite's slot:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">img</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">100</span>        <span class="c1"># int 0-4095 — sprite width in pixels</span>
+<span class="n">img</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">50</span>        <span class="c1"># int 0-4095 — sprite height in pixels</span>
+<span class="n">img</span><span class="o">.</span><span class="n">tint_r</span> <span class="o">=</span> <span class="mi">255</span>       <span class="c1"># int 0-255 — tint red</span>
+<span class="n">img</span><span class="o">.</span><span class="n">tint_g</span> <span class="o">=</span> <span class="mi">0</span>         <span class="c1"># int 0-255 — tint green</span>
+<span class="n">img</span><span class="o">.</span><span class="n">tint_b</span> <span class="o">=</span> <span class="mi">0</span>         <span class="c1"># int 0-255 — tint blue</span>
+<span class="n">img</span><span class="o">.</span><span class="n">tint_blend</span> <span class="o">=</span> <span class="mi">128</span>   <span class="c1"># int 0-255 — tint blend mode</span>
+<span class="n">img</span><span class="o">.</span><span class="n">parallax_x</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># float — horizontal parallax factor</span>
+<span class="n">img</span><span class="o">.</span><span class="n">parallax_y</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># float — vertical parallax factor</span>
+<span class="n">img</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># int 0-255 — reserved for texture atlas (future)</span>
+</code></pre></div>
+
+<h3 id="convenience-methods">Convenience Methods<a class="headerlink" href="#convenience-methods" title="Permanent link">&para;</a></h3>
+<p>These batch multiple changes into a single GPU update:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">img</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>          <span class="c1"># set x and y together</span>
+<span class="n">img</span><span class="o">.</span><span class="n">setSize</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>               <span class="c1"># set width and height together</span>
+<span class="n">img</span><span class="o">.</span><span class="n">setTint</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">blend</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>  <span class="c1"># set r, g, b and optionally blend</span>
+<span class="n">img</span><span class="o">.</span><span class="n">setParallax</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>          <span class="c1"># set parallax x and y together</span>
+</code></pre></div>
+
+<p>Use convenience methods when changing multiple static properties at once — they issue one GPU update instead of several.</p>
+<hr />
+<h2 id="7-angles">7. Angles<a class="headerlink" href="#7-angles" title="Permanent link">&para;</a></h2>
+<p>Sprite angles use <strong>degrees</strong> (0–360). Setting <code>img.angle = 45</code> rotates 45 degrees. Values wrap automatically — 370 degrees becomes 10 degrees.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">img</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># no rotation</span>
+<span class="n">img</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="mi">90</span>         <span class="c1"># quarter turn</span>
+<span class="n">img</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="mi">180</span>        <span class="c1"># half turn</span>
+<span class="n">img</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="mi">270</span>        <span class="c1"># three-quarter turn</span>
+</code></pre></div>
+
+<p>Internally, angles are stored as uint16 (0–65535) for GPU efficiency. The <code>angle</code> property converts automatically. Precision is approximately 0.005 degrees.</p>
+<p><strong>Conversion helpers</strong> for working with radians or the internal uint16 format:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">degrees_to_angle</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>       <span class="c1"># → 16384 (uint16)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">radians_to_angle</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">)</span>  <span class="c1"># → 32768 (uint16)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">angle_to_degrees</span><span class="p">(</span><span class="mi">16384</span><span class="p">)</span>    <span class="c1"># → 90.0</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">angle_to_radians</span><span class="p">(</span><span class="mi">16384</span><span class="p">)</span>    <span class="c1"># → 1.5708...</span>
+</code></pre></div>
+
+<p>For bulk numpy operations, use the constants directly:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">_RAD_TO_ANGLE</span>
+
+<span class="n">radians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.57</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">])</span>
+<span class="n">angles_u16</span> <span class="o">=</span> <span class="p">(</span><span class="n">radians</span> <span class="o">*</span> <span class="n">_RAD_TO_ANGLE</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="8-camera">8. Camera<a class="headerlink" href="#8-camera" title="Permanent link">&para;</a></h2>
+<p>Each scene has a camera that controls what part of the world is visible:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">camera_x</span> <span class="o">=</span> <span class="mf">500.0</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">camera_y</span> <span class="o">=</span> <span class="mf">200.0</span>
+</code></pre></div>
+
+<p>Moving the camera shifts all sprites and particles on screen. The camera position is uploaded to the GPU once per frame as a uniform — zero per-sprite cost.</p>
+<p><strong>Keyboard-controlled camera example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyglet.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
+
+<span class="n">keys</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">KeyStateHandler</span><span class="p">()</span>
+<span class="n">game</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">push_handlers</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update_camera</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">LEFT</span><span class="p">]:</span>   <span class="n">scene</span><span class="o">.</span><span class="n">camera_x</span> <span class="o">-=</span> <span class="n">speed</span>
+    <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">]:</span>  <span class="n">scene</span><span class="o">.</span><span class="n">camera_x</span> <span class="o">+=</span> <span class="n">speed</span>
+    <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">UP</span><span class="p">]:</span>     <span class="n">scene</span><span class="o">.</span><span class="n">camera_y</span> <span class="o">+=</span> <span class="n">speed</span>
+    <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">DOWN</span><span class="p">]:</span>   <span class="n">scene</span><span class="o">.</span><span class="n">camera_y</span> <span class="o">-=</span> <span class="n">speed</span>
+
+<span class="n">pyglet</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="n">update_camera</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="9-parallax">9. Parallax<a class="headerlink" href="#9-parallax" title="Permanent link">&para;</a></h2>
+<p>Parallax controls how fast a sprite scrolls relative to the camera. This creates a depth illusion — distant backgrounds scroll slowly, nearby foregrounds scroll fast.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">img</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;cloud.png&quot;</span><span class="p">,</span> <span class="n">parallax_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">parallax_y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Parallax values:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0</td>
+<td>Fixed to screen (HUD, UI elements)</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>Half-speed scrolling (distant background)</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>Normal scrolling (default — moves with camera)</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>Faster than camera (close foreground)</td>
+</tr>
+<tr>
+<td>2.0+</td>
+<td>Extreme foreground</td>
+</tr>
+</tbody>
+</table>
+<p>The full range is <strong>-6.35 to 6.4</strong> in steps of 0.05. Negative values scroll in the opposite direction of the camera.</p>
+<p>Parallax has zero per-frame cost — it's computed in the vertex shader from static data that's already on the GPU.</p>
+<p><strong>Creating a parallax scene:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Far background — barely moves</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;star.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1280</span><span class="p">),</span>
+                   <span class="n">y</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span> <span class="n">parallax_x</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">parallax_y</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># Mid background — moves at half speed</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;cloud.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1280</span><span class="p">),</span>
+                   <span class="n">y</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span> <span class="n">parallax_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">parallax_y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Normal world sprites</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;tree.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">),</span>
+                   <span class="n">y</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">))</span>  <span class="c1"># default 1.0</span>
+
+<span class="c1"># Close foreground — moves faster</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;leaf.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1280</span><span class="p">),</span>
+                   <span class="n">y</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span> <span class="n">parallax_x</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">parallax_y</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="10-tinting">10. Tinting<a class="headerlink" href="#10-tinting" title="Permanent link">&para;</a></h2>
+<p>Every sprite can be tinted with a color. The tint system has two modes controlled by <code>tint_blend</code>:</p>
+<p><strong>Multiply mode</strong> (<code>tint_blend=0</code>, default): Multiplies the sprite's color by the tint color. White (255, 255, 255) has no effect. Dark tints darken the sprite. Good for color grading and shadows.</p>
+<p><strong>Replace mode</strong> (<code>tint_blend=255</code>): Completely replaces the sprite's color with the tint, preserving only the alpha channel. Good for silhouettes and solid color fills.</p>
+<p><strong>Blend mode</strong> (any value 1–254): Mixes between multiply and replace. <code>tint_blend=128</code> gives a 50/50 mix.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Red tint in multiply mode — darkens non-red parts</span>
+<span class="n">enemy</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;bug.png&quot;</span><span class="p">,</span> <span class="n">tint_r</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">tint_g</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">tint_b</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">tint_blend</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Blue solid overlay — sprite becomes a blue silhouette</span>
+<span class="n">frozen</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;bug.png&quot;</span><span class="p">,</span> <span class="n">tint_r</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tint_g</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tint_b</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">tint_blend</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+
+<span class="c1"># Gentle green tint — half blend</span>
+<span class="n">poisoned</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;bug.png&quot;</span><span class="p">,</span> <span class="n">tint_r</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tint_g</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">tint_b</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tint_blend</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Change tint at runtime:</span>
+<span class="n">enemy</span><span class="o">.</span><span class="n">setTint</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">blend</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>   <span class="c1"># flash yellow</span>
+<span class="n">enemy</span><span class="o">.</span><span class="n">tint_r</span> <span class="o">=</span> <span class="mi">255</span>                       <span class="c1"># or change individual channels</span>
+</code></pre></div>
+
+<p>Tinting has zero per-frame cost — it's computed in the fragment shader from static data.</p>
+<hr />
+<h2 id="11-bulk-numpy-access">11. Bulk Numpy Access<a class="headerlink" href="#11-bulk-numpy-access" title="Permanent link">&para;</a></h2>
+<p>For high-performance scenarios (100k+ sprites), you can bypass Image handles and write directly to the scene's numpy arrays. Both approaches write to the same underlying data.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">count</span>   <span class="c1"># number of active sprites</span>
+
+<span class="c1"># Move all sprites:</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">cpu_positions</span><span class="p">[:</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">velocities_x</span> <span class="o">*</span> <span class="n">dt</span>    <span class="c1"># x positions</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">cpu_positions</span><span class="p">[:</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">velocities_y</span> <span class="o">*</span> <span class="n">dt</span>    <span class="c1"># y positions</span>
+
+<span class="c1"># Set all sprites to half opacity:</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">cpu_alpha</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">128</span>
+
+<span class="c1"># Rotate all sprites:</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">cpu_angles_u16</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span> <span class="o">+=</span> <span class="n">rotation_deltas</span>
+
+<span class="c1"># Set flags directly:</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">cpu_flags</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># clear all flags</span>
+</code></pre></div>
+
+<p><strong>Available arrays:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Array</th>
+<th>Shape</th>
+<th>Dtype</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scene.cpu_positions</code></td>
+<td>(capacity, 2)</td>
+<td>float32</td>
+<td>x, y positions</td>
+</tr>
+<tr>
+<td><code>scene.cpu_angles_u16</code></td>
+<td>(capacity,)</td>
+<td>uint16</td>
+<td>rotation angles</td>
+</tr>
+<tr>
+<td><code>scene.cpu_alpha</code></td>
+<td>(capacity,)</td>
+<td>uint8</td>
+<td>opacity values</td>
+</tr>
+<tr>
+<td><code>scene.cpu_flags</code></td>
+<td>(capacity,)</td>
+<td>uint8</td>
+<td>bit flags (flip_x, flip_y, visible)</td>
+</tr>
+<tr>
+<td><code>scene.static_data</code></td>
+<td>(capacity,)</td>
+<td>structured</td>
+<td>packed_size, tint, parallax</td>
+</tr>
+</tbody>
+</table>
+<p>Always slice to <code>[:n]</code> where <code>n = scene.count</code> — slots beyond <code>count</code> are unused.</p>
+<hr />
+<h2 id="12-configuration-defaults">12. Configuration Defaults<a class="headerlink" href="#12-configuration-defaults" title="Permanent link">&para;</a></h2>
+<p>All defaults live in <code>defaults.py</code> and can be modified before creating scenes:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaults</span>
+
+<span class="c1"># Scene capacity:</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">max_image_count</span> <span class="o">=</span> <span class="mi">10000</span>   <span class="c1"># default max sprites per scene</span>
+
+<span class="c1"># Sprite defaults (applied to every new addImage call):</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">alpha</span>       <span class="o">=</span> <span class="mi">255</span>        <span class="c1"># fully opaque</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">tint_r</span>      <span class="o">=</span> <span class="mi">255</span>        <span class="c1"># white = no tint</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">tint_g</span>      <span class="o">=</span> <span class="mi">255</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">tint_b</span>      <span class="o">=</span> <span class="mi">255</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">tint_blend</span>  <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># multiply mode</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">parallax_x</span>  <span class="o">=</span> <span class="mf">1.0</span>        <span class="c1"># normal scrolling</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">parallax_y</span>  <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">flip_x</span>      <span class="o">=</span> <span class="kc">False</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">flip_y</span>      <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Rendering:</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">FORCE_TIER</span>  <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># 0=auto, 1=persistent mapped, 2=orphaning, 3=subdata</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">NUM_BUFFER_SECTIONS</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># triple buffering (Tier 1 only)</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">MOVE_SPRITES</span> <span class="o">=</span> <span class="kc">True</span>      <span class="c1"># benchmark mode: random sprite movement</span>
+
+<span class="c1"># Particle defaults:</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">particle_pps</span>         <span class="o">=</span> <span class="mi">50</span>     <span class="c1"># default particles per second</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">particle_velocity</span>    <span class="o">=</span> <span class="mf">100.0</span>  <span class="c1"># default velocity in pixels/sec</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">particle_directionMin</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># default direction range (degrees)</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">particle_directionMax</span> <span class="o">=</span> <span class="mi">360</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">particle_lifetimeMin</span>  <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># default lifetime range (seconds)</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">particle_lifetimeMax</span>  <span class="o">=</span> <span class="mf">1.0</span>
+</code></pre></div>
+
+<p><strong><code>MOVE_SPRITES</code></strong> is a benchmark flag. When <code>True</code>, all sprites get random velocities and bounce around the screen. Set it to <code>False</code> for actual game development — your sprites will stay where you put them.</p>
+<p><strong><code>FORCE_TIER</code></strong> overrides automatic GPU backend selection. Leave at 0 unless you're debugging rendering issues:
+- <strong>Tier 1</strong> (GL 4.4+): Persistent mapped buffers with triple buffering. Fastest, zero CPU/GPU stalls.
+- <strong>Tier 2</strong> (GL 3.3+): Buffer orphaning with mapped writes. Fast, driver handles synchronization.
+- <strong>Tier 3</strong> (GL 3.3+): Classic <code>glBufferSubData</code>. Simplest, may cause GPU stalls.</p>
+<hr />
+<h2 id="13-utilities">13. Utilities<a class="headerlink" href="#13-utilities" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Get image dimensions without loading into GPU:</span>
+<span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">getImageSize</span><span class="p">(</span><span class="s2">&quot;graphics/hero.png&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pick a random item from a list:</span>
+<span class="n">texture</span> <span class="o">=</span> <span class="n">pick</span><span class="p">([</span><span class="s2">&quot;a.png&quot;</span><span class="p">,</span> <span class="s2">&quot;b.png&quot;</span><span class="p">,</span> <span class="s2">&quot;c.png&quot;</span><span class="p">])</span>
+
+<span class="c1"># Angle conversion (see Angles section):</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">degrees_to_angle</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">radians_to_angle</span><span class="p">(</span><span class="mf">1.57</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">angle_to_degrees</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">angle_to_radians</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="14-using-pyglet-alongside-zippygame">14. Using Pyglet Alongside ZippyGame<a class="headerlink" href="#14-using-pyglet-alongside-zippygame" title="Permanent link">&para;</a></h2>
+<p>ZippyGame is built on pyglet. You have full access to the pyglet window and its event system:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">game</span> <span class="o">=</span> <span class="n">newGame</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Game&quot;</span><span class="p">)</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;main&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access the pyglet window directly:</span>
+<span class="n">game</span><span class="o">.</span><span class="n">window</span>    <span class="c1"># pyglet.window.Window instance</span>
+<span class="n">game</span><span class="o">.</span><span class="n">width</span>     <span class="c1"># window width</span>
+<span class="n">game</span><span class="o">.</span><span class="n">height</span>    <span class="c1"># window height</span>
+
+<span class="c1"># Register keyboard handlers:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyglet.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">KeyStateHandler</span><span class="p">()</span>
+<span class="n">game</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">push_handlers</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+
+<span class="c1"># Schedule recurring updates:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_update</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">SPACE</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Space pressed!&quot;</span><span class="p">)</span>
+
+<span class="n">pyglet</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="n">my_update</span><span class="p">)</span>
+
+<span class="c1"># Start the game loop:</span>
+<span class="n">game</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<p><strong>Important:</strong> <code>game.run()</code> calls <code>pyglet.app.run()</code> internally with <code>interval=0</code> (uncapped frame rate, vsync off). The game loop drives everything from there.</p>
+<hr />
+<h2 id="15-project-structure">15. Project Structure<a class="headerlink" href="#15-project-structure" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>zippyGame/
+    __init__.py
+    _imports.py          — shared imports (numpy, pyglet, etc.)
+    game.py              — newGame class, window, scene management
+    renderer.py          — shaders, GL backends, InstancedRenderer
+    defaults.py          — configuration defaults
+    utilities.py         — angle helpers, getImageSize, pick
+    context.py           — global game/scene references
+    classes/
+        objects.py       — Image class, parallax conversion
+        scene.py         — scene class, addImage, update loop
+        particles.py     — ParticleSystem, ParticleEmitter
+    templates/
+        sceneTemplate.py — scene lifecycle hooks (future)
+</code></pre></div>
+
+<hr />
+<h2 id="16-performance-notes">16. Performance Notes<a class="headerlink" href="#16-performance-notes" title="Permanent link">&para;</a></h2>
+<h3 id="sprites">Sprites<a class="headerlink" href="#sprites" title="Permanent link">&para;</a></h3>
+<p>The renderer uses <strong>instanced rendering</strong> with a two-VBO architecture. Per sprite, only 12 bytes are uploaded to the GPU each frame (position, angle, alpha, flags). Static data like size, tint, and parallax is uploaded once and only updated when you change it.</p>
+<p>At 200,000 sprites, the dynamic upload bandwidth is about 144 MB/s at 60 FPS (this may vary based on your hardware). The framework automatically selects the fastest upload path your GPU supports.</p>
+<p>Things that are free (zero per-frame cost): tinting, parallax, sprite flipping, static size changes.</p>
+<p>Things that cost per-frame: position changes, angle changes, alpha changes — but these are uploaded in bulk as a single contiguous buffer, not individually.</p>
+<p>Sprites outside the visible window are automatically culled and not sent to the GPU.</p>
+<h3 id="particles">Particles<a class="headerlink" href="#particles" title="Permanent link">&para;</a></h3>
+<p>The particle system has near-zero CPU overhead — only spawning new particles costs CPU time (vectorized numpy batch generation + 1-2 GL upload calls per spawn batch). Once spawned, particles have zero per-frame CPU cost.</p>
+<p>GPU vertex shader cost is ~15 trig calls per alive particle. Dead ring buffer slots early-exit with 2 comparisons, no trig. All direction transformers (spiral, curl, drift) and direction noise (wiggle, turbulence) are guarded by uniform-based checks — zero cost when disabled. Tint pulse features are similarly guarded.</p>
+<p><strong>The main bottleneck is fillrate</strong> (fragment shader). Cost scales with <code>particle_count × average_screen_coverage × overdraw_layers</code>. Large overlapping particles with <code>scaleIncrease</code> are the most expensive scenario. If frame rate drops during particle effects, reduce particle size or count before reducing features.</p>
+<hr />
+<h2 id="complete-example">Complete Example<a class="headerlink" href="#complete-example" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyglet.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
+
+<span class="c1"># --- Setup ---</span>
+<span class="n">game</span> <span class="o">=</span> <span class="n">newGame</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Parallax Demo&quot;</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">defaults</span><span class="o">.</span><span class="n">MOVE_SPRITES</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span> <span class="n">max_image_count</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;graphics/player.png&quot;</span>
+<span class="n">tex_w</span><span class="p">,</span> <span class="n">tex_h</span> <span class="o">=</span> <span class="n">getImageSize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># --- Background layer (slow parallax) ---</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1280</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>
+                   <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">parallax_x</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">parallax_y</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># --- Main sprites ---</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1280</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>
+                   <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="c1"># --- Foreground (fast parallax) ---</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1280</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>
+                   <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">parallax_x</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">parallax_y</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="c1"># --- Tinted hero ---</span>
+<span class="n">hero</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+                      <span class="n">tint_r</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">tint_g</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">tint_b</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tint_blend</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># --- Particle trail ---</span>
+<span class="n">trail</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addParticleFlow</span><span class="p">(</span><span class="s2">&quot;graphics/spark.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">particles_per_second</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">trail</span><span class="o">.</span><span class="n">scaleToWidth</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">trail</span><span class="o">.</span><span class="n">particleLifetimeMax</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">trail</span><span class="o">.</span><span class="n">velocityMin</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">trail</span><span class="o">.</span><span class="n">velocityMax</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">trail</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">trail</span><span class="o">.</span><span class="n">blendMode</span><span class="p">(</span><span class="s2">&quot;additive&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- Camera controls ---</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">KeyStateHandler</span><span class="p">()</span>
+<span class="n">game</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">push_handlers</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">LEFT</span><span class="p">]:</span>   <span class="n">scene</span><span class="o">.</span><span class="n">camera_x</span> <span class="o">-=</span> <span class="n">speed</span>
+    <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">]:</span>  <span class="n">scene</span><span class="o">.</span><span class="n">camera_x</span> <span class="o">+=</span> <span class="n">speed</span>
+    <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">UP</span><span class="p">]:</span>     <span class="n">scene</span><span class="o">.</span><span class="n">camera_y</span> <span class="o">+=</span> <span class="n">speed</span>
+    <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">DOWN</span><span class="p">]:</span>   <span class="n">scene</span><span class="o">.</span><span class="n">camera_y</span> <span class="o">-=</span> <span class="n">speed</span>
+
+<span class="n">pyglet</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

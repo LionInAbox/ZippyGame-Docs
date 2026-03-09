@@ -1,0 +1,1388 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../colors/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Particle System - ZippyGame Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-emitter-types" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ZippyGame Documentation" class="md-header__button md-logo" aria-label="ZippyGame Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZippyGame Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Particle System
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ZippyGame Documentation" class="md-nav__button md-logo" aria-label="ZippyGame Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ZippyGame Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Particle System
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Particle System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-emitter-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Emitter Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Emitter Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-emitter-continuous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow Emitter (Continuous)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#burst-emitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Burst Emitter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-position-spawn-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Position &amp; Spawn Area
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-particle-lifetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Particle Lifetime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-velocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Velocity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-direction-movement-angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Direction (Movement Angle)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Direction (Movement Angle)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direction-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direction Transformation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direction-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direction Noise
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Scale
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Scale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convenient-sizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convenient Sizing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-visual-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Visual Rotation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Color
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-alpha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Alpha
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-blend-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Blend Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-greyscale-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Greyscale Base
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-tint-pulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Tint Pulse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-debug-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Debug Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-emitter-playback-controls-pause-stop-play" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Emitter Playback Controls — Pause, Stop, Play
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-particle-example-fire-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Particle Example — Fire Effect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-particle-example-explosion-burst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Particle Example — Explosion Burst
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-particle-example-spiraling-magic-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Particle Example — Spiraling Magic Effect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-particle-example-spring-coils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Particle Example — Spring Coils
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-emitter-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Emitter Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Emitter Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-emitter-continuous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow Emitter (Continuous)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#burst-emitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Burst Emitter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-position-spawn-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Position &amp; Spawn Area
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-particle-lifetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Particle Lifetime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-velocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Velocity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-direction-movement-angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Direction (Movement Angle)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Direction (Movement Angle)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direction-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direction Transformation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direction-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direction Noise
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Scale
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Scale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convenient-sizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convenient Sizing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-visual-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Visual Rotation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Color
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-alpha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Alpha
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-blend-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Blend Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-greyscale-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Greyscale Base
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-tint-pulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Tint Pulse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-debug-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Debug Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-emitter-playback-controls-pause-stop-play" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Emitter Playback Controls — Pause, Stop, Play
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-particle-example-fire-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Particle Example — Fire Effect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-particle-example-explosion-burst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Particle Example — Explosion Burst
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-particle-example-spiraling-magic-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Particle Example — Spiraling Magic Effect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-particle-example-spring-coils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Particle Example — Spring Coils
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Particle System</h1>
+
+<p>ZippyGame has a feature-rich, GPU-driven particle system.</p>
+<p>The CPU sends a small spawn trigger for every particle, and the GPU handles the rest, with <strong>zero per-frame CPU cost</strong>.</p>
+<p>Particles render on top of sprites.</p>
+<h2 id="1-emitter-types">1. Emitter Types<a class="headerlink" href="#1-emitter-types" title="Permanent link">&para;</a></h2>
+<h3 id="flow-emitter-continuous">Flow Emitter (Continuous)<a class="headerlink" href="#flow-emitter-continuous" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addParticleFlow</span><span class="p">(</span>
+    <span class="s2">&quot;graphics/spark.png&quot;</span><span class="p">,</span>       <span class="c1"># particle texture (required)</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>               <span class="c1"># emitter position (default: window center)</span>
+    <span class="n">particles_per_second</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>   <span class="c1"># emission rate (default: 50)</span>
+    <span class="n">life_time</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>               <span class="c1"># emitter duration in seconds, -1 = infinite (default: -1)</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Particles spawn evenly distributed across frames — no frame-rate dependent bursting.</p>
+<h3 id="burst-emitter">Burst Emitter<a class="headerlink" href="#burst-emitter" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">burst</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addParticleBurst</span><span class="p">(</span>
+    <span class="s2">&quot;graphics/debris.png&quot;</span><span class="p">,</span>      <span class="c1"># particle texture (required)</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>               <span class="c1"># emitter position (default: window center)</span>
+    <span class="n">count</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>                  <span class="c1"># particles per burst (default: 50)</span>
+    <span class="n">repeat</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>                   <span class="c1"># 1 = once, N = N times, -1 = infinite, 0 = disabled</span>
+    <span class="n">interval</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>               <span class="c1"># seconds between bursts (default: 1.0)</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>The first burst fires immediately. Subsequent bursts follow the interval.</p>
+<p><strong>Important:</strong> Set all emitter properties <strong>before</strong> the game loop starts. The system allocates GPU resources on the first frame based on your property values.</p>
+<h2 id="2-position-spawn-area">2. Position &amp; Spawn Area<a class="headerlink" href="#2-position-spawn-area" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">400</span>                  <span class="c1"># emitter position (can be changed at runtime)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">xMin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span>               <span class="c1"># spawn offset: particles appear randomly within</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">xMax</span> <span class="o">=</span> <span class="mi">50</span>                <span class="c1"># the rectangle (x+xMin, y+yMin) to (x+xMax, y+yMax)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">yMin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">yMax</span> <span class="o">=</span> <span class="mi">20</span>
+</code></pre></div>
+
+<p>Default spawn area is 0/0/0/0 — all particles spawn at the emitter's exact position.</p>
+<h2 id="3-particle-lifetime">3. Particle Lifetime<a class="headerlink" href="#3-particle-lifetime" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">particleLifetimeMin</span> <span class="o">=</span> <span class="mf">1.0</span>    <span class="c1"># minimum lifetime in seconds</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">particleLifetimeMax</span> <span class="o">=</span> <span class="mf">3.0</span>    <span class="c1"># maximum lifetime in seconds</span>
+</code></pre></div>
+
+<p>Each particle gets a random lifetime within this range. The GPU automatically kills particles when they expire. Default: both 1.0 second.</p>
+<h2 id="4-velocity">4. Velocity<a class="headerlink" href="#4-velocity" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">velocityMin</span> <span class="o">=</span> <span class="mi">50</span>            <span class="c1"># pixels/second (minimum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">velocityMax</span> <span class="o">=</span> <span class="mi">200</span>           <span class="c1"># pixels/second (maximum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">velocityIncrease</span> <span class="o">=</span> <span class="o">-</span><span class="mi">30</span>      <span class="c1"># acceleration in pixels/second²</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">velocityClamp0</span> <span class="o">=</span> <span class="kc">True</span>       <span class="c1"># if True, velocity stops at 0 (won&#39;t reverse)</span>
+</code></pre></div>
+
+<p>Each particle gets a random velocity between min and max. <code>velocityIncrease</code> applies uniformly over time.</p>
+<p><strong>Wiggle</strong> — particles rhythmically speed up and slow down:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">velocityWiggle</span> <span class="o">=</span> <span class="mi">20</span>         <span class="c1"># amplitude in pixels/second</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">velocityWiggleInterval</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># seconds per full oscillation</span>
+</code></pre></div>
+
+<h2 id="5-direction-movement-angle">5. Direction (Movement Angle)<a class="headerlink" href="#5-direction-movement-angle" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">directionMin</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># degrees (0=right, 90=up, 180=left, 270=down)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">directionMax</span> <span class="o">=</span> <span class="mi">360</span>          <span class="c1"># full circle spread</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">directionIncrease</span> <span class="o">=</span> <span class="mi">45</span>      <span class="c1"># degrees/sec — creates curved paths</span>
+</code></pre></div>
+
+<p>Each particle's initial direction is randomized between min and max. When <code>directionIncrease ≠ 0</code>, particles follow curved paths computed via closed-form integrals — mathematically exact, no approximation. This is a fundamental velocity parameter, like <code>velocityIncrease</code> for speed.</p>
+<p><strong>Emitter Direction Modifiers</strong> — affects where NEW particles are aimed, not how existing ones move:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">emitterDirectionIncrease</span> <span class="o">=</span> <span class="mi">30</span>     <span class="c1"># degrees/sec — rotates the emission cone over time</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">emitterDirectionWiggle</span> <span class="o">=</span> <span class="mi">15</span>       <span class="c1"># degrees amplitude — wobbles the cone</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">emitterDirectionWiggleInterval</span> <span class="o">=</span> <span class="mf">2.0</span>
+</code></pre></div>
+
+<p>Think of it like a sprinkler slowly rotating and wobbling.</p>
+<h3 id="direction-transformation">Direction Transformation<a class="headerlink" href="#direction-transformation" title="Permanent link">&para;</a></h3>
+<p>Direction transformers actively reshape particle trajectories, e.g. into specific geometric patterns. They are applied to the base path before any noise effects, so noise layers on top of the transformed path cleanly.</p>
+<p><strong>Spiral</strong> — particles follow expanding spiral paths. Each particle gets a random angular acceleration within the min/max range, creating outward-looping trajectories that cross their own path:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">directionSpiralMin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span>      <span class="c1"># degrees/sec²</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">directionSpiralMax</span> <span class="o">=</span> <span class="mf">2.0</span>       <span class="c1"># degrees/sec²</span>
+</code></pre></div>
+
+<p>With opposite signs for min and max, some particles spiral clockwise and others counter-clockwise, creating a fan of diverging spiral paths. Higher values produce tighter, faster loops. The spiral always expands outward — particles never collapse back to the spawn point. Speed remains constant regardless of loop size.</p>
+<p>To make the spiral intensify over the emitter's lifetime (new particles spiral more than earlier ones):</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">directionSpiralIncrease</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># degrees/sec added to both min and max per second</span>
+</code></pre></div>
+
+<p><strong>Curl</strong> — particles trace cycloid loops (spring/coil shapes) along their travel path. The loops follow the particle's current heading, so they ride naturally on top of curved paths created by <code>directionIncrease</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">directionCurl</span> <span class="o">=</span> <span class="mi">360</span>            <span class="c1"># degrees/sec — loop rotation speed</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">directionCurlRadius</span> <span class="o">=</span> <span class="mi">30</span>       <span class="c1"># pixels — loop size</span>
+</code></pre></div>
+
+<p>Higher curl speed produces faster, tighter loops. A larger radius makes wider coils. Combined with <code>directionIncrease</code>, the coils follow a curved path — creating helical patterns along arcs. The curl updates the particle's heading, so noise effects applied after it stay perpendicular to the looping path.</p>
+<p><strong>Drift</strong> — Drift/ Wind/ Blow effect: a per-particle constant drift velocity in world X/Y coordinates, independent of the particle's travel direction:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">driftXMin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>       <span class="c1"># pixels/sec</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">driftXMax</span> <span class="o">=</span> <span class="mi">10</span>        <span class="c1"># pixels/sec</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">driftYMin</span> <span class="o">=</span> <span class="mi">20</span>        <span class="c1"># pixels/sec</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">driftYMax</span> <span class="o">=</span> <span class="mi">20</span>        <span class="c1"># pixels/sec</span>
+</code></pre></div>
+
+<p>When min equals max, all particles drift identically — useful for wind or gravity-like effects. When they differ, particles spread out over time. Drift works in world space, so <code>driftYMin = -20, driftYMax = -20</code> always pulls downward regardless of the particle's travel direction.</p>
+<p><strong>Drift Increase (per-particle)</strong> — each particle accelerates its own drift over its lifetime, like gravity pulling harder the longer a particle has been alive:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">driftIncreaseX</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># pixels/sec² — per-particle X drift acceleration</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">driftIncreaseY</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span>     <span class="c1"># pixels/sec² — per-particle Y drift acceleration (e.g. gravity)</span>
+</code></pre></div>
+
+<p>Every particle experiences the same acceleration curve from birth to death, regardless of when it was spawned.</p>
+<p><strong>Drift Increase Global</strong> — shifts the drift min/max range over the emitter's lifetime, so particles spawned later start with a stronger base drift:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">driftIncreaseGlobalX</span> <span class="o">=</span> <span class="mi">5</span>    <span class="c1"># pixels/sec added to driftXMin and driftXMax each second</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">driftIncreaseGlobalY</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># pixels/sec added to driftYMin and driftYMax each second</span>
+</code></pre></div>
+
+<p>Useful for a wind that builds over time — early particles drift gently, later particles are born into a stronger wind.</p>
+<p>Both can be combined: <code>driftIncreaseX/Y</code> makes each particle individually accelerate, while <code>driftIncreaseGlobalX/Y</code> ramps up the starting drift for newer particles.</p>
+<h3 id="direction-noise">Direction Noise<a class="headerlink" href="#direction-noise" title="Permanent link">&para;</a></h3>
+<p>Direction noise adds randomness and organic imperfection to particle paths.</p>
+<p><strong>Wiggle</strong> — smooth sine-wave oscillation perpendicular to the particle's current travel direction. Particles advance along their path while swaying side-to-side like a snake:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">directionWiggle</span> <span class="o">=</span> <span class="mi">20</span>           <span class="c1"># pixels — amplitude of lateral displacement</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">directionWiggleInterval</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># seconds per full oscillation</span>
+</code></pre></div>
+
+<p>The wiggle follows the particle's <em>current</em> heading — if a particle is curving, spiraling, or curling, the wiggle stays perpendicular to the curve at every point. Each particle in a burst gets a unique phase offset so they don't oscillate in lockstep.</p>
+<p>Additional wiggle options:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">directionWiggleZigzag</span> <span class="o">=</span> <span class="kc">True</span>   <span class="c1"># sharp V-shaped bounces instead of smooth sine (default: False)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">directionWiggleRandom</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># all particles wiggle in sync (default: True = random phase)</span>
+</code></pre></div>
+
+<p>Setting <code>directionWiggleRandom = False</code> makes all particles at the same spawn position follow the exact same sine/zigzag curve — useful for effects where synchronized movement is desired.</p>
+<p><strong>Turbulence</strong> — 'shakiness': displacement that adds organic randomness to particle paths:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">directionTurbulenceMin</span> <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1"># pixels — per-particle minimum displacement</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">directionTurbulenceMax</span> <span class="o">=</span> <span class="mf">30.0</span>  <span class="c1"># pixels — per-particle maximum displacement</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">directionTurbulenceInterval</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># seconds per base oscillation</span>
+</code></pre></div>
+
+<p>Each particle has a unique noise pattern. Good for adding organic imperfection and noise.</p>
+<h2 id="6-scale">6. Scale<a class="headerlink" href="#6-scale" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">scaleMin</span> <span class="o">=</span> <span class="mf">0.8</span>              <span class="c1"># overall scale multiplier (minimum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">scaleMax</span> <span class="o">=</span> <span class="mf">1.5</span>              <span class="c1"># overall scale multiplier (maximum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">scaleXMin</span> <span class="o">=</span> <span class="mf">1.0</span>             <span class="c1"># X scale / width multiplier (minimum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">scaleXMax</span> <span class="o">=</span> <span class="mf">1.0</span>             <span class="c1"># X scale / width multiplier (maximum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">scaleYMin</span> <span class="o">=</span> <span class="mf">0.5</span>             <span class="c1"># Y scale / height multiplier (minimum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">scaleYMax</span> <span class="o">=</span> <span class="mf">1.5</span>             <span class="c1"># Y scale / height multiplier (maximum)</span>
+</code></pre></div>
+
+<p>Each particle gets random values for scale, scaleX, and scaleY independently. Final pixel size: <code>texture_width × scaleX × overall_scale</code> by <code>texture_height × scaleY × overall_scale</code>.</p>
+<p><strong>Note:</strong> Scale values are encoded as uint8 internally. Maximum representable value is 2.55.</p>
+<p><strong>Relative Increase</strong> — percentage of initial size per second:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">scaleIncrease</span> <span class="o">=</span> <span class="mi">50</span>          <span class="c1"># 50 = grow 50% per second, -50 = shrink 50% per second</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">scaleClamp0</span> <span class="o">=</span> <span class="kc">True</span>          <span class="c1"># default True — prevents negative scale</span>
+</code></pre></div>
+
+<p>A value of 50 means: after 1 second, the particle is 50% larger than its starting size. Small and large particles grow proportionally.</p>
+<p><strong>Wiggle:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">scaleWiggle</span> <span class="o">=</span> <span class="mf">0.2</span>           <span class="c1"># scale units amplitude</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">scaleWiggleInterval</span> <span class="o">=</span> <span class="mf">0.8</span>   <span class="c1"># seconds per oscillation</span>
+</code></pre></div>
+
+<p>Wiggles the scale back and forth. The particle grows and shrinks. If the scale is 0.5, a scaleWiggle of 0.5 will oscillate between 0.3 and 0.7.</p>
+<h3 id="convenient-sizing">Convenient Sizing<a class="headerlink" href="#convenient-sizing" title="Permanent link">&para;</a></h3>
+<p>Instead of calculating scale values to match a target pixel size you can resize the particles first while keeping the ratio:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">scaleToWidth</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>             <span class="c1"># render at 20px wide, height preserves aspect ratio</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">scaleToHeight</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>            <span class="c1"># render at 30px tall, width preserves aspect ratio</span>
+</code></pre></div>
+
+<p>After calling one of these, setting the <code>scaleMin = 1.0</code> now means "20px wide" (or "30px tall").</p>
+<h2 id="7-visual-rotation">7. Visual Rotation<a class="headerlink" href="#7-visual-rotation" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">angleMin</span> <span class="o">=</span> <span class="mi">0</span>                 <span class="c1"># starting rotation in degrees (minimum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">angleMax</span> <span class="o">=</span> <span class="mi">360</span>               <span class="c1"># starting rotation in degrees (maximum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">rotationMin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">180</span>           <span class="c1"># rotates the angle in degrees/sec (minimum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">rotationMax</span> <span class="o">=</span> <span class="mi">180</span>            <span class="c1"># rotates the angle in degrees/sec (maximum)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">rotationIncrease</span> <span class="o">=</span> <span class="mi">0</span>         <span class="c1"># rotation acceleration in degrees/sec²</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">rotationClamp0</span> <span class="o">=</span> <span class="kc">False</span>       <span class="c1"># if True, rotation speed can&#39;t go below 0</span>
+</code></pre></div>
+
+<p>Each particle gets a random starting angle and random rotation speed. Visual rotation is independent from movement direction.</p>
+<p><strong>Wiggle</strong> — particles rotate back and forth:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">rotationWiggle</span> <span class="o">=</span> <span class="mi">30</span>          <span class="c1"># degrees amplitude</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">rotationWiggleInterval</span> <span class="o">=</span> <span class="mf">1.0</span>
+</code></pre></div>
+
+<h2 id="8-color">8. Color<a class="headerlink" href="#8-color" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">]</span>     <span class="c1"># up to 8 color stops</span>
+</code></pre></div>
+
+<p>Particles transition through the color array over their lifetime. Accepts named colors or RGB/RGBA tuples (0–255):</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;white&quot;</span><span class="p">]</span>                                    <span class="c1"># constant white</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">]</span>                   <span class="c1"># fire fade</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>    <span class="c1"># same, with tuples</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">130</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="c1"># green fade to transparent</span>
+</code></pre></div>
+
+<p><strong>Named colors:</strong> white, black, red, green, blue, yellow, orange, purple, cyan, magenta, gray/grey.
+Additionally, ZippyGame offers 873 names you can call by name. Check out <a href="../colors/">Colors</a></p>
+<h2 id="9-alpha">9. Alpha<a class="headerlink" href="#9-alpha" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>          <span class="c1"># up to 8 stops (0.0=transparent, 1.0=opaque)</span>
+</code></pre></div>
+
+<p>Transitions over the particle's lifetime. Multiplied with color alpha.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>              <span class="c1"># constant opacity (default)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>              <span class="c1"># fade out</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>   <span class="c1"># fade in, hold, fade out</span>
+</code></pre></div>
+
+<p><strong>Wiggle</strong> — flickering/blinking with per-particle random phase:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">alphaWiggle</span> <span class="o">=</span> <span class="mf">0.2</span>               <span class="c1"># amplitude (0.0–1.0)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">alphaWiggleInterval</span> <span class="o">=</span> <span class="mf">0.5</span>       <span class="c1"># seconds per oscillation</span>
+</code></pre></div>
+
+<h2 id="10-blend-mode">10. Blend Mode<a class="headerlink" href="#10-blend-mode" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">blendMode</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">)</span>      <span class="c1"># standard alpha blending (smoke, dust, debris)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">blendMode</span><span class="p">(</span><span class="s2">&quot;additive&quot;</span><span class="p">)</span>    <span class="c1"># bright glow (fire, sparks, magic, lasers)</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="n">emitter</span><span class="o">.</span><span class="n">blendMode</span><span class="p">()</span>       <span class="c1"># returns current mode (no argument = getter)</span>
+</code></pre></div>
+
+<h2 id="11-greyscale-base">11. Greyscale Base<a class="headerlink" href="#11-greyscale-base" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">greyscaleBase</span> <span class="o">=</span> <span class="kc">True</span>     <span class="c1"># converts texture to greyscale before applying colors</span>
+</code></pre></div>
+
+<p>Useful when your particle texture has its own colors that conflict with the color array. A red texture tinted blue looks dark/black. With <code>greyscaleBase = True</code>, the texture is neutralized first, so any tint applies cleanly.</p>
+<h2 id="12-tint-pulse">12. Tint Pulse<a class="headerlink" href="#12-tint-pulse" title="Permanent link">&para;</a></h2>
+<p>A secondary color effect that creates traveling waves of color through the particle cloud.</p>
+<p><strong>Basic setup:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">tintPulseColor</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]</span>   <span class="c1"># up to 8 color stops</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">tintPulseStrength</span> <span class="o">=</span> <span class="mf">0.8</span>                        <span class="c1"># 0.0=disabled, 1.0=full intensity</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">tintPulseInterval</span> <span class="o">=</span> <span class="mf">2.0</span>                        <span class="c1"># seconds per oscillation</span>
+</code></pre></div>
+
+<p>The tint target progresses through the color array over the particle's lifetime, while each particle periodically pulses toward and away from the target.</p>
+<p><strong>Wave Travel:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">tintPulseWaveSpeed</span> <span class="o">=</span> <span class="mf">3.7</span>      <span class="c1"># positive = outward, negative = inward</span>
+</code></pre></div>
+
+<p>Controls how fast the tint bands travel through the particle cloud.</p>
+<p><strong>Color Cycling:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">tintPulseColorSpeed</span> <span class="o">=</span> <span class="mi">10</span>      <span class="c1"># cycles the color mapping over time</span>
+</code></pre></div>
+
+<p>The color mapping shifts continuously. A value of 10 means a full cycle every 10 seconds. Negative values cycle in reverse.</p>
+<p><strong>Shape Deformation:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">tintPulseJagged</span> <span class="o">=</span> <span class="mf">3.0</span>         <span class="c1"># high-frequency angular noise (sharp bumps)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">tintPulseWarped</span> <span class="o">=</span> <span class="mf">5.0</span>         <span class="c1"># 2D spatial noise (organic blob shapes)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">tintPulseAreaIncrease</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># pulse bands grow wider toward edges</span>
+</code></pre></div>
+
+<ul>
+<li><strong>Jagged</strong> creates small sharp bumps around the pulse rings, giving it a heptagonic star-like shape (using multi-octave sin waves). Creates noise at high values.</li>
+<li><strong>Warped</strong> creates smooth, amoeba-like deformations using 2D spatial interference patterns based on particle world positions. This produces the most organic-looking effects.</li>
+<li><strong>Area Increase</strong> makes the tint effect stronger on older particles further from the emitter.</li>
+</ul>
+<p>All three stack independently and can be combined.</p>
+<h2 id="13-debug-tools">13. Debug Tools<a class="headerlink" href="#13-debug-tools" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">count</span> <span class="o">=</span> <span class="n">emitter</span><span class="o">.</span><span class="n">aliveCount</span><span class="p">()</span>    <span class="c1"># returns number of currently alive particles</span>
+</code></pre></div>
+
+<p>Call manually when needed — zero cost when not called. The number represents alive particles, not total ring buffer capacity.</p>
+<h2 id="14-emitter-playback-controls-pause-stop-play">14. Emitter Playback Controls — Pause, Stop, Play<a class="headerlink" href="#14-emitter-playback-controls-pause-stop-play" title="Permanent link">&para;</a></h2>
+<p>Emitters can be paused and stopped independently.</p>
+<p><strong>Pause / Unpause</strong> — freezes/resumes all particle animation:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>          <span class="c1"># freeze all particles in place (position, scale, rotation, alpha — everything)</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">unpause</span><span class="p">()</span>        <span class="c1"># resume animation from exactly where it left off</span>
+</code></pre></div>
+
+<p>When paused, the emitter's internal clock stops. No particles move, no particles die, no new particles spawn. Unpausing seamlessly resumes — particles pick up mid-animation with no visible jump.</p>
+<p><strong>Stop / Play</strong> — controls whether new particles are spawned:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emitter</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>           <span class="c1"># stop spawning new particles; existing particles continue to death</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>           <span class="c1"># resume spawning</span>
+</code></pre></div>
+
+<p>When stopped, no new particles are created and global emitter updates (spiral increase, global drift increase, emitter direction) freeze. But existing particles finish their lifecycle, animate, and die normally.</p>
+<p><strong>Combining both</strong> — the two flags are independent, creating four possible states:</p>
+<table>
+<thead>
+<tr>
+<th>paused</th>
+<th>stopped</th>
+<th>Particles</th>
+<th>Spawning</th>
+<th>Global Updates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no</td>
+<td>no</td>
+<td>animate</td>
+<td>yes</td>
+<td>advance</td>
+</tr>
+<tr>
+<td>no</td>
+<td>yes</td>
+<td>animate</td>
+<td>no</td>
+<td>frozen</td>
+</tr>
+<tr>
+<td>yes</td>
+<td>no</td>
+<td>frozen</td>
+<td>no</td>
+<td>frozen</td>
+</tr>
+<tr>
+<td>yes</td>
+<td>yes</td>
+<td>frozen</td>
+<td>no</td>
+<td>frozen</td>
+</tr>
+</tbody>
+</table>
+<p>This lets you do things like:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Freeze the scene, and control spawning:</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>           <span class="c1"># stop spawning</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>          <span class="c1"># freeze everything</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">unpause</span><span class="p">()</span>        <span class="c1"># existing particles animate to death, but no new ones spawn</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>           <span class="c1"># resume spawning</span>
+
+<span class="c1"># Or: stop, freeze, activate spawn, then unfreeze:</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>           <span class="c1"># cleared the stop flag, but still paused — nothing visible happens</span>
+<span class="n">emitter</span><span class="o">.</span><span class="n">unpause</span><span class="p">()</span>        <span class="c1"># now everything resumes, including spawning</span>
+</code></pre></div>
+
+<h2 id="15-particle-example-fire-effect">15. Particle Example — Fire Effect<a class="headerlink" href="#15-particle-example-fire-effect" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">fire</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addParticleFlow</span><span class="p">(</span><span class="s2">&quot;graphics/soft_circle.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">particles_per_second</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">scaleToWidth</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">particleLifetimeMin</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">particleLifetimeMax</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">velocityMin</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">velocityMax</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">directionMin</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">directionMax</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">scaleIncrease</span> <span class="o">=</span> <span class="o">-</span><span class="mi">30</span>
+<span class="n">fire</span><span class="o">.</span><span class="n">blendMode</span><span class="p">(</span><span class="s2">&quot;additive&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="16-particle-example-explosion-burst">16. Particle Example — Explosion Burst<a class="headerlink" href="#16-particle-example-explosion-burst" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">boom</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addParticleBurst</span><span class="p">(</span><span class="s2">&quot;graphics/spark.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">boom</span><span class="o">.</span><span class="n">scaleToWidth</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">boom</span><span class="o">.</span><span class="n">particleLifetimeMin</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">boom</span><span class="o">.</span><span class="n">particleLifetimeMax</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">boom</span><span class="o">.</span><span class="n">velocityMin</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">boom</span><span class="o">.</span><span class="n">velocityMax</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">boom</span><span class="o">.</span><span class="n">rotationMin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">360</span>
+<span class="n">boom</span><span class="o">.</span><span class="n">rotationMax</span> <span class="o">=</span> <span class="mi">360</span>
+<span class="n">boom</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">boom</span><span class="o">.</span><span class="n">blendMode</span><span class="p">(</span><span class="s2">&quot;additive&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="17-particle-example-spiraling-magic-effect">17. Particle Example — Spiraling Magic Effect<a class="headerlink" href="#17-particle-example-spiraling-magic-effect" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">magic</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addParticleFlow</span><span class="p">(</span><span class="s2">&quot;graphics/soft_circle.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">particles_per_second</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">scaleToWidth</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">particleLifetimeMin</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">particleLifetimeMax</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">velocityMin</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">velocityMax</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">directionMin</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">directionMax</span> <span class="o">=</span> <span class="mi">360</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">directionSpiralMin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.0</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">directionSpiralMax</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">directionTurbulenceMin</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">directionTurbulenceMax</span> <span class="o">=</span> <span class="mf">15.0</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">directionTurbulenceInterval</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">directionWiggle</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">directionWiggleInterval</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)]</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">scaleIncrease</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">blendMode</span><span class="p">(</span><span class="s2">&quot;additive&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="18-particle-example-spring-coils">18. Particle Example — Spring Coils<a class="headerlink" href="#18-particle-example-spring-coils" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">spring</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addParticleFlow</span><span class="p">(</span><span class="s2">&quot;graphics/soft_circle.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">particles_per_second</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">scaleToWidth</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">particleLifetimeMin</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">particleLifetimeMax</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">velocityMin</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">velocityMax</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">directionMin</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">directionMax</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">directionCurl</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">directionCurlRadius</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">directionWiggle</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">directionWiggleInterval</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">directionWiggleZigzag</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;cyan&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">255</span><span class="p">)]</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">spring</span><span class="o">.</span><span class="n">blendMode</span><span class="p">(</span><span class="s2">&quot;additive&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
