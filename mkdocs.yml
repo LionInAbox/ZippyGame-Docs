@@ -4,6 +4,7 @@ nav:
   - Particle System: particles.md
   - Colors: colors.md
   - Draw Shapes: draw.md
+  - Helper Function: helper_functions.md
 theme:
   name: material
   palette:
