@@ -1,0 +1,1048 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../colors/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Draw Shapes - ZippyGame Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-drawing-a-point" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ZippyGame Documentation" class="md-header__button md-logo" aria-label="ZippyGame Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZippyGame Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Draw Shapes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ZippyGame Documentation" class="md-nav__button md-logo" aria-label="ZippyGame Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ZippyGame Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../particles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Particle System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Colors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Draw Shapes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Draw Shapes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-drawing-a-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Drawing a Point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-circles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Circles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rectangles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Rectangles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-squares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Squares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ellipses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Ellipses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Lines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-polygons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Polygons
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Color
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-where-to-draw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Where to Draw
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Camera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Performance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-example-hud-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Example — HUD Elements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-example-debug-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Example — Debug Visualization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-example-geometric-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Example — Geometric Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-drawing-a-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Drawing a Point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-circles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Circles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rectangles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Rectangles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-squares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Squares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ellipses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Ellipses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Lines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-polygons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Polygons
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Color
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-where-to-draw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Where to Draw
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Camera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Performance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-example-hud-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Example — HUD Elements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-example-debug-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Example — Debug Visualization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-example-geometric-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Example — Geometric Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Draw Shapes</h1>
+
+<p>ZippyGame can draw 2D shapes directly to the screen — circles, rectangles, lines, ellipses, and polygons.</p>
+<p>Shape drawing is <strong>immediate-mode</strong>: you call draw functions every frame (typically inside <code>constantLoop</code> or <code>constantLoopAfterDraw</code>), and all shapes are batched internally and rendered in a single GPU pass. No shape objects to manage, no retained state. Call it, it draws, it's gone next frame.</p>
+<p>Shapes render on top of sprites and particles.</p>
+<h2 id="1-drawing-a-point">1. Drawing a Point<a class="headerlink" href="#1-drawing-a-point" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawPoint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawPoint</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+</code></pre></div>
+
+<p>Draws a filled circle. This is the simplest draw call — a convenience shortcut for <code>drawCircle</code> with no outline.</p>
+<h2 id="2-circles">2. Circles<a class="headerlink" href="#2-circles" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawCircle</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>                          <span class="c1"># center position (required)</span>
+    <span class="n">radius</span><span class="p">,</span>                        <span class="c1"># radius in pixels (required)</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>    <span class="c1"># RGBA 0-255 (default: white, fully opaque)</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>                   <span class="c1"># 0 = filled, 1-255 = outline width in pixels</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Filled circle</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawCircle</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+
+<span class="c1"># Outline circle</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawCircle</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="3-rectangles">3. Rectangles<a class="headerlink" href="#3-rectangles" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>                          <span class="c1"># center position (required)</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span>                 <span class="c1"># dimensions in pixels (required)</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>    <span class="c1"># RGBA 0-255</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>                   <span class="c1"># 0 = filled, 1-255 = outline width</span>
+    <span class="n">corner_radius</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>               <span class="c1"># rounded corners in pixels (0 = sharp)</span>
+    <span class="n">angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>                       <span class="c1"># rotation in degrees</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Position is the <strong>center</strong> of the rectangle, not the top-left corner.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Filled rectangle</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+
+<span class="c1"># Outlined rectangle</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Rounded corners</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">corner_radius</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="c1"># Rotated 45 degrees</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="c1"># All combined</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">corner_radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="4-squares">4. Squares<a class="headerlink" href="#4-squares" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawSquare</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>                          <span class="c1"># center position (required)</span>
+    <span class="n">size</span><span class="p">,</span>                          <span class="c1"># side length in pixels (required)</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>    <span class="c1"># RGBA 0-255</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>                   <span class="c1"># 0 = filled, 1-255 = outline width</span>
+    <span class="n">corner_radius</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>               <span class="c1"># rounded corners in pixels</span>
+    <span class="n">angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>                       <span class="c1"># rotation in degrees</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Convenience wrapper for <code>drawRect</code> with equal width and height.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawSquare</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawSquare</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">corner_radius</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="5-ellipses">5. Ellipses<a class="headerlink" href="#5-ellipses" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawEllipse</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>                          <span class="c1"># center position (required)</span>
+    <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span><span class="p">,</span>                        <span class="c1"># horizontal and vertical radii (required)</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>    <span class="c1"># RGBA 0-255</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>                   <span class="c1"># 0 = filled, 1-255 = outline width</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Filled ellipse</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+
+<span class="c1"># Outline ellipse</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="6-lines">6. Lines<a class="headerlink" href="#6-lines" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span>                        <span class="c1"># start point (required)</span>
+    <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span>                        <span class="c1"># end point (required)</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>    <span class="c1"># RGBA 0-255</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>                   <span class="c1"># line width in pixels (default: 1)</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Lines have rounded endpoints.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="7-polygons">7. Polygons<a class="headerlink" href="#7-polygons" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">scene</span><span class="o">.</span><span class="n">drawPolygon</span><span class="p">(</span>
+    <span class="n">vertices</span><span class="p">,</span>                      <span class="c1"># list of (x, y) tuples (required, 3+ points)</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>    <span class="c1"># RGBA 0-255</span>
+    <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                     <span class="c1"># True = filled, False = outline only</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>                   <span class="c1"># outline width in pixels (only when fill=False)</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Vertices can be in any winding order — clockwise or counter-clockwise. Both convex and concave polygons are supported.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Filled triangle</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawPolygon</span><span class="p">(</span>
+    <span class="p">[(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">300</span><span class="p">)],</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Outlined hexagon</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">80</span>
+<span class="n">hexagon</span> <span class="o">=</span> <span class="p">[(</span><span class="n">cx</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">cy</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+           <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawPolygon</span><span class="p">(</span><span class="n">hexagon</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Concave polygon (star, arrow, L-shape — any shape works)</span>
+<span class="n">star</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">450</span><span class="p">),</span> <span class="p">(</span><span class="mi">420</span><span class="p">,</span> <span class="mi">370</span><span class="p">),</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">350</span><span class="p">),</span> <span class="p">(</span><span class="mi">440</span><span class="p">,</span> <span class="mi">310</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">460</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">280</span><span class="p">),</span> <span class="p">(</span><span class="mi">340</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mi">310</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">350</span><span class="p">),</span> <span class="p">(</span><span class="mi">380</span><span class="p">,</span> <span class="mi">370</span><span class="p">)]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">drawPolygon</span><span class="p">(</span><span class="n">star</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+</code></pre></div>
+
+<p>When <code>fill=False</code>, the polygon outline is drawn as a series of connected line segments with rounded joins at each vertex.</p>
+<h2 id="8-color">8. Color<a class="headerlink" href="#8-color" title="Permanent link">&para;</a></h2>
+<p>All draw functions accept color as an RGB or RGBA tuple with values 0–255:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>        <span class="c1"># red, fully opaque (alpha defaults to 255)</span>
+<span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>   <span class="c1"># red, fully opaque (explicit)</span>
+<span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>   <span class="c1"># red, half transparent</span>
+<span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># fully transparent</span>
+</code></pre></div>
+
+<p>The alpha channel is optional. If you pass 3 values, alpha defaults to 255 (fully opaque).</p>
+<h2 id="9-where-to-draw">9. Where to Draw<a class="headerlink" href="#9-where-to-draw" title="Permanent link">&para;</a></h2>
+<p>Draw calls work in <code>constantLoop</code>, <code>constantLoopAfter</code>, and <code>constantLoopAfterDraw</code>. All shapes are collected during the frame and rendered together at the end:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.context</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">constantLoop</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">drawCircle</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">constantLoopAfterDraw</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">180</span><span class="p">))</span>  <span class="c1"># HUD background</span>
+</code></pre></div>
+
+<p>Because shapes are batched and flushed at the end of the frame, they always render on top of sprites and particles regardless of which hook you call them from. Draw order between shapes themselves follows call order — shapes drawn first appear behind shapes drawn later.</p>
+<h2 id="10-camera">10. Camera<a class="headerlink" href="#10-camera" title="Permanent link">&para;</a></h2>
+<p>Shapes follow the scene camera by default, just like sprites. If <code>scene.camera_x</code> or <code>scene.camera_y</code> are set, shapes move with the camera.</p>
+<h2 id="11-performance">11. Performance<a class="headerlink" href="#11-performance" title="Permanent link">&para;</a></h2>
+<p>The shape renderer is built on the same instanced rendering architecture as the sprite system. Per-frame cost is 2 draw calls and 2 buffer uploads total, regardless of how many shapes you draw.</p>
+<p>Per-shape cost is one numpy row write (~32 bytes). 10,000 shapes = 320 KB of upload per frame — negligible for any modern GPU.</p>
+<p>Circles, rectangles, rounded rects, ellipses, and lines are all rendered via signed distance functions in a single instanced draw call. The fragment shader produces analytically anti-aliased edges at any scale with no MSAA cost.</p>
+<p>Filled polygons are tessellated into triangles on the CPU and drawn in a second draw call. Convex polygons use a simple fan (fastest). Concave polygons use ear-clipping — O(n²) per polygon, which is fine for typical game polygons under ~100 vertices.</p>
+<p>Polygon outlines are decomposed into line segments and rendered through the SDF path — no tessellation needed.</p>
+<p>GPU resources for the shape renderer are allocated lazily on the first draw call. If you never draw shapes, no GPU memory is used.</p>
+<h2 id="12-limits">12. Limits<a class="headerlink" href="#12-limits" title="Permanent link">&para;</a></h2>
+<p>The default capacity is 16,384 SDF shapes (circles, rects, lines, ellipses) and 65,536 triangle vertices (filled polygons) per frame. Shapes beyond the capacity are silently dropped.</p>
+<p>Maximum outline thickness is 255 pixels. Maximum rounded corner radius is 255 pixels.</p>
+<h2 id="13-example-hud-elements">13. Example — HUD Elements<a class="headerlink" href="#13-example-hud-elements" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.context</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">player_health</span> <span class="o">=</span> <span class="mi">80</span>   <span class="c1"># out of 100</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">constantLoopAfterDraw</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="c1"># Health bar background</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">680</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
+    <span class="c1"># Health bar fill</span>
+    <span class="n">bar_width</span> <span class="o">=</span> <span class="n">player_health</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">20</span> <span class="o">+</span> <span class="n">bar_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">680</span><span class="p">,</span> <span class="n">bar_width</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+    <span class="c1"># Health bar border</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">680</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="14-example-debug-visualization">14. Example — Debug Visualization<a class="headerlink" href="#14-example-debug-visualization" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.context</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">player</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;graphics/player.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">constantLoopAfterDraw</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="c1"># Show hitbox</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">drawCircle</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Show velocity direction</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">angle</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">,</span>
+                   <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="15-example-geometric-patterns">15. Example — Geometric Patterns<a class="headerlink" href="#15-example-geometric-patterns" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.context</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">constantLoop</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">t</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
+
+    <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">game</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="c1"># Rotating ring of circles</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">cx</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">cy</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span>
+        <span class="n">scene</span><span class="o">.</span><span class="n">drawCircle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+
+    <span class="c1"># Pulsing center square</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">20</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">drawSquare</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">corner_radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">t</span> <span class="o">*</span> <span class="mi">45</span><span class="p">)</span>
+
+    <span class="c1"># Connecting lines</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+        <span class="n">a1</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">a2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">cx</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="n">cy</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">cx</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="n">cy</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span>
+        <span class="n">scene</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
