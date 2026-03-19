@@ -342,6 +342,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4. Scenes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scene-sheets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scene Sheets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-game-and-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing Game and Scene
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constantloop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constantLoop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -695,6 +734,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4. Scenes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scene-sheets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scene Sheets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-game-and-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing Game and Scene
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constantloop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constantLoop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -956,18 +1034,27 @@ Capable of rendering <strong>200,000+ sprites at 80 FPS</strong> with per-sprite
 <p>Minimum OpenGL 3.3. The framework automatically detects your GPU capabilities and selects the fastest available rendering backend.</p>
 <hr />
 <h2 id="2-quick-start">2. Quick Start<a class="headerlink" href="#2-quick-start" title="Permanent link">&para;</a></h2>
+<p><strong>main.py</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">game</span> <span class="o">=</span> <span class="n">newGame</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Game&quot;</span><span class="p">)</span>
-<span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;level 1&quot;</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;level1&quot;</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<p>When you call <code>addScene("level1")</code>, a <code>scenes/</code> folder is created next to your main file (if it doesn't exist), and a scene sheet <code>scenes/level1.py</code> is generated automatically. That's where your game logic goes:</p>
+<p><strong>scenes/level1.py</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.context</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">hero</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;graphics/hero.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">hero</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">200</span>
 
-<span class="n">game</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">constantLoop</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">hero</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">dt</span>
 </code></pre></div>
 
-<p>That's it — a window opens, your sprite appears, and the game loop runs.</p>
+<p>That's it — a window opens, your sprite appears, and it moves to the right every frame.</p>
 <hr />
 <h2 id="3-creating-a-game">3. Creating a Game<a class="headerlink" href="#3-creating-a-game" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code><span class="n">game</span> <span class="o">=</span> <span class="n">newGame</span><span class="p">(</span>
@@ -992,15 +1079,47 @@ Capable of rendering <strong>200,000+ sprites at 80 FPS</strong> with per-sprite
 <hr />
 <h2 id="4-scenes">4. Scenes<a class="headerlink" href="#4-scenes" title="Permanent link">&para;</a></h2>
 <p>A scene holds all sprites, particles, textures, and rendering state for one level or screen.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;level 1&quot;</span><span class="p">,</span> <span class="n">max_image_count</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;level1&quot;</span><span class="p">,</span> <span class="n">max_image_count</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 </code></pre></div>
 
 <p><strong><code>max_image_count</code></strong> is how many sprites this scene can hold. It determines how much memory is allocated up front. The default is 10,000. If you plan to use more sprites, set it higher:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">,</span> <span class="n">max_image_count</span><span class="o">=</span><span class="mi">300000</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">,</span> <span class="n">max_image_count</span><span class="o">=</span><span class="mi">300000</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Memory cost is small — roughly 36 bytes per slot (CPU arrays + static data). 300,000 slots is about 10 MB. However, the number directly affects GPU buffer sizes and upload bandwidth, so don't set it to millions if you only need thousands.</p>
 <p><strong>Important: all <code>addImage()</code> calls within a scene must currently use the same texture file.</strong> This is the single-texture constraint for sprites. A texture atlas system to remove this limitation is planned. Particle emitters have their own textures and are not affected by this constraint.</p>
+<h3 id="scene-sheets">Scene Sheets<a class="headerlink" href="#scene-sheets" title="Permanent link">&para;</a></h3>
+<p>When you call <code>addScene("myScene")</code>, ZippyGame creates a file <code>scenes/myScene.py</code> — the <strong>scene sheet</strong>. The <code>scenes/</code> folder is created automatically next to your main Python file if it doesn't exist. Each scene has its own scene sheet.</p>
+<p>If the scene sheet file already exists, it is not overwritten — your code is preserved.</p>
+<h3 id="accessing-game-and-scene">Accessing Game and Scene<a class="headerlink" href="#accessing-game-and-scene" title="Permanent link">&para;</a></h3>
+<p>Inside a scene sheet, you can access the current scene and game instance directly through the variables <code>scene</code> and <code>game</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.context</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Create sprites on this scene:</span>
+<span class="n">player</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;graphics/player.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="c1"># Create particles:</span>
+<span class="n">fire</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addParticleFlow</span><span class="p">(</span><span class="s2">&quot;graphics/fire.png&quot;</span><span class="p">,</span> <span class="n">particles_per_second</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># Access the pyglet window:</span>
+<span class="n">game</span><span class="o">.</span><span class="n">window</span>
+</code></pre></div>
+
+<p>Both imports are needed — <code>from zippyGame import *</code> gives you utilities and framework functions, <code>from zippyGame.context import *</code> gives you the live <code>scene</code> and <code>game</code> references.</p>
+<h3 id="constantloop">constantLoop<a class="headerlink" href="#constantloop" title="Permanent link">&para;</a></h3>
+<p>Each scene sheet comes with a <code>constantLoop</code> function. Anything inside it runs every frame — similar to a <code>while True</code> loop in pygame or other frameworks. The <code>dt</code> (delta time) parameter is the time in seconds since the last frame, which you use to keep movement frame-rate independent:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.context</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">player</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span><span class="s2">&quot;graphics/player.png&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">constantLoop</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">player</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">speed</span> <span class="o">*</span> <span class="n">dt</span>
+</code></pre></div>
+
+<p><code>constantLoop</code> runs before rendering each frame, so any changes you make to sprite positions, angles, or other properties are reflected immediately in that frame's draw.</p>
 <hr />
 <h2 id="5-sprites">5. Sprites<a class="headerlink" href="#5-sprites" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code><span class="n">img</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">addImage</span><span class="p">(</span>
@@ -1323,13 +1442,21 @@ Capable of rendering <strong>200,000+ sprites at 80 FPS</strong> with per-sprite
 <span class="n">a</span> <span class="o">=</span> <span class="n">radians_to_angle</span><span class="p">(</span><span class="mf">1.57</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">angle_to_degrees</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">angle_to_radians</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># Mouse position on the window:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">mouseX</span><span class="p">()</span>        <span class="c1"># current mouse x position</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">mouseY</span><span class="p">()</span>        <span class="c1"># current mouse y position</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mousePos</span><span class="p">()</span>   <span class="c1"># both as a tuple</span>
 </code></pre></div>
 
+<p>Mouse coordinates are in window space: <code>(0, 0)</code> is bottom-left, <code>(width, height)</code> is top-right.</p>
 <hr />
 <h2 id="14-using-pyglet-alongside-zippygame">14. Using Pyglet Alongside ZippyGame<a class="headerlink" href="#14-using-pyglet-alongside-zippygame" title="Permanent link">&para;</a></h2>
-<p>ZippyGame is built on pyglet. You have full access to the pyglet window and its event system:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">game</span> <span class="o">=</span> <span class="n">newGame</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Game&quot;</span><span class="p">)</span>
-<span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;main&quot;</span><span class="p">)</span>
+<p>ZippyGame is built on pyglet. You have full access to the pyglet window and its event system from within your scene sheet:</p>
+<p><strong>scenes/main.py</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.context</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyglet.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
 
 <span class="c1"># Access the pyglet window directly:</span>
 <span class="n">game</span><span class="o">.</span><span class="n">window</span>    <span class="c1"># pyglet.window.Window instance</span>
@@ -1337,38 +1464,37 @@ Capable of rendering <strong>200,000+ sprites at 80 FPS</strong> with per-sprite
 <span class="n">game</span><span class="o">.</span><span class="n">height</span>    <span class="c1"># window height</span>
 
 <span class="c1"># Register keyboard handlers:</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyglet.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
 <span class="n">keys</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">KeyStateHandler</span><span class="p">()</span>
 <span class="n">game</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">push_handlers</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
 
-<span class="c1"># Schedule recurring updates:</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">my_update</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">constantLoop</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">SPACE</span><span class="p">]:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Space pressed!&quot;</span><span class="p">)</span>
-
-<span class="n">pyglet</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="n">my_update</span><span class="p">)</span>
-
-<span class="c1"># Start the game loop:</span>
-<span class="n">game</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
 
 <p><strong>Important:</strong> <code>game.run()</code> calls <code>pyglet.app.run()</code> internally with <code>interval=0</code> (uncapped frame rate, vsync off). The game loop drives everything from there.</p>
 <hr />
 <h2 id="15-project-structure">15. Project Structure<a class="headerlink" href="#15-project-structure" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>zippyGame/
+<div class="codehilite"><pre><span></span><code>your_project/
+    main.py              — your entry point
+    scenes/
+        level1.py        — scene sheet (auto-generated)
+        level2.py        — scene sheet (auto-generated)
+
+zippyGame/
     __init__.py
     _imports.py          — shared imports (numpy, pyglet, etc.)
     game.py              — newGame class, window, scene management
     renderer.py          — shaders, GL backends, InstancedRenderer
     defaults.py          — configuration defaults
-    utilities.py         — angle helpers, getImageSize, pick
+    utilities.py         — angle helpers, getImageSize, pick, mouse
     context.py           — global game/scene references
     classes/
         objects.py       — Image class, parallax conversion
         scene.py         — scene class, addImage, update loop
         particles.py     — ParticleSystem, ParticleEmitter
     templates/
-        sceneTemplate.py — scene lifecycle hooks (future)
+        sceneTemplate.py — template copied when creating new scenes
 </code></pre></div>
 
 <hr />
@@ -1385,13 +1511,19 @@ Capable of rendering <strong>200,000+ sprites at 80 FPS</strong> with per-sprite
 <p><strong>The main bottleneck is fillrate</strong> (fragment shader). Cost scales with <code>particle_count × average_screen_coverage × overdraw_layers</code>. Large overlapping particles with <code>scaleIncrease</code> are the most expensive scenario. If frame rate drops during particle effects, reduce particle size or count before reducing features.</p>
 <hr />
 <h2 id="complete-example">Complete Example<a class="headerlink" href="#complete-example" title="Permanent link">&para;</a></h2>
+<p><strong>main.py</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyglet.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
 
-<span class="c1"># --- Setup ---</span>
-<span class="n">game</span> <span class="o">=</span> <span class="n">newGame</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Parallax Demo&quot;</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 <span class="n">defaults</span><span class="o">.</span><span class="n">MOVE_SPRITES</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">scene</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span> <span class="n">max_image_count</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">game</span> <span class="o">=</span> <span class="n">newGame</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Parallax Demo&quot;</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">addScene</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span> <span class="n">max_image_count</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<p><strong>scenes/demo.py</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zippyGame.context</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyglet.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
 
 <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;graphics/player.png&quot;</span>
 <span class="n">tex_w</span><span class="p">,</span> <span class="n">tex_h</span> <span class="o">=</span> <span class="n">getImageSize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -1428,15 +1560,12 @@ Capable of rendering <strong>200,000+ sprites at 80 FPS</strong> with per-sprite
 <span class="n">keys</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">KeyStateHandler</span><span class="p">()</span>
 <span class="n">game</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">push_handlers</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">constantLoop</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
     <span class="n">speed</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">*</span> <span class="n">dt</span>
     <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">LEFT</span><span class="p">]:</span>   <span class="n">scene</span><span class="o">.</span><span class="n">camera_x</span> <span class="o">-=</span> <span class="n">speed</span>
     <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">]:</span>  <span class="n">scene</span><span class="o">.</span><span class="n">camera_x</span> <span class="o">+=</span> <span class="n">speed</span>
     <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">UP</span><span class="p">]:</span>     <span class="n">scene</span><span class="o">.</span><span class="n">camera_y</span> <span class="o">+=</span> <span class="n">speed</span>
     <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">DOWN</span><span class="p">]:</span>   <span class="n">scene</span><span class="o">.</span><span class="n">camera_y</span> <span class="o">-=</span> <span class="n">speed</span>
-
-<span class="n">pyglet</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
-<span class="n">game</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
 
 
