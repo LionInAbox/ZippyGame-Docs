@@ -1,7 +1,7 @@
 # ZippyGame Documentation
 
 A high-performance 2D game framework built on OpenGL instanced rendering.
-Capable of rendering **200,000+ sprites at 80 FPS** with per-sprite rotation, tinting, parallax, and transparency — plus a GPU-driven particle system with 100,000+ particles at near-zero CPU cost.
+Capable of rendering **200,000+ sprites at 80 FPS** with per-sprite rotation, tinting, parallax, and transparency — plus a GPU-driven particle system with 100,000+ particles at near-zero CPU cost, and immediate-mode shape drawing (circles, rects, lines, polygons) batched into a single GPU pass.
 
 ---
 
@@ -18,12 +18,13 @@ Capable of rendering **200,000+ sprites at 80 FPS** with per-sprite rotation, ti
 9. [Parallax](#9-parallax)
 10. [Tinting](#10-tinting)
 11. [Particle System](#11-particle-system)
-12. [Bulk Numpy Access](#12-bulk-numpy-access)
-13. [Configuration Defaults](#13-configuration-defaults)
-14. [Utilities](#14-utilities)
-15. [Using Pyglet Alongside ZippyGame](#15-using-pyglet-alongside-zippygame)
-16. [Project Structure](#16-project-structure)
-17. [Performance Notes](#17-performance-notes)
+12. [Drawing Shapes](#12-drawing-shapes)
+13. [Bulk Numpy Access](#13-bulk-numpy-access)
+14. [Configuration Defaults](#14-configuration-defaults)
+15. [Utilities](#15-utilities)
+16. [Using Pyglet Alongside ZippyGame](#16-using-pyglet-alongside-zippygame)
+17. [Project Structure](#17-project-structure)
+18. [Performance Notes](#18-performance-notes)
 
 ---
 
@@ -134,16 +135,33 @@ fire = scene.addParticleFlow("graphics/fire.png", particles_per_second=200)
 game.window
 ```
 
-Both imports are needed — `from zippyGame import *` gives you utilities and framework functions, `from zippyGame.context import *` gives you the live `scene` and `game` references.
+### Scene Sheet Functions
 
-### constantLoop
+Every scene sheet comes with a set of functions that run at specific moments during your game. You don't need to keep all of them — delete any you're not using.
 
-Each scene sheet comes with a `constantLoop` function. Anything inside it runs every frame — similar to a `while True` loop in pygame or other frameworks. The `dt` (delta time) parameter is the time in seconds since the last frame, which you use to keep movement frame-rate independent:
+#### beforeLoad
+
+Runs once, right after the scene is created. This is the earliest point where you can run code for this scene. The window is open but the game loop hasn't started yet.
 
 ```python
-from zippyGame import *
-from zippyGame.context import *
+def beforeLoad():
+    print("Setting things up...")
+```
 
+#### onStart
+
+Runs once, on the very first frame this scene is active. Unlike `beforeLoad`, the game is fully running at this point — rendering is ready, timing is active.
+
+```python
+def onStart():
+    print("Game started!")
+```
+
+#### constantLoop
+
+Runs every frame. This is your main game loop — move sprites, check input, update game state. The `dt` parameter is the time in seconds since the last frame. Multiply movement by `dt` to keep things smooth regardless of frame rate:
+
+```python
 player = scene.addImage("graphics/player.png", x=400, y=300)
 speed = 200
 
@@ -151,7 +169,47 @@ def constantLoop(dt):
     player.x += speed * dt
 ```
 
-`constantLoop` runs before rendering each frame, so any changes you make to sprite positions, angles, or other properties are reflected immediately in that frame's draw.
+`constantLoop` runs before rendering, so changes you make here appear on screen immediately.
+
+#### constantLoopAfter
+
+Runs every frame, after all internal updates have finished but before drawing. Use this for logic that needs to react to the engine's own updates:
+
+```python
+def constantLoopAfter(dt):
+    # Everything has been updated, but nothing has been drawn yet
+    pass
+```
+
+#### constantLoopAfterDraw
+
+Runs every frame, after everything has been drawn to the screen. Use this for anything that should happen after rendering — like drawing UI on top, or recording frame data:
+
+```python
+def constantLoopAfterDraw(dt):
+    # All sprites and particles have been drawn
+    pass
+```
+
+#### onQuitGame
+
+Runs when the window is closed. Use it for cleanup, saving data, or printing a goodbye message:
+
+```python
+def onQuitGame():
+    print("Thanks for playing!")
+```
+
+### Execution Order
+
+Each frame runs in this order:
+
+1. `onStart()` — first frame only
+2. `constantLoop(dt)`
+3. Internal engine updates
+4. `constantLoopAfter(dt)`
+5. Drawing (sprites, particles, shapes)
+6. `constantLoopAfterDraw(dt)`
 
 ---
 
@@ -393,7 +451,26 @@ Tinting has zero per-frame cost — it's computed in the fragment shader from st
 
 ---
 
-## 11. Bulk Numpy Access
+## 12. Drawing Shapes
+
+ZippyGame can draw 2D shapes directly to the screen — circles, rectangles, lines, ellipses, and polygons. Shape drawing is immediate-mode: call draw functions every frame.
+
+```python
+def constantLoop(dt):
+    scene.drawCircle(400, 300, 50, (255, 0, 0))
+    scene.drawRect(640, 360, 200, 100, (0, 255, 0), corner_radius=10)
+    scene.drawLine(100, 100, 700, 500, (255, 255, 255), thickness=2)
+    scene.drawPolygon([(300, 400), (400, 500), (500, 400)], (0, 100, 255))
+```
+
+Available draw functions: `drawPoint`, `drawCircle`, `drawRect`, `drawSquare`, `drawEllipse`, `drawLine`, `drawPolygon`. All support RGBA color and most support filled or outline mode via a `thickness` parameter.
+
+
+For the full API reference, parameters, and examples, see [Drawing Shapes](draw.md).
+
+---
+
+## 13. Bulk Numpy Access
 
 For high-performance scenarios (100k+ sprites), you can bypass Image handles and write directly to the scene's numpy arrays. Both approaches write to the same underlying data.
 
@@ -428,7 +505,7 @@ Always slice to `[:n]` where `n = scene.count` — slots beyond `count` are unus
 
 ---
 
-## 12. Configuration Defaults
+## 14. Configuration Defaults
 
 All defaults live in `defaults.py` and can be modified before creating scenes:
 
@@ -472,7 +549,7 @@ defaults.particle_lifetimeMax  = 1.0
 
 ---
 
-## 13. Utilities
+## 15. Utilities
 
 ```python
 from zippyGame import *
@@ -499,7 +576,7 @@ Mouse coordinates are in window space: `(0, 0)` is bottom-left, `(width, height)
 
 ---
 
-## 14. Using Pyglet Alongside ZippyGame
+## 16. Using Pyglet Alongside ZippyGame
 
 ZippyGame is built on pyglet. You have full access to the pyglet window and its event system from within your scene sheet:
 
@@ -527,7 +604,7 @@ def constantLoop(dt):
 
 ---
 
-## 15. Project Structure
+## 17. Project Structure
 
 ```
 your_project/
@@ -548,13 +625,14 @@ zippyGame/
         objects.py       — Image class, parallax conversion
         scene.py         — scene class, addImage, update loop
         particles.py     — ParticleSystem, ParticleEmitter
+        shapes.py        — ShapeRenderer, SDF + triangle soup batching
     templates/
         sceneTemplate.py — template copied when creating new scenes
 ```
 
 ---
 
-## 16. Performance Notes
+## 18. Performance Notes
 
 ### Sprites
 
@@ -575,6 +653,10 @@ The particle system has near-zero CPU overhead — only spawning new particles c
 GPU vertex shader cost is ~15 trig calls per alive particle. Dead ring buffer slots early-exit with 2 comparisons, no trig. All direction transformers (spiral, curl, drift) and direction noise (wiggle, turbulence) are guarded by uniform-based checks — zero cost when disabled. Tint pulse features are similarly guarded.
 
 **The main bottleneck is fillrate** (fragment shader). Cost scales with `particle_count × average_screen_coverage × overdraw_layers`. Large overlapping particles with `scaleIncrease` are the most expensive scenario. If frame rate drops during particle effects, reduce particle size or count before reducing features.
+
+### Shapes
+
+Shape drawing costs 2 draw calls and 2 buffer uploads per frame, regardless of how many shapes are drawn. Per-shape cost is one 32-byte numpy row write. 10,000 shapes = 320 KB of upload — negligible for any modern GPU. Circles, rectangles, lines, and ellipses are rendered via signed distance functions with analytically anti-aliased edges. Filled polygons are tessellated into triangles on the CPU. GPU resources are allocated lazily on the first draw call.
 
 ---
 

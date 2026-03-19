@@ -3,6 +3,7 @@ nav:
   - Overview: index.md
   - Particle System: particles.md
   - Colors: colors.md
+  - Draw Shapes: draw.md
 theme:
   name: material
   palette:
