@@ -39,19 +39,30 @@ Minimum OpenGL 3.3. The framework automatically detects your GPU capabilities an
 
 ## 2. Quick Start
 
+**main.py**
 ```python
 from zippyGame import *
 
 game = newGame(title="My Game")
-scene = game.addScene("level 1")
+game.addScene("level1")
+game.run()
+```
+
+When you call `addScene("level1")`, a `scenes/` folder is created next to your main file (if it doesn't exist), and a scene sheet `scenes/level1.py` is generated automatically. That's where your game logic goes:
+
+**scenes/level1.py**
+```python
+from zippyGame import *
+from zippyGame.context import *
 
 hero = scene.addImage("graphics/hero.png", x=400, y=300)
 hero.alpha = 200
 
-game.run()
+def constantLoop(dt):
+    hero.x += 100 * dt
 ```
 
-That's it — a window opens, your sprite appears, and the game loop runs.
+That's it — a window opens, your sprite appears, and it moves to the right every frame.
 
 ---
 
@@ -86,18 +97,61 @@ For a wider range of colors check out ZippyGame's 873  [colors](colors.md)
 A scene holds all sprites, particles, textures, and rendering state for one level or screen.
 
 ```python
-scene = game.addScene("level 1", max_image_count=10000)
+game.addScene("level1", max_image_count=10000)
 ```
 
 **`max_image_count`** is how many sprites this scene can hold. It determines how much memory is allocated up front. The default is 10,000. If you plan to use more sprites, set it higher:
 
 ```python
-scene = game.addScene("battle", max_image_count=300000)
+game.addScene("battle", max_image_count=300000)
 ```
 
 Memory cost is small — roughly 36 bytes per slot (CPU arrays + static data). 300,000 slots is about 10 MB. However, the number directly affects GPU buffer sizes and upload bandwidth, so don't set it to millions if you only need thousands.
 
 **Important: all `addImage()` calls within a scene must currently use the same texture file.** This is the single-texture constraint for sprites. A texture atlas system to remove this limitation is planned. Particle emitters have their own textures and are not affected by this constraint.
+
+### Scene Sheets
+
+When you call `addScene("myScene")`, ZippyGame creates a file `scenes/myScene.py` — the **scene sheet**. The `scenes/` folder is created automatically next to your main Python file if it doesn't exist. Each scene has its own scene sheet.
+
+If the scene sheet file already exists, it is not overwritten — your code is preserved.
+
+### Accessing Game and Scene
+
+Inside a scene sheet, you can access the current scene and game instance directly through the variables `scene` and `game`:
+
+```python
+from zippyGame import *
+from zippyGame.context import *
+
+# Create sprites on this scene:
+player = scene.addImage("graphics/player.png", x=400, y=300)
+
+# Create particles:
+fire = scene.addParticleFlow("graphics/fire.png", particles_per_second=200)
+
+# Access the pyglet window:
+game.window
+```
+
+Both imports are needed — `from zippyGame import *` gives you utilities and framework functions, `from zippyGame.context import *` gives you the live `scene` and `game` references.
+
+### constantLoop
+
+Each scene sheet comes with a `constantLoop` function. Anything inside it runs every frame — similar to a `while True` loop in pygame or other frameworks. The `dt` (delta time) parameter is the time in seconds since the last frame, which you use to keep movement frame-rate independent:
+
+```python
+from zippyGame import *
+from zippyGame.context import *
+
+player = scene.addImage("graphics/player.png", x=400, y=300)
+speed = 200
+
+def constantLoop(dt):
+    player.x += speed * dt
+```
+
+`constantLoop` runs before rendering each frame, so any changes you make to sprite positions, angles, or other properties are reflected immediately in that frame's draw.
 
 ---
 
@@ -434,17 +488,26 @@ a = degrees_to_angle(45)
 a = radians_to_angle(1.57)
 d = angle_to_degrees(a)
 r = angle_to_radians(a)
+
+# Mouse position on the window:
+x = mouseX()        # current mouse x position
+y = mouseY()        # current mouse y position
+x, y = mousePos()   # both as a tuple
 ```
+
+Mouse coordinates are in window space: `(0, 0)` is bottom-left, `(width, height)` is top-right.
 
 ---
 
 ## 14. Using Pyglet Alongside ZippyGame
 
-ZippyGame is built on pyglet. You have full access to the pyglet window and its event system:
+ZippyGame is built on pyglet. You have full access to the pyglet window and its event system from within your scene sheet:
 
+**scenes/main.py**
 ```python
-game = newGame(title="My Game")
-scene = game.addScene("main")
+from zippyGame import *
+from zippyGame.context import *
+from pyglet.window import key
 
 # Access the pyglet window directly:
 game.window    # pyglet.window.Window instance
@@ -452,19 +515,12 @@ game.width     # window width
 game.height    # window height
 
 # Register keyboard handlers:
-from pyglet.window import key
 keys = key.KeyStateHandler()
 game.window.push_handlers(keys)
 
-# Schedule recurring updates:
-def my_update(dt):
+def constantLoop(dt):
     if keys[key.SPACE]:
         print("Space pressed!")
-
-pyglet.clock.schedule(my_update)
-
-# Start the game loop:
-game.run()
 ```
 
 **Important:** `game.run()` calls `pyglet.app.run()` internally with `interval=0` (uncapped frame rate, vsync off). The game loop drives everything from there.
@@ -474,20 +530,26 @@ game.run()
 ## 15. Project Structure
 
 ```
+your_project/
+    main.py              — your entry point
+    scenes/
+        level1.py        — scene sheet (auto-generated)
+        level2.py        — scene sheet (auto-generated)
+
 zippyGame/
     __init__.py
     _imports.py          — shared imports (numpy, pyglet, etc.)
     game.py              — newGame class, window, scene management
     renderer.py          — shaders, GL backends, InstancedRenderer
     defaults.py          — configuration defaults
-    utilities.py         — angle helpers, getImageSize, pick
+    utilities.py         — angle helpers, getImageSize, pick, mouse
     context.py           — global game/scene references
     classes/
         objects.py       — Image class, parallax conversion
         scene.py         — scene class, addImage, update loop
         particles.py     — ParticleSystem, ParticleEmitter
     templates/
-        sceneTemplate.py — scene lifecycle hooks (future)
+        sceneTemplate.py — template copied when creating new scenes
 ```
 
 ---
@@ -518,14 +580,21 @@ GPU vertex shader cost is ~15 trig calls per alive particle. Dead ring buffer sl
 
 ## Complete Example
 
+**main.py**
 ```python
 from zippyGame import *
-from pyglet.window import key
 
-# --- Setup ---
-game = newGame(title="Parallax Demo", background_color="black")
 defaults.MOVE_SPRITES = False
-scene = game.addScene("demo", max_image_count=1000)
+game = newGame(title="Parallax Demo", background_color="black")
+game.addScene("demo", max_image_count=1000)
+game.run()
+```
+
+**scenes/demo.py**
+```python
+from zippyGame import *
+from zippyGame.context import *
+from pyglet.window import key
 
 path = "graphics/player.png"
 tex_w, tex_h = getImageSize(path)
@@ -562,13 +631,10 @@ trail.blendMode("additive")
 keys = key.KeyStateHandler()
 game.window.push_handlers(keys)
 
-def update(dt):
+def constantLoop(dt):
     speed = 300 * dt
     if keys[key.LEFT]:   scene.camera_x -= speed
     if keys[key.RIGHT]:  scene.camera_x += speed
     if keys[key.UP]:     scene.camera_y += speed
     if keys[key.DOWN]:   scene.camera_y -= speed
-
-pyglet.clock.schedule(update)
-game.run()
 ```
